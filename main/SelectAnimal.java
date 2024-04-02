@@ -19,6 +19,7 @@ public class SelectAnimal {
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
 
+        
         JLabel title = new JLabel("12 Chinese Zodiac");
         title.setFont(new Font("Arial", Font.BOLD, 24));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
