@@ -57,6 +57,7 @@ public class ChineseAnimal {
         });
 
         // New Page
+
         panel.add(title);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
         panel.add(description);
