@@ -11,6 +11,7 @@ public class ChineseAnimal {
         SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 
+    
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("12 Chinese Zodiac");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
