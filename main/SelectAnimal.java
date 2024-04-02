@@ -23,4 +23,5 @@ public class SelectAnimal {
         title.setFont(new Font("Arial", Font.BOLD, 24));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        
 }
