@@ -14,21 +14,26 @@ public class ChineseAnimal {
 
     
     private static void createAndShowGUI() {
+        // Initialize Main Page
         JFrame frame = new JFrame("12 Chinese Zodiac");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
 
+        // Layout and Creating Borders
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+        // Setting Background
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
 
+        // Setting Title
         JLabel title = new JLabel("12 Chinese Zodiac");
         title.setFont(new Font("Arial", Font.BOLD, 24));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // Adds Text Box
         panel.add(Box.createVerticalStrut(20));
 
         JTextArea description = new JTextArea(
@@ -43,6 +48,7 @@ public class ChineseAnimal {
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+        // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
         learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         learnMoreButton.addActionListener(new ActionListener() {
@@ -51,6 +57,8 @@ public class ChineseAnimal {
                 JOptionPane.showMessageDialog(frame, "page not finish yet");
             }
         });
+
+        // New Page
 
         panel.add(title);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
