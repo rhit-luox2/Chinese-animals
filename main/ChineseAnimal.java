@@ -8,7 +8,8 @@ import java.awt.event.ActionListener;
 public class ChineseAnimal {
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> createAndShowGUI());
+        System.out.println("hello");
+        // SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 
     
