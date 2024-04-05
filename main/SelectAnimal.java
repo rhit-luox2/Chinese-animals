@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SelectAnimal {
-
+//1
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
