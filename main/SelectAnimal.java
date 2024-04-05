@@ -29,7 +29,7 @@ public class SelectAnimal {
         panel.add(title);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
         
-        // 1
+        // 1 
         JButton rat = new JButton("Rat");
         rat.addActionListener(new ActionListener() {
             @Override
