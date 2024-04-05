@@ -29,29 +29,125 @@ public class SelectAnimal {
         panel.add(title);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
         
+        // 1
         JButton rat = new JButton("Rat");
-
         rat.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 JOptionPane.showMessageDialog(frame,"You selected: Rat");
             }
         });
-
         panel.add(rat);
 
-        // String[] animals = { "Rat", "Ox" };
-        // JComboBox<String> animalComboBox = new JComboBox<>(animals);
-        // animalComboBox.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // panel.add(rat);
- 
-        // rat.addActionListener(new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         String selectedAnimal = (String) animalComboBox.getSelectedItem();
-        //         JOptionPane.showMessageDialog(frame, "You selected: " + selectedAnimal);
-        //     }
-        // });
+        // 2
+        JButton ox = new JButton("Ox");
+        ox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                JOptionPane.showMessageDialog(frame,"You selected: Ox");
+            }
+        });
+        panel.add(ox);
+
+        // 3
+        JButton tiger = new JButton("Tiger");
+        tiger.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                JOptionPane.showMessageDialog(frame,"You selected: Tiger");
+            }
+        });
+        panel.add(tiger);
+
+        // 4
+        JButton rabbit = new JButton("Rabbit");
+        rabbit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                JOptionPane.showMessageDialog(frame,"You selected: Rabbit");
+            }
+        });
+        panel.add(rabbit);
+
+        // 5
+        JButton dragon = new JButton("Dragon");
+        dragon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                JOptionPane.showMessageDialog(frame,"You selected: Dragon");
+            }
+        });
+        panel.add(dragon);
+
+        // 6
+        JButton horse = new JButton("Horse");
+        horse.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(frame,"You selected: Horse");
+            }
+        });
+        panel.add(horse);
+
+        //7
+        JButton snake = new JButton("Snake");
+        snake.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(frame,"You selected: Snake");
+            }
+        });
+        panel.add(snake);
+
+        //8
+        JButton goat = new JButton("Goat");
+        goat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(frame,"You selected: Goat");
+            }
+        });
+        panel.add(goat);
+
+        //9
+        JButton monkey = new JButton("Monkey");
+        monkey.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(frame,"You selected: Monkey");
+            }
+        });
+        panel.add(monkey);
+
+        //10
+        JButton rooster = new JButton("Rooster");
+        rooster.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(frame,"You selected: Rooster");
+            }
+        });
+        panel.add(rooster);
+
+        //11
+        JButton dog = new JButton("Dog");
+        dog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(frame,"You selected: Dog");
+            }
+        });
+        panel.add(dog);
+
+        //12
+        JButton pig = new JButton("Pig");
+        pig.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+            JOptionPane.showMessageDialog(frame,"You selected: Pig");
+            }
+        });
+        panel.add(pig);
  
         frame.add(panel);
         frame.setLocationRelativeTo(null);
