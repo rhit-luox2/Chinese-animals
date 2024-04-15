@@ -40,7 +40,7 @@ public class Wheel {
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Input year 
+        // User input year 
         inputyear = new JFormattedTextField();
 
         year.setWrapStyleWord(true);
