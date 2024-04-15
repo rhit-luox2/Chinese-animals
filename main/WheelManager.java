@@ -40,23 +40,22 @@ public class Wheel {
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // User input year 
-        inputyear = new JFormattedTextField();
-
-        year.setWrapStyleWord(true);
-        year.setLineWrap(true);
-        year.setOpaque(false);
-        year.setEditable(true);
 
         JButton getZodiacFYButton = new JButton("Get Zodiac");
         getZodiacFYButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                try{
-                    int inputyear;
+                try {
+                    int userentered = Integer.parseInt(inputyear.getText());
+                    JOptionPane.showMessageDialog(null, "Entered integer: " + userentered);
+        
+                }
+                catch (NumberFormatException eNumberFormatException){
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter an integer.");
                 }
             }
         });
+        panel.add(getZodiacFYButton);
 
         
         year.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -72,6 +71,11 @@ public class Wheel {
             }
         });
         panel.add(learnMoreButton);
+        panel.add(Box.createRigidArea(new Dimension(0, 30)));
+        
+        frame.add(panel);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
 
         public static void main(String[] args) {
             SwingUtilities.invokeLater(new Runnable() {
@@ -79,6 +83,6 @@ public class Wheel {
                     createAndShowGUI();
                 }
             });
-        // heelo
+        }
 }
 }
