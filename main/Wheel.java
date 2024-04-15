@@ -6,12 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Wheel {
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> createAndShowGUI());
-    }
+    private JTextField inputyear;
 
     private static void createAndShowGUI() {
-        // Initialize Main Page
+        // Initialize Wheel Page
         JFrame frame = new JFrame("Find Your Zodiac!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -42,11 +40,24 @@ public class Wheel {
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        IntegerTextField year = new JTextField();
+        // User input year 
+        inputyear = new JFormattedTextField();
+
         year.setWrapStyleWord(true);
         year.setLineWrap(true);
         year.setOpaque(false);
         year.setEditable(true);
+
+        JButton getZodiacFYButton = new JButton("Get Zodiac");
+        getZodiacFYButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                try{
+                    int inputyear;
+                }
+            }
+        });
+
         
         year.setAlignmentX(Component.CENTER_ALIGNMENT);
         year.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -60,6 +71,14 @@ public class Wheel {
                 JOptionPane.showMessageDialog(frame, "page not finish yet");
             }
         });
+        panel.add(learnMoreButton);
+
+        public static void main(String[] args) {
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    createAndShowGUI();
+                }
+            });
         // heelo
 }
 }
