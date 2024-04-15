@@ -56,6 +56,18 @@ public class ChineseAnimal {
             }
         });
 
+        JButton findyourZod = new JButton("Click here to find your zodiac or your friends");
+        findyourZod.setAlignmentX(Component.CENTER_ALIGNMENT);
+        findyourZod.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame, "page not finish yet");
+            }
+        });
+        {
+
+        }
+
         // New Page
 
         panel.add(title);
