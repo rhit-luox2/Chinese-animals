@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ChineseAnimal {
+public class ChineseAnimal extends SelectAnimal{
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> createAndShowGUI());
@@ -52,9 +52,11 @@ public class ChineseAnimal {
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "page not finish yet");
+                JFrame selectAnimalFrame = new SelectAnimal();
+                selectAnimalFrame.setVisible(true);
             }
         });
+
         // Wheel Page
         JButton findyourZod = new JButton("Click here to find your zodiac or your friends");
         findyourZod.setAlignmentX(Component.CENTER_ALIGNMENT);

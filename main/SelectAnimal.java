@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
-public class SelectAnimal {
+public class SelectAnimal extends JFrame{
  
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Select Animal");
