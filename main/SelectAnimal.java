@@ -143,7 +143,7 @@ public class SelectAnimal extends JFrame {
         pig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "You selected: Pig");
+                new Pig();
             }
         });
         panel.add(pig);
