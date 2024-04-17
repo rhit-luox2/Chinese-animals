@@ -133,7 +133,7 @@ public class SelectAnimal extends JFrame {
         dog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "You selected: Dog");
+                new Dog();
             }
         });
         panel.add(dog);
