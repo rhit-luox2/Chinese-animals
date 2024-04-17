@@ -3,7 +3,7 @@ package main;
 import javax.swing.*;
 import java.awt.*;
 
-public class Goat {
+public class Goat extends JFrame{
 
 
     public Goat() {
