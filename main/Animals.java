@@ -22,7 +22,7 @@ public class Animals extends JFrame{
 
 
 
-    private class Animal() {
+    private Animal() {
         JFrame frame = new JFrame(System.out.println(this.getAnimalName));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);

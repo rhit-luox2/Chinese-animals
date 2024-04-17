@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Tiger implements Animals{
 
-    public class Tiger(){
+    public Tiger(){
         String scientificName = "Panthera tigris";
         String lifeSpan =  "26 years in captivity and about 15 years in the wild";
         String habitat = "Tigers are resilient creatures and can live in various different environments. 
