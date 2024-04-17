@@ -6,7 +6,7 @@ import java.awt.*;
 public class Goat {
 
 
-    public Rat() {
+    public Goat() {
         JFrame frame = new JFrame("Goat");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
