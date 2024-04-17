@@ -93,7 +93,7 @@ public class Animals {
     public String getAnimalName(){
         System.out.println(this.getClass());
     }
-
+// work
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
