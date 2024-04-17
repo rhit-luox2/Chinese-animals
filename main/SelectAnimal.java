@@ -114,7 +114,7 @@ public class SelectAnimal extends JFrame{
         monkey.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-            JOptionPane.showMessageDialog(frame,"You selected: Monkey");
+            new Monkey();
             }
         });
         panel.add(monkey);

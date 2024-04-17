@@ -2,13 +2,11 @@ package main;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Monkey {
+public class Monkey extends JFrame{
 
 
-    private static void createAndShowGUI() {
+    public Monkey() {
         JFrame frame = new JFrame("Monkey");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -90,11 +88,7 @@ public class Monkey {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        new Monkey();
     }
 
 }
