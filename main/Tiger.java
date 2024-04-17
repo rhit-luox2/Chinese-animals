@@ -5,11 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Monkey {
+public class Tiger {
 
 
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Monkey");
+        JFrame frame = new JFrame("Tiger");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
  
@@ -22,10 +22,10 @@ public class Monkey {
  
         panel.add(Box.createVerticalStrut(20));
 
-        String name = "Scientific name: Ceropothecidae";
-        String lifespan1 = "Lifespan: up to 40 years";
-        String habitat = "Habitat: rainforest - in almost every continent";
-        String fact = "One interesting thing about monkeys: Monkeys are highly intelligent mammals. They understand numbers and can count. In rare cases, they can multiply.";
+        String name = "Scientific name: Panthera tigris";
+        String lifespan1 = "Lifespan: 26 years in captivity and about 15 years in the wild";
+        String habitat = "Habitat: Tigers are resilient creatures and can live in various different environments. They can typically be found in grasslands, forests, jungles, mangrove swamps and taigas. They can be found close to the eastern coast of Russia, North Korea, China, and Southeast Asia to parts of Indonesia.";
+        String fact = "One Interesting thing about tigers: A normal litter size for tigers is 2 to 4 cubs and when the cubs are born they are blind and will not have vision until about 6 to 8 weeks.";
         String pop = "How many monkeys are there in the world? 505 known species";
         String story = "The story of the monkey: The monkey is the ninth animal of the Chinese zodiac sign. " + 
         "Even though the monkey is a common animal, it was able to participate in the Great Race because the tiger " + 
