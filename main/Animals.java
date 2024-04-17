@@ -16,7 +16,7 @@ public class Animals {
 
 
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Rat");
+        JFrame frame = new JFrame(System.out.println(this.getAnimalName));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
  
@@ -33,8 +33,8 @@ public class Animals {
         private String introLifespan = "Lifespan:";
         private String introHabitat = "Habitat: ";
         private String introFact = "Interesting fact:";
-        private String introPop = "How many" + this.name "are there in the world?";
-        private String introStory = "The story of the " + this.name + ":";
+        private String introPop = "How many" + this.getAnimalName "are there in the world?";
+        private String introStory = "The story of the " + this.getAnimalName + ":";
         private String introYear = "Years:";
         private String introAboutYou ="What does this say about you? ";
         private Srting introYourSuccess = "What does your zodiac say about your sucess?"
@@ -74,7 +74,8 @@ public class Animals {
         frame.setVisible(true);
 
         JTextArea description3 = new JTextArea(
-            this.introComp + System.lineSeparator() + wRat + System.lineSeparator() + wOx + System.lineSeparator() + wDragon + System.lineSeparator() + wMonkey + System.lineSeparator() + famous);
+            this.introComp + System.lineSeparator() + this.compatability + System.lineSeparator() + this.introFamous + 
+            this.famousPeople + System.lineSeparator();)
         
         description3.setWrapStyleWord(true);
         description3.setLineWrap(true);
@@ -89,6 +90,11 @@ public class Animals {
         frame.setVisible(true);
     }
 
+    public String getAnimalName(){
+        System.out.println(this.getClass());
+    }
+// work
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -96,7 +102,7 @@ public class Animals {
             }
         });
 
-        // hope
+        
     }
 
 
