@@ -43,7 +43,7 @@ public class Rat {
         String comp = "Your compatibility with the other animals:";
         String wRat = "Rat & rat: You are a committed couple with a lack of mystery because you know each other so well.";
         String wOx = "Rat & ox: Both of you are willing to share family responsibilities. You know how to work with your complementary characters to help each other work work and home lives";
-        String wDragon = "Rat & Dragon: Both of you can be mature and confident. You can trust and give space to each other.";
+        String wDragon = "Rat & dragon: Both of you can be mature and confident. You can trust and give space to each other.";
         String wMonkey = "Rat & monkey: You are both understanding and care to support each other. This level of support is the solution when conflict arises.";
         String famous = "Famous people who is this zodiac: Apple CEO TIm Cook, Katy Perry, Dwayne ‘The Rock’ Johnson, and Enimen";
  
