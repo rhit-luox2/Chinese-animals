@@ -1,6 +1,6 @@
 package io.github.jiangdequan;
 
-public class Animals {
+public class Animals extends JFrame{
 
     protected String scientificName;
     protected String lifeSpan;
@@ -15,7 +15,9 @@ public class Animals {
     protected String famousPeople;
 
 
-    private static void createAndShowGUI() {
+
+
+    private class Animal() {
         JFrame frame = new JFrame(System.out.println(this.getAnimalName));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -96,11 +98,7 @@ public class Animals {
 // work
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        new Animals();
 
         
     }
