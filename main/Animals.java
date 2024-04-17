@@ -16,7 +16,7 @@ public class Animals {
 
 
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Rat");
+        JFrame frame = new JFrame(System.out.println(this.getAnimalName));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
  
