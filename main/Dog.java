@@ -1,5 +1,8 @@
 package main;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Dog extends JFrame{
     public Dog() {
         JFrame frame = new JFrame("Dog");
