@@ -1,6 +1,6 @@
 package io.github.jiangdequan;
 
-public class Animals {
+public class Animals extends JFrame{
 
     protected String scientificName;
     protected String lifeSpan;
@@ -8,14 +8,16 @@ public class Animals {
     protected String interestingFact;
     protected String pop;
     protected String story;
-    protected int year;
+    protected String years;
     protected String sayAboutYou;
     protected String success;
     protected String compatability;
     protected String famousPeople;
 
 
-    private static void createAndShowGUI() {
+
+
+    private class Animal() {
         JFrame frame = new JFrame(System.out.println(this.getAnimalName));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -58,7 +60,7 @@ public class Animals {
         frame.setVisible(true);
 
         JTextArea description2 = new JTextArea(
-            this.introStory + this.story + System.lineSeparator() + this.introYear + this.year + System.lineSeparator() + 
+            this.introStory + this.story + System.lineSeparator() + this.introYear + this.years + System.lineSeparator() + 
             this.introAboutYou + this.sayAboutYou + System.lineSeparator() + this.introYourSuccess + this.success);
         
         description2.setWrapStyleWord(true);
@@ -96,11 +98,7 @@ public class Animals {
 // work
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        new Animals();
 
         
     }
