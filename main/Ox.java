@@ -3,9 +3,9 @@ package main;
 import javax.swing.*;
 import java.awt.*;
 
-public class Ox {
+public class Ox extends JFrame {
 
-    private static void createAndShowGUI() {
+    public Ox() {
         JFrame frame = new JFrame("Ox");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -71,6 +71,6 @@ public class Ox {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(Ox::createAndShowGUI);
+        new Ox();
     }
 }

@@ -3,9 +3,9 @@ package main;
 import javax.swing.*;
 import java.awt.*;
 
-public class Horse {
+public class Horse extends JFrame {
 
-    private static void createAndShowGUI() {
+    public Horse() {
         JFrame frame = new JFrame("Horse");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -71,6 +71,6 @@ public class Horse {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(Horse::createAndShowGUI);
+        new Horse();
     }
 }
