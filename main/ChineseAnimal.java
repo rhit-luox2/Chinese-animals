@@ -52,8 +52,7 @@ public class ChineseAnimal extends SelectAnimal{
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame selectAnimalFrame = new SelectAnimal();
-                selectAnimalFrame.setVisible(true);
+                new SelectAnimal();
             }
         });
 
