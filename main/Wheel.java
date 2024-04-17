@@ -67,7 +67,8 @@ public class Wheel {
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "page not finish yet");
+                JFrame selectAnimalFrame = new SelectAnimal();
+                selectAnimalFrame.setVisible(true);
             }
         });
         panel.add(learnMoreButton);
