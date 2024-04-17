@@ -34,7 +34,6 @@ public class Goat {
         String wRabbit = "Goat & Rabbit: Both are very thoughtful of each other's desires. Sheep are very romantic, Rabbits are very reflective and they tend to compliment each other well. Rabbits tend to look ahead and plan, while sheep are very fearful of what might come. Goats are very willing to pursue their many dreams and Rabbits are more cautious and calculated. They both recognize each other's flaws and find ways to still get along.";
         String wPig = "Goat & Pig: The goat and pig have a very balanced, fun and loving relationship. Although the goat is impulsive, the pig steadies the goat. The pig is typically the organizer in the relationship, while the goat contributes with their creativity and enrichment. They might battle between structure and freedom between the two but they tend to share common values which cements their relationship.";
         String wHorse = "Goat & Horse: Goats are sentimental and kind; they also tend to be jealous. However, horses are very calm and able to keep the goat interested. They are most compatible as friends which strengthens their relationship as a couple. The only thing that is recommended is they need to have independence in their relationship and keep an open mind.";
-        String wMonkey = "Rat & monkey: You are both understanding and care to support each other. This level of support is the solution when conflict arises.";
         String famous = "Famous people who is this zodiac: Steve Jobs, George Harrison, Bruce Willis, Bill Gates, Kurt Cobain, Billie Jean King, Tita Moerno, Mikhail Gorachev, Olivia Rodrigo, Julia Roberts, John Wayne, Mick Jagger, Ed Sheeran";
 
         JTextArea description = new JTextArea(
@@ -71,8 +70,8 @@ public class Goat {
         frame.setVisible(true);
 
         JTextArea description3 = new JTextArea(
-                comp + System.lineSeparator() + wRat + System.lineSeparator() + wOx + System.lineSeparator() + wDragon
-                        + System.lineSeparator() + wMonkey + System.lineSeparator() + famous);
+                comp + System.lineSeparator() + wRabbit + System.lineSeparator() + wHorse + System.lineSeparator() + wPig
+                        + System.lineSeparator()+ famous);
 
         description3.setWrapStyleWord(true);
         description3.setLineWrap(true);
