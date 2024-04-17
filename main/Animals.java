@@ -8,7 +8,7 @@ public class Animals {
     protected String interestingFact;
     protected String pop;
     protected String story;
-    protected int year;
+    protected String years;
     protected String sayAboutYou;
     protected String success;
     protected String compatability;
@@ -58,7 +58,7 @@ public class Animals {
         frame.setVisible(true);
 
         JTextArea description2 = new JTextArea(
-            this.introStory + this.story + System.lineSeparator() + this.introYear + this.year + System.lineSeparator() + 
+            this.introStory + this.story + System.lineSeparator() + this.introYear + this.years + System.lineSeparator() + 
             this.introAboutYou + this.sayAboutYou + System.lineSeparator() + this.introYourSuccess + this.success);
         
         description2.setWrapStyleWord(true);

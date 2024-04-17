@@ -5,7 +5,48 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Tiger {
+public class Tiger implements Animals{
+
+    public class Tiger(){
+        String scientificName = "Panthera tigris";
+        String lifeSpan =  "26 years in captivity and about 15 years in the wild";
+        String habitat = "Tigers are resilient creatures and can live in various different environments. 
+                        They can typically be found in grasslands, forests, jungles, mangrove swamps and taigas. 
+                        They can be found close to the eastern coast of Russia, North Korea, China, and Southeast 
+                        Asia to parts of Indonesia.";
+
+        String interestingFact = "A normal litter size for tigers is 2 to 4 cubs and when the cubs are born they are blind
+                             and will not have vision until about 6 to 8 weeks.";
+        String pop = "";
+        String years = "1926, 1938, 1950, 1962, 1974, 1986, 1998, 2010, 2022, 2034";
+        String sayAboutYou = "People that are born in the year of the tiger are thought to be brave," +
+                            " competitive, charming and are bestowed good luck and authority. They are said " +
+                            "to be very confident leaders with great fortitude. However some negative traits " +
+                            "the year of the tiger has is likely to be boastful, impulsive, overindulged," + 
+                            " and bad-tempered. ";
+        String success = "Tigers would work well as leaders and are lucky when it comes to success. Suitable "+
+                        "jobs for them are usually ones that have some sort of authoritarian position. Jobs " +
+                        "that tigers would do well at are company managers, politicians, policemen, fashion " + 
+                        "designers, authors/ journalists, revolutionists, principles, and economists. ";
+        String compatability = "
+        Tiger & Dog: /n
+        Both of you are charming, gentle and kind. Both of you are respectful of others opinions" + 
+        "and are not afraid to take a step back. Tigers are very outgoing and good at communicating" +
+        "which works well with the dog who is kindhearted and considerate. /n
+        Tiger & Pig: /n
+        Both of you are very encouraging and are extremely loyal and devoted." +
+        "Though you may have your differences you both admire your partner's qualities. /n
+        Tiger & Horse: /n
+        Both of you are open minded, good at communication and exuberant. Tigers are thoughtful" + 
+        " and charming, and horses balance that out well because they are virtuous and sweet.";
+        String story = "The Tiger is the 3rd zodiac in the Zodiac, the great race that brought" +
+                    " all the animals together to meet the Jade Emperor to decree the years of the calendars."
+                    + " They all need to cross the great river and reach him. The Tiger was third because "+ 
+                    "although it’s strength and size the current had pushed it down stream as it swam across" +
+                    " the river."
+        String famousPeople = "Marilyn Monroe, Leonardo DiCaprio, Tom Cruise, Steven Irwin, Queen Elizabeth II,"+ 
+                                "Robert Pattinson, and Usain Bolt. ";
+    }
 
 
     private static void createAndShowGUI() {
@@ -22,9 +63,8 @@ public class Tiger {
  
         panel.add(Box.createVerticalStrut(20));
 
-        String name = "Scientific name: Panthera tigris";
-        String lifespan1 = "Lifespan: 26 years in captivity and about 15 years in the wild";
-        String habitat = "Habitat: Tigers are resilient creatures and can live in various different environments. They can typically be found in grasslands, forests, jungles, mangrove swamps and taigas. They can be found close to the eastern coast of Russia, North Korea, China, and Southeast Asia to parts of Indonesia.";
+       
+        String habitat = "Habitat: ";
         String fact = "One Interesting thing about tigers: A normal litter size for tigers is 2 to 4 cubs and when the cubs are born they are blind and will not have vision until about 6 to 8 weeks.";
         String pop = "How many monkeys are there in the world? 505 known species";
         String story = "The story of the monkey: The monkey is the ninth animal of the Chinese zodiac sign. " + 
