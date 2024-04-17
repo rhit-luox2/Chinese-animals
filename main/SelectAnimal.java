@@ -103,7 +103,7 @@ public class SelectAnimal extends JFrame {
         goat.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "You selected: Goat");
+                new Goat();
             }
         });
         panel.add(goat);
