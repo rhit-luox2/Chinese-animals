@@ -6,9 +6,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
-public class SelectAnimal extends JFrame{
-
-    public SelectAnimal() {
+public class SelectAnimal {
+    int animalsYear; 
+ 
+    private static void createAndShowGUI() {
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -155,6 +156,15 @@ public class SelectAnimal extends JFrame{
     }
  
     public static void main(String[] args) {
-        new SelectAnimal();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+
+        // Determine the Zodiac's Number 
+
+        public 
+
     }
 }
