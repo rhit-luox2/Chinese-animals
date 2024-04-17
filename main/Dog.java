@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Dog extends JFrame{
+
     public Dog() {
         JFrame frame = new JFrame("Dog");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,20 +22,16 @@ public class Dog extends JFrame{
         String name = "Scientific name: Canis lupus familiaris";
         String lifespan1 = "Lifespan: Domestic 10 - 13 years";
         String habitat = "Habitat: Anywhere - Dogs are very adaptable animals and have evolved to very different environments such as the Arctic tundra to tropical rainforests. They can survive in rural and urban areas and can adapt to pretty much any environment. Dogs can be found all over the world and most are domesticated and can pretty much live anywhere with appropriate resources and shelter.";
-        String fact = "Interesting thing about the dog:
-        Dogs tend to walk on their toes unlike most mammals walking on flat feet and they can be right or left pawed.";
+        String fact = "Interesting thing about the dog:" +"/n Dogs tend to walk on their toes unlike most mammals walking on flat feet and they can be right or left pawed.";
         String pop = "";
         String story = "The dog is 11th in the Zodiac, and in the great race the dog should have been quicker. Since it was a fast runner and the best swimmer, the dog stopped to play in the river and made the excuse that it needed a bath.";
         String year = "Years: 1922, 1934, 1946, 1958, 1970, 1982, 1994, 2006, 2018, 2030";
         String you = "What does this say about your? People that are born in the year of the dog are thought of being honest, loyal, faith driven, smart, forthright, and cordial. They are also considered helpful and have a strong sense of justice.  Some negative traits about the dog are likely to be self-righteous, stubborn, distant, and struggle socially.";
         String success = "What does it say about your success? Rats are able to find success in the fields of music, planning and management, and mathematics.";
         String comp = "Your compatibility with the other animals:";
-        String wTiger = "Dog & Tiger:
-        Dogs are most compatible with their fellow quick witted animals, and dogs bring a lack of ego to relationships and tigers have to “protect them at all costs“ energy. Very loyal partners and have a great sense of kindness and right and wrong.";
-        String wRabbit = "Dog & Rabbit
-        Rabbit has a more playful charm that tries to get the dog to relax more. They usually build relationships on honesty and attraction. Rabbits can be insecure but the dog’s loyalty makes the relationship a safe space";
-        String wHorse = "Dog & Horse
-        Both very straight-forward and frank. Very strong communication skills and bring out the best aspects of each other. The dog convinces the horse that it is more freedom oriented to settle down. While the Dog is inspired by the horse’s outgoing personality.";
+        String wTiger = "Dog & Tiger: /n Dogs are most compatible with their fellow quick witted animals, and dogs bring a lack of ego to relationships and tigers have to “protect them at all costs“ energy. Very loyal partners and have a great sense of kindness and right and wrong.";
+        String wRabbit = "Dog & Rabbit: /n Rabbit has a more playful charm that tries to get the dog to relax more. They usually build relationships on honesty and attraction. Rabbits can be insecure but the dog’s loyalty makes the relationship a safe space";
+        String wHorse = "Dog & Horse /n Both very straight-forward and frank. Very strong communication skills and bring out the best aspects of each other. The dog convinces the horse that it is more freedom oriented to settle down. While the Dog is inspired by the horse’s outgoing personality.";
         String famous = "Famous people who is this zodiac:Anne Hathaway, Michael Jackson, George W. Bush, Zhou Enlai, Winston Churchill, Donald Trump, Elvis Presley, Kim Jong-un, and Nicki Minaj";
 
         JTextArea description = new JTextArea(
@@ -71,8 +68,8 @@ public class Dog extends JFrame{
         frame.setVisible(true);
 
         JTextArea description3 = new JTextArea(
-                comp + System.lineSeparator() + wRabbit + System.lineSeparator() + wHorse + 
-                        + System.lineSeparator() + wTiger + System.lineSeparator() + famous);
+                comp + System.lineSeparator() + wRabbit + System.lineSeparator() + wHorse 
+                + System.lineSeparator() + wTiger + System.lineSeparator() + famous);
 
         description3.setWrapStyleWord(true);
         description3.setLineWrap(true);
