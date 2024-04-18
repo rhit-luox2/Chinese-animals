@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Tiger implements Animals{
+    
 
     public Tiger(){
         String scientificName = "Panthera tigris";

@@ -62,7 +62,7 @@ public class ChineseAnimal {
         findyourZod.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "page not finish yet");
+                new Wheel();
             }
             
         });
@@ -77,6 +77,8 @@ public class ChineseAnimal {
         panel.add(description);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
         panel.add(learnMoreButton);
+        panel.add(Box.createRigidArea(new Dimension(0, 30)));
+        panel.add(findyourZod);
         panel.add(Box.createRigidArea(new Dimension(0, 30)));
 
         frame.add(panel);

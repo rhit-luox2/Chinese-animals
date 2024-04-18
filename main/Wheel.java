@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Wheel {
-    private JTextField inputyear;
+public class Wheel extends JFrame{
+    private static JTextField inputyear;
 
-    private static void createAndShowGUI() {
+    Wheel(){
         // Initialize Wheel Page
         JFrame frame = new JFrame("Find Your Zodiac!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,6 +40,18 @@ public class Wheel {
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+        // Enter their Year
+        panel.add(Box.createVerticalStrut(20));
+
+        JTextArea enterYear = new JTextArea(
+                "ex. 1999 ");
+        enterYear.setWrapStyleWord(true);
+        enterYear.setLineWrap(true);
+        enterYear.setOpaque(false);
+        enterYear.setEditable(true);
+        enterYear.setAlignmentX(Component.CENTER_ALIGNMENT);
+        enterYear.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
 
         JButton getZodiacFYButton = new JButton("Get Zodiac");
         getZodiacFYButton.addActionListener(new ActionListener() {
@@ -57,13 +69,14 @@ public class Wheel {
         });
         panel.add(getZodiacFYButton);
 
-        
-        year.setAlignmentX(Component.CENTER_ALIGNMENT);
-        year.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        //
+        // year.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // year.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
         learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        learnMoreButton.setAlignmentY(BOTTOM_ALIGNMENT);
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,19 +84,20 @@ public class Wheel {
                 selectAnimalFrame.setVisible(true);
             }
         });
+        panel.add(description);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(enterYear);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
         panel.add(learnMoreButton);
         panel.add(Box.createRigidArea(new Dimension(0, 30)));
         
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
 
         public static void main(String[] args) {
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    createAndShowGUI();
-                }
-            });
-        }
-}
+            new Wheel();
+        
+    }
 }
