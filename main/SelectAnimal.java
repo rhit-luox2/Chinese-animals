@@ -28,6 +28,7 @@ public class SelectAnimal extends JFrame {
 
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 
     private JButton createAnimalButton(String animalName) {
