@@ -23,6 +23,9 @@ public class Wheel extends JFrame{
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
 
+        // Red Color
+        Color redColor = new Color(227, 33, 25);
+
         // Setting Title
         JLabel title = new JLabel("Find Your Zodiac!");
         title.setFont(new Font("Arial", Font.BOLD, 24));
@@ -31,26 +34,37 @@ public class Wheel extends JFrame{
         // Adds Text Box
         panel.add(Box.createVerticalStrut(20));
 
-        JTextArea description = new JTextArea(
-                "Enter the Year You Were Born: ");
-        description.setWrapStyleWord(true);
-        description.setLineWrap(true);
+        String yearBorn = "Enter the Year You Were Born: ";
+        String inputYear = "ex. 1999"; 
+
+        // private boolean isItTheYear(String input) {
+        //     if (input.contains(enterYear)){
+        //         return true;
+        //     }
+        //     return false;
+        // }
+
+        JTextField description = new JTextField(
+            yearBorn + inputYear);
+      
         description.setOpaque(false);
+        // description.setEditable(isItTheYear());
         description.setEditable(false);
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
-        description.setBorder(BorderFactory.createBevelBorder(ABORT, , backgroundColor));
+        description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        
 
         // Enter their Year
         panel.add(Box.createVerticalStrut(20));
 
-        JTextArea enterYear = new JTextArea(
-                "ex. 1999 ");
-        enterYear.setWrapStyleWord(true);
-        enterYear.setLineWrap(true);
+        JTextField enterYear = new JTextField(
+                "ex. 1999");
+        enterYear.setPreferredSize(new Dimension(20, 20) );;
         enterYear.setOpaque(false);
         enterYear.setEditable(true);
         enterYear.setAlignmentX(Component.CENTER_ALIGNMENT);
-        enterYear.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        enterYear.setBorder(BorderFactory.createDashedBorder(redColor, 1, 0));
 
 
         JButton getZodiacFYButton = new JButton("Get Zodiac");
@@ -69,10 +83,6 @@ public class Wheel extends JFrame{
         });
         panel.add(getZodiacFYButton);
 
-        //
-        // year.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // year.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
         // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
         learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -87,7 +97,7 @@ public class Wheel extends JFrame{
         panel.add(description);
         panel.add(Box.createRigidArea(new Dimension(0, 20)));
         panel.add(enterYear);
-        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(Box.createRigidArea(new Dimension(0, 5)));
         panel.add(learnMoreButton);
         panel.add(Box.createRigidArea(new Dimension(0, 30)));
         
@@ -97,7 +107,6 @@ public class Wheel extends JFrame{
     }
 
         public static void main(String[] args) {
-            new Wheel();
-        
+            new Wheel();        
     }
 }
