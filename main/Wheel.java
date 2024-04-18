@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Wheel extends JFrame{
-    private static JTextField inputyear;
+    private static JTextField enterYear;
 
     Wheel(){
         // Initialize Wheel Page
@@ -58,7 +58,7 @@ public class Wheel extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){
                 try {
-                    int userentered = Integer.parseInt(inputyear.getText());
+                    int userentered = Integer.parseInt(enterYear.getText());
                     JOptionPane.showMessageDialog(null, "Entered integer: " + userentered);
         
                 }
