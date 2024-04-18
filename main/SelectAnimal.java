@@ -22,12 +22,10 @@ public class SelectAnimal extends JFrame {
         // title.setFont(new Font("Arial", Font.BOLD, 24));
         // title.setAlignmentX(Component.CENTER_ALIGNMENT);
         // title.setBorder(new EmptyBorder(10, 0, 20, 0));
-
         // panel.add(title);
 
         frame.add(panel);
 
-        // Array of animal names
         String[] animals = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse", "Snake", "Goat", "Monkey", "Rooster",
                 "Dog", "Pig" };
         for (String animalName : animals) {
