@@ -38,7 +38,7 @@ public class Wheel extends JFrame{
         description.setOpaque(false);
         description.setEditable(false);
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
-        description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        description.setBorder(BorderFactory.createBevelBorder(ABORT, , backgroundColor));
 
         // Enter their Year
         panel.add(Box.createVerticalStrut(20));
