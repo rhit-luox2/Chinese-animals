@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Wheel {
-    private JTextField inputyear;
+public class Wheel extends JFrame{
+    private static JTextField inputyear;
 
     private static void createAndShowGUI() {
         // Initialize Wheel Page
@@ -58,8 +58,8 @@ public class Wheel {
         panel.add(getZodiacFYButton);
 
         
-        year.setAlignmentX(Component.CENTER_ALIGNMENT);
-        year.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        // year.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // year.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
@@ -77,13 +77,10 @@ public class Wheel {
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
 
         public static void main(String[] args) {
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    createAndShowGUI();
-                }
-            });
-        }
-}
+            new Wheel();
+        
+    }
 }
