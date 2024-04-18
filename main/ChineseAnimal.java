@@ -26,6 +26,9 @@ public class ChineseAnimal {
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
 
+        // Red Color
+        Color redColor = new Color(227, 33, 25);
+
         // Setting Title
         JLabel title = new JLabel("12 Chinese Zodiac");
         title.setFont(new Font("Arial", Font.BOLD, 24));
