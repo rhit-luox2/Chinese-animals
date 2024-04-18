@@ -29,13 +29,15 @@ public class SelectAnimal extends JFrame {
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
         // 1
-        JButton rat = new JButton("Rat");
+        JButton rat = new JButton(new ImageIcon("picture/Rat.PNG"));
         rat.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Rat();
             }
         });
+        rat.setBorder(BorderFactory.createEmptyBorder());
+        rat.setContentAreaFilled(false);
         panel.add(rat);
 
         // 2
