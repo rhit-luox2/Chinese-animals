@@ -78,6 +78,8 @@ public class ChineseAnimal {
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
         panel.add(learnMoreButton);
         panel.add(Box.createRigidArea(new Dimension(0, 30)));
+        panel.add(findyourZod);
+        panel.add(Box.createRigidArea(new Dimension(0, 30)));
 
         frame.add(panel);
         frame.setLocationRelativeTo(null);
