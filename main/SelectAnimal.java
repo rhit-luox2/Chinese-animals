@@ -34,6 +34,7 @@ public class SelectAnimal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Rat();
+
             }
         });
         rat.setBorder(BorderFactory.createEmptyBorder());
