@@ -57,7 +57,7 @@ public class Wheel extends JFrame{
         });
         panel.add(getZodiacFYButton);
 
-        
+        //
         // year.setAlignmentX(Component.CENTER_ALIGNMENT);
         // year.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
