@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.border.EmptyBorder;
 
 public class SelectAnimal extends JFrame {
 
@@ -15,6 +16,14 @@ public class SelectAnimal extends JFrame {
         JPanel panel = new JPanel(new GridLayout(4, 3, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.setBackground(new Color(233, 197, 105));
+
+        // JLabel title = new JLabel("Please select an animal that you would like to
+        // know about");
+        // title.setFont(new Font("Arial", Font.BOLD, 24));
+        // title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // title.setBorder(new EmptyBorder(10, 0, 20, 0));
+
+        // panel.add(title);
 
         frame.add(panel);
 
