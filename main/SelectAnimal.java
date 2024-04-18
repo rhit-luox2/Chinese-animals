@@ -73,7 +73,7 @@ public class SelectAnimal extends JFrame {
         dragon.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "You selected: Dragon");
+                new Dragon();
             }
         });
         panel.add(dragon);
@@ -123,7 +123,7 @@ public class SelectAnimal extends JFrame {
         rooster.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "You selected: Rooster");
+                new Rooster();
             }
         });
         panel.add(rooster);
