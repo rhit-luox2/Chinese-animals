@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class Wheel extends JFrame{
     private static JTextField inputyear;
 
-    private static void createAndShowGUI() {
+    private Wheel(){
         // Initialize Wheel Page
         JFrame frame = new JFrame("Find Your Zodiac!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
