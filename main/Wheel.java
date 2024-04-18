@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class Wheel extends JFrame{
     private static JTextField inputyear;
 
-    private Wheel(){
+    Wheel(){
         // Initialize Wheel Page
         JFrame frame = new JFrame("Find Your Zodiac!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,6 +40,18 @@ public class Wheel extends JFrame{
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+        // Enter their Year
+        panel.add(Box.createVerticalStrut(20));
+
+        JTextArea enterYear = new JTextArea(
+                "ex. 1999 ");
+        enterYear.setWrapStyleWord(true);
+        enterYear.setLineWrap(true);
+        enterYear.setOpaque(false);
+        enterYear.setEditable(true);
+        enterYear.setAlignmentX(Component.CENTER_ALIGNMENT);
+        enterYear.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
 
         JButton getZodiacFYButton = new JButton("Get Zodiac");
         getZodiacFYButton.addActionListener(new ActionListener() {
@@ -64,6 +76,7 @@ public class Wheel extends JFrame{
         // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
         learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        learnMoreButton.setAlignmentY(BOTTOM_ALIGNMENT);
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +84,10 @@ public class Wheel extends JFrame{
                 selectAnimalFrame.setVisible(true);
             }
         });
+        panel.add(description);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(enterYear);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
         panel.add(learnMoreButton);
         panel.add(Box.createRigidArea(new Dimension(0, 30)));
         
