@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Wheel extends JFrame {
+public class WheelManager extends JFrame {
 
     private static JTextField enterYear;
     private JLabel labelYear;
@@ -21,7 +21,7 @@ public class Wheel extends JFrame {
     private JLabel status;
     final static String CANCEL_ACTION = "cancel-search";
 
-    Wheel(){
+    WheelManager(){
 
         initComponents();
 
@@ -256,7 +256,7 @@ public class Wheel extends JFrame {
         public static void main(String[] args) {
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    new Wheel().setVisible(true); 
+                    new WheelManager().setVisible(true); 
                 }   
             });    
     }
