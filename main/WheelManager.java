@@ -46,6 +46,7 @@ public class WheelManager extends JFrame {
         title.setFont(new Font("Arial", Font.BOLD, 40));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         title.setAlignmentY(Component.TOP_ALIGNMENT);
+        labelYear.setBorder(BorderFactory.createEmptyBorder());
 
         //// Adds Text Box
         // panel.add(Box.createVerticalStrut(20)); 
@@ -143,7 +144,8 @@ public class WheelManager extends JFrame {
         // X_Axis will arrange the content horizontally
 
         inputPanel.add(enterYear); 
-        
+
+            
         frame.add(panel);
         frame.add(panel2);
         frame.setLocationRelativeTo(null);
@@ -157,12 +159,18 @@ public class WheelManager extends JFrame {
 	
     }
 
-    public void zodiacComponent(){
+    // public static void zodiacComponent(){
 
-       // HashMap<String, Integer> Zodiacs = new HashMap();
+    //     public void zodiacHashMap(HashMap<String, Integer> m) {
+    //         String[] keys =   { "", "104", "103", "102", "101", "110", "205", "204", "203", "202", "201", "300" };
+    //         String[] values = { "104", "103", "102", "101", "",    "102", "204", "203", "202", "201", "205", "201" };
+    
+    //         for (int k = 0, z = keys.length; k < z; k++) {
+    //             m.put(keys[k], values[k]);
+    //         }
 
-    }
-
+    //     }
+    // }
 
 
 
