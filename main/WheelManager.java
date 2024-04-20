@@ -13,6 +13,10 @@ public class WheelManager extends JFrame {
     private JButton getZodiacFYButton;
     private JSplitPane splitPane;
 
+    // // HashMap 
+
+    // public HashMap<String, Integer> Zodiacs;
+
     WheelManager(){
         // initialize components
         enterYear = new JTextField();
@@ -21,7 +25,7 @@ public class WheelManager extends JFrame {
         
 
 
-        //initComponents();
+        
 
         // Initialize Wheel Page
         JFrame frame = new JFrame("Find Your Zodiac!");
@@ -144,12 +148,23 @@ public class WheelManager extends JFrame {
         frame.add(panel2);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        pack();
     
         // setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // GroupLayout layout = new GroupLayout(getContentPane());
         // getContentPane().setLayout(layout);
 	
     }
+
+    public void zodiacComponent(){
+
+       // HashMap<String, Integer> Zodiacs = new HashMap();
+
+    }
+
+
+
 
         public static void main(String[] args) {
             new WheelManager();   
