@@ -1,13 +1,7 @@
 package main;
 
 import javax.swing.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import javax.swing.GroupLayout.*;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.*;
-import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,37 +10,20 @@ public class WheelManager extends JFrame {
 
     private static JTextField enterYear;
     private JLabel labelYear;
-    private JTextArea textArea;
     private JButton getZodiacFYButton;
-    private JLabel status;
-    final static String CANCEL_ACTION = "cancel-search";
 
     WheelManager(){
+        // initialize components
+        enterYear = new JTextField();
+        labelYear = new JLabel();
 
-        initComponents();
+        //initComponents();
 
         // Initialize Wheel Page
         JFrame frame = new JFrame("Find Your Zodiac!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
-
-        InputStream in = getClass().getResourceAsStream("content.txt");
-        try {
-            textArea.read(new InputStreamReader(in), null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        InputMap im = enterYear.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-        ActionMap am = enterYear.getActionMap();
-        im.put(KeyStroke.getKeyStroke("ESCAPE"), CANCEL_ACTION);
-       // am.put(CANCEL_ACTION, new CancelAction());
-
-
-        // Layout and Creating Borders
-        // JPanel panel = new JPanel();
-        // panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        // panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+     
 
         // Setting Background
         Color backgroundColor = new Color(233, 197, 105);
@@ -64,26 +41,44 @@ public class WheelManager extends JFrame {
         //// Adds Text Box
         // panel.add(Box.createVerticalStrut(20)); 
 
+        getZodiacFYButton = new JButton("Get Zodiac");
+        getZodiacFYButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e){
+            try {
+                int userentered = Integer.parseInt(enterYear.getText());
+                JOptionPane.showMessageDialog(null, "Entered integer: " + userentered);
+    
+            }
+            catch (NumberFormatException eNumberFormatException){
+                JOptionPane.showMessageDialog(null, "Invalid input. Please enter an integer.");
+            }
+        }
+        });
 
-        // String inputYear = "ex. 1999"; 
-
-        // private boolean isItTheYear(String input) {
-        //     if (input.contains(enterYear)){
-        //         return true;
-        //     }
-        //     return false;
-        // }
-//
-        // JTextField description = new JTextField(
-        //     inputYear);
-      
-        // description.setOpaque(false);
-        // // description.setEditable(isItTheYear());
-        // description.setEditable(false);
-        // description.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
+        JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
+        learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        learnMoreButton.setAlignmentY(BOTTOM_ALIGNMENT);
+        learnMoreButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFrame selectAnimalFrame = new SelectAnimal();
+            selectAnimalFrame.setVisible(true);
+            }
+        });
         
+        labelYear.setText("Enter the Year You Were Born: ");
+        
+        // Layout and Creating Borders
+        JPanel panel = new JPanel(new GridLayout(1, 3, 0, 0));
+        panel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        panel.setBackground(new Color(233, 197, 105));
+
+        panel.add(labelYear);
+        panel.add(enterYear);
+        panel.add(getZodiacFYButton);
+        panel.add(learnMoreButton);
+    }
 
         // Enter their Year
         // panel.add(Box.createVerticalStrut(20));
@@ -108,101 +103,54 @@ public class WheelManager extends JFrame {
         // frame.add(panel);
         // frame.setLocationRelativeTo(null);
         // frame.setVisible(true);
-    }
-
-    private void initComponents() {
-        enterYear = new JTextField();
-        textArea = new JTextArea();
-        labelYear = new JLabel();
-       // jLabel1 = new JLabel();
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("TextFieldDemo");
-
-        textArea.setColumns(20);
-        textArea.setLineWrap(true);
-        textArea.setRows(5);
-        textArea.setWrapStyleWord(true);
-        textArea.setEditable(false);
-
-        labelYear.setText("Enter the Year You Were Born: ");
-
-        GroupLayout layout = new GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        
-	//Create a parallel group for the horizontal axis
-	ParallelGroup hGroup = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
-	
-	//Create a sequential and a parallel groups
-	
-	ParallelGroup h1 = layout.createParallelGroup(GroupLayout.Alignment.TRAILING);
-	
-	//Add a container gap to the sequential group h1
-	
-	//Add our zodiac button and a label to the parallel group h2
-	h1.addComponent(getZodiacFYButton, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE);
-	h1.addComponent(status, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE);
-	
-	//Create a sequential group h3
-	SequentialGroup h2 = layout.createSequentialGroup();
-	h2.addComponent(labelYear);
-	h2.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED);
-	h2.addComponent(enterYear, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE);
-	 
-	//Add the group h3 to the group h2
-	h1.addGroup(h2);
-	//Add the group h2 to the group h1
-
-	
-	//Add the group h1 to the hGroup
-	hGroup.addGroup(GroupLayout.Alignment.TRAILING, h1);
-	//Create the horizontal group
-	layout.setHorizontalGroup(hGroup);
-	
-        
-	//Create a parallel group for the vertical axis
-	ParallelGroup vGroup = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
-	
-	//Create a parallel group v2
-	ParallelGroup v2 = layout.createParallelGroup(GroupLayout.Alignment.BASELINE);
-	v2.addComponent(labelYear);
-	v2.addComponent(enterYear, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE);
-
-	
-
-    JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
-    learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-    learnMoreButton.setAlignmentY(BOTTOM_ALIGNMENT);
-    learnMoreButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JFrame selectAnimalFrame = new SelectAnimal();
-            selectAnimalFrame.setVisible(true);
-        }
-    });
-
-    getZodiacFYButton = new JButton("Get Zodiac");
-    getZodiacFYButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e){
-            try {
-                int userentered = Integer.parseInt(enterYear.getText());
-                JOptionPane.showMessageDialog(null, "Entered integer: " + userentered);
     
-            }
-            catch (NumberFormatException eNumberFormatException){
-                JOptionPane.showMessageDialog(null, "Invalid input. Please enter an integer.");
-            }
-        }
-    });
-  
+        // setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        // GroupLayout layout = new GroupLayout(getContentPane());
+        // getContentPane().setLayout(layout);
+        
+	// //Create a parallel group for the horizontal axis
+	// ParallelGroup hGroup = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
 	
-	//Add the group v1 to the group vGroup
-	vGroup.addGroup(v2);
-	//Create the vertical group
-	layout.setVerticalGroup(vGroup);
-	pack();
-    }
+	// //Create a sequential and a parallel groups
+	
+	// ParallelGroup h1 = layout.createParallelGroup(GroupLayout.Alignment.TRAILING);
+	
+	// //Add a container gap to the sequential group h1
+	
+	// //Add our zodiac button and a label to the parallel group h2
+	// h1.addComponent(getZodiacFYButton, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE);
+	
+	// //Create a sequential group h3
+	// SequentialGroup h2 = layout.createSequentialGroup();
+	// h2.addComponent(labelYear);
+	// h2.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED);
+	// h2.addComponent(enterYear, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE);
+	 
+	// //Add the group h3 to the group h2
+	// h1.addGroup(h2);
+	// //Add the group h2 to the group h1
+
+	
+	// //Add the group h1 to the hGroup
+	// hGroup.addGroup(GroupLayout.Alignment.TRAILING, h1);
+	// //Create the horizontal group
+	// layout.setHorizontalGroup(hGroup);
+	
+        
+	// //Create a parallel group for the vertical axis
+	// ParallelGroup vGroup = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
+	
+	// //Create a parallel group v2
+	// ParallelGroup v2 = layout.createParallelGroup(GroupLayout.Alignment.BASELINE);
+	// v2.addComponent(labelYear);
+	// v2.addComponent(enterYear, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE);   
+  
+	// //Add the group v1 to the group vGroup
+	// vGroup.addGroup(v2);
+	// //Create the vertical group
+	// layout.setVerticalGroup(vGroup);
+	// pack();
+    // }
 
 
     // public void search() {
@@ -212,6 +160,13 @@ public class WheelManager extends JFrame {
     //         message("Invalid Search");
     //         return;
     //     }
+
+            // private boolean isItTheYear(String input) {
+        //     if (input.contains(enterYear)){
+        //         return true;
+        //     }
+        //     return false;
+        // }
         
     //     String content = textArea.getText();
     //     int index = content.indexOf(s, 0);
@@ -254,10 +209,6 @@ public class WheelManager extends JFrame {
 
 
         public static void main(String[] args) {
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    new WheelManager().setVisible(true); 
-                }   
-            });    
+            new WheelManager();   
     }
 }
