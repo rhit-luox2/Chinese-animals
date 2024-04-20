@@ -11,11 +11,15 @@ public class WheelManager extends JFrame {
     private static JTextField enterYear;
     private JLabel labelYear;
     private JButton getZodiacFYButton;
+    private JSplitPane splitPane;
 
     WheelManager(){
         // initialize components
         enterYear = new JTextField();
         labelYear = new JLabel();
+        splitPane = new JSplitPane();
+        
+
 
         //initComponents();
 
@@ -27,7 +31,7 @@ public class WheelManager extends JFrame {
 
         // Setting Background
         Color backgroundColor = new Color(233, 197, 105);
-        backgroundColor = enterYear.getBackground();
+        enterYear.setBackground(backgroundColor);
         //enterYear.getDocument().addDocumentListener(this);
 
         // Red Color
@@ -35,8 +39,9 @@ public class WheelManager extends JFrame {
 
         // Setting Title
         JLabel title = new JLabel("Find Your Zodiac!");
-        title.setFont(new Font("Arial", Font.BOLD, 24));
+        title.setFont(new Font("Arial", Font.BOLD, 40));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        title.setAlignmentY(Component.TOP_ALIGNMENT);
 
         //// Adds Text Box
         // panel.add(Box.createVerticalStrut(20)); 
@@ -55,10 +60,12 @@ public class WheelManager extends JFrame {
             }
         }
         });
+        // getZodiacFYButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // getZodiacFYButton.setAlignmentY(20);
 
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
-        learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        learnMoreButton.setAlignmentY(BOTTOM_ALIGNMENT);
+        // learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // learnMoreButton.setAlignmentY(20);
         learnMoreButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -70,15 +77,41 @@ public class WheelManager extends JFrame {
         labelYear.setText("Enter the Year You Were Born: ");
         
         // Layout and Creating Borders
-        JPanel panel = new JPanel(new GridLayout(1, 3, 0, 0));
+        JPanel panel = new JPanel(new GridLayout(1, 3, 30, 50));
         panel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        panel.setBackground(new Color(233, 197, 105));
+        //panel.setComponentOrientation(getComponentOrientation());
+        panel.setBackground(backgroundColor);
+
+        JPanel panel2 = new JPanel();
+        panel2.add(learnMoreButton);
+        panel2.setBackground(backgroundColor);
+
+        JPanel inputPanel = new JPanel();
+
 
         panel.add(labelYear);
         panel.add(enterYear);
         panel.add(getZodiacFYButton);
-        panel.add(learnMoreButton);
-    }
+
+
+        getContentPane().setLayout(new GridLayout()); 
+         // the default GridLayout is like a grid with 1 column and 1 row,
+        // we only add one element to the window itself
+        getContentPane().add(splitPane);               
+        // due to the GridLayout, our splitPane will now fill the whole window
+
+        // let's configure our splitPane:
+        splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT); 
+        // we want it to split the window verticaly
+        splitPane.setDividerLocation(200);                    
+        // the initial position of the divider is 200 (our window is 400 pixels high)
+        splitPane.setTopComponent(panel);                  
+        // at the top we want our "topPanel"
+        splitPane.setBottomComponent(panel2);            
+        // and at the bottom we want our "bottomPanel"
+        panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS)); 
+        // BoxLayout.Y_AXIS will arrange the content vertically
+    
 
         // Enter their Year
         // panel.add(Box.createVerticalStrut(20));
@@ -99,114 +132,24 @@ public class WheelManager extends JFrame {
         // panel.add(Box.createRigidArea(new Dimension(0, 5)));
         // panel.add(learnMoreButton);
         // panel.add(Box.createRigidArea(new Dimension(0, 30)));
+
+        inputPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));     
+        // we set the max height to 75 and the max width to (almost) unlimited
+        inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.X_AXIS));   
+        // X_Axis will arrange the content horizontally
+
+        inputPanel.add(enterYear); 
         
-        // frame.add(panel);
-        // frame.setLocationRelativeTo(null);
-        // frame.setVisible(true);
+        frame.add(panel);
+        frame.add(panel2);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     
         // setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // GroupLayout layout = new GroupLayout(getContentPane());
         // getContentPane().setLayout(layout);
-        
-	// //Create a parallel group for the horizontal axis
-	// ParallelGroup hGroup = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
 	
-	// //Create a sequential and a parallel groups
-	
-	// ParallelGroup h1 = layout.createParallelGroup(GroupLayout.Alignment.TRAILING);
-	
-	// //Add a container gap to the sequential group h1
-	
-	// //Add our zodiac button and a label to the parallel group h2
-	// h1.addComponent(getZodiacFYButton, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE);
-	
-	// //Create a sequential group h3
-	// SequentialGroup h2 = layout.createSequentialGroup();
-	// h2.addComponent(labelYear);
-	// h2.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED);
-	// h2.addComponent(enterYear, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE);
-	 
-	// //Add the group h3 to the group h2
-	// h1.addGroup(h2);
-	// //Add the group h2 to the group h1
-
-	
-	// //Add the group h1 to the hGroup
-	// hGroup.addGroup(GroupLayout.Alignment.TRAILING, h1);
-	// //Create the horizontal group
-	// layout.setHorizontalGroup(hGroup);
-	
-        
-	// //Create a parallel group for the vertical axis
-	// ParallelGroup vGroup = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
-	
-	// //Create a parallel group v2
-	// ParallelGroup v2 = layout.createParallelGroup(GroupLayout.Alignment.BASELINE);
-	// v2.addComponent(labelYear);
-	// v2.addComponent(enterYear, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE);   
-  
-	// //Add the group v1 to the group vGroup
-	// vGroup.addGroup(v2);
-	// //Create the vertical group
-	// layout.setVerticalGroup(vGroup);
-	// pack();
-    // }
-
-
-    // public void search() {
-        
-    //     String s = enterYear.getText();
-    //     if (s.length() <= 1900) {
-    //         message("Invalid Search");
-    //         return;
-    //     }
-
-            // private boolean isItTheYear(String input) {
-        //     if (input.contains(enterYear)){
-        //         return true;
-        //     }
-        //     return false;
-        // }
-        
-    //     String content = textArea.getText();
-    //     int index = content.indexOf(s, 0);
-    //     if (index >= 1900) {   // match found
-    //         // try {
-    //         //     int end = index + s.length();
-    //         //     textArea.setCaretPosition(end);
-    //         //     message("'" + s + "' found. Press ESC to end search");
-    //         // } 
-    //         // catch (BadLocationException e) {
-    //         //     e.printStackTrace();
-    //         // }
-        
-    // }
-    // }
-
-    // void message(String msg) {
-    //     status.setText(msg);
-    // }
-
-    // // DocumentListener methods
-    
-    // public void insertUpdate(DocumentEvent ev) {
-    //     search();
-    // }
-    
-    // public void removeUpdate(DocumentEvent ev) {
-    //     search();
-    // }
-    
-    // public void changedUpdate(DocumentEvent ev) {
-    // }
-    
-    // class CancelAction extends AbstractAction {
-    //     public void actionPerformed(ActionEvent ev) {
-    //         enterYear.setText("");
-    //     }
-    // }
-
-
+    }
 
         public static void main(String[] args) {
             new WheelManager();   
