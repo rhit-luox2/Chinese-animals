@@ -65,10 +65,24 @@ public class ChineseAnimal {
         panel.add(description);
 
         // Add Buttons to Lead to Other Pages
-        JButton learnMoreButton = createButton("Click here to read about the Chinese zodiacs", redColor);
+        JButton learnMoreButton = createButton("Click here to read about the Chinese zodiacs", redColor,
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("Learn More button clicked");
+                        new SelectAnimal();
+                    }
+                });
         panel.add(learnMoreButton);
 
-        JButton findyourZod = createButton("Click here to find your zodiac or your friends", redColor);
+        JButton findyourZod = createButton("Click here to find your zodiac or your friends", redColor,
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("Find Your Zodiac button clicked");
+                        new WheelManager();
+                    }
+                });
         panel.add(findyourZod);
 
         frame.add(panel);
@@ -76,17 +90,12 @@ public class ChineseAnimal {
         frame.setVisible(true);
     }
 
-    private static JButton createButton(String text, Color textColor) {
+    private static JButton createButton(String text, Color textColor, ActionListener listener) {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 14));
         button.setForeground(textColor);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Placeholder for actual functionality
-            }
-        });
+        button.addActionListener(listener);
         return button;
     }
 }
