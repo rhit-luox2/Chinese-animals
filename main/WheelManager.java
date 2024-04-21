@@ -12,6 +12,10 @@ public class WheelManager extends JFrame {
     private JLabel labelYear;
     private JButton getZodiacFYButton;
     private JSplitPane splitPane;
+    private JPanel panel;
+    private JPanel panel2;
+    private JPanel inputPanel;
+
 
     // // HashMap 
 
@@ -99,7 +103,7 @@ public class WheelManager extends JFrame {
         panel.add(getZodiacFYButton);
 
 
-        getContentPane().setLayout(new GridLayout()); 
+        //getContentPane().setLayout(new GridLayout()); 
          // the default GridLayout is like a grid with 1 column and 1 row,
         // we only add one element to the window itself
         getContentPane().add(splitPane);               
@@ -144,10 +148,12 @@ public class WheelManager extends JFrame {
         // X_Axis will arrange the content horizontally
 
         inputPanel.add(enterYear); 
+    
 
             
         frame.add(panel);
         frame.add(panel2);
+        frame.add(inputPanel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
