@@ -51,10 +51,9 @@ public class ChineseAnimal {
         panel.add(Box.createVerticalStrut(20)); // Space between image and text box
 
         JTextArea description = new JTextArea(
-                "The Lunar New Year has been celebrated for almost 3,500 years starting in the Shang Dynasty. " +
-                        "Celebrations begin with the second new moon after the winter solstice. The Lunar New Year is heavily correlated with "
-                        +
-                        "Chinese zodiacs and each new year symbolizes the transition from one animal to the next.");
+                "The Lunar New Year has been celebrated for almost 3,500 years starting in the Shang Dynasty. "
+                        + "Celebrations begin with the second new moon after the winter solstice. The Lunar New Year is heavily correlated with "
+                        + "Chinese zodiacs and each new year symbolizes the transition from one animal to the next.");
         description.setFont(new Font("Serif", Font.ITALIC, 16));
         description.setWrapStyleWord(true);
         description.setLineWrap(true);
