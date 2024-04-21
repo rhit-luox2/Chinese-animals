@@ -10,7 +10,7 @@ public class SelectAnimal extends JFrame {
     public SelectAnimal() {
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(550, 800);
+        frame.setSize(600, 900);
         frame.setLayout(new BorderLayout());
 
         JLabel title = new JLabel("Please select an animal that you would like to know about");
