@@ -5,7 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class Animals extends JFrame{
+public abstract class Animals extends JFrame{
 
     protected String scientificName;
     protected String lifeSpan;
@@ -22,11 +22,8 @@ public class Animals extends JFrame{
 
 
 
-    public interface InnerAnimals {
-        
-    
-        
-    }Animal() {
+  
+    Animal() {
         JFrame frame = new JFrame(System.out.println(this.getAnimalName));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
