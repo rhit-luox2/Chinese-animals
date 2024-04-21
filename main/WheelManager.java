@@ -54,6 +54,7 @@ public class WheelManager extends JFrame {
         getZodiacButton = new JButton("Get Zodiac");
         styleButton(getZodiacButton, redColor);
         getZodiacButton.addActionListener(new ZodiacActionListener());
+        inputPanel.add(getZodiacButton);
         mainPanel.add(getZodiacButton);
 
         // Load wheel image
