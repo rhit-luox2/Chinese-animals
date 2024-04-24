@@ -28,7 +28,16 @@ public abstract class AnimalMain {
     Color textColor;
     ActionListener listener;
 
-    public AnimalMain(String a, String b, String c, String d, String e, String f, String g, String h, String i, String j, String k, String l){
+    String image1Icon;
+    String image2Icon;
+    Image image1;
+    Image image2;
+
+
+
+    public AnimalMain(String a, String b, String c, String d, String e, String f, 
+                    String g, String h, String i, String j, String k, String l, String m,
+                    String n){
         this.name = a;
         this.lifespan = b;
         this.habitat = c;
@@ -43,6 +52,9 @@ public abstract class AnimalMain {
         this.comp = j;
         this.w = k;
         this.famous = l;
+        
+        this.image1Icon = m;
+        this.image2Icon = n;
 
         this.panel = new JPanel();
         this.frame = new JFrame();
@@ -50,7 +62,7 @@ public abstract class AnimalMain {
 
     public void create(JFrame frame, JPanel panel) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 900);
+        frame.setSize(600, 1100);
         
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -80,6 +92,15 @@ public abstract class AnimalMain {
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description);
 
+        ImageIcon originalIcon = new ImageIcon(image1Icon);
+        Image image1 = originalIcon.getImage();
+        Image resizedImage = image1.getScaledInstance(240, 240, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        JLabel imageLabel = new JLabel(resizedIcon);
+        imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(imageLabel);
+
+
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -104,6 +125,15 @@ public abstract class AnimalMain {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+
+        ImageIcon originalIcon = new ImageIcon(image2Icon);
+        Image image2 = originalIcon.getImage();
+        Image resizedImage = image2.getScaledInstance(240, 240, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        JLabel imageLabel = new JLabel(resizedIcon);
+        imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(imageLabel);
+
     }
 
     public void description3(JFrame frame, JPanel panel){
@@ -124,6 +154,9 @@ public abstract class AnimalMain {
         frame.setVisible(true);
 
     }
+
+
+
     public void createButton(JFrame frame, JPanel panel,String text, Color textColor, ActionListener listener){
      // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
