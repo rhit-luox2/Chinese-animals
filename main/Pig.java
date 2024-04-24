@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Pig extends AnimalMain{
 
     public Pig() {
-        super()
+        super("Scientific name: Sus scrofa domesticus", "Lifespan: 15 years")
         JFrame frame = new JFrame("Pig");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
