@@ -1,13 +1,11 @@
 package main;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Pig {
+public class Pig extends AnimalMain{
 
     public Pig() {
+        super()
         JFrame frame = new JFrame("Pig");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
