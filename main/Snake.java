@@ -18,7 +18,7 @@ public class Snake extends AnimalMain{
         "emotionally detached, which makes it hard for romantic partners because they struggle with being vulnerable.", "What does it say about your success? Snakes can find success in knowledge-based work, such as a politician, teacher, and psychologist. Snakes prefer to prioritize their ideas without considering what others have to say. This would be helpful in a leadership position.", "Your compatibility with the other animals:", "Snake & sheep: You are both family-oriented. You can work together to create a harmonious family." +
         " Snake & dog: Both of you trust and understand each other to build a lasting and fresh relationship." + 
         " Snake & monkey: Both of you have each other’s needs. Snakes expect tenderness, warmth, and support from a partner. A monkey can meet those needs and another plus is that monkeys are romantic." + 
-        " Snake & pig: The pig’s personality matches well with the rabbit’s. Rabbits appreciate the pig’s simplicity and honesty.", "Famous people who is this zodiac: Wilhelm Röntgen, Johann Wolfgang von Goethe, J.K.Rowling, Oprah Winfrey, John F. Kennedy, Pablo Picasso, and Charles Darwin");
+        " Snake & pig: The pig’s personality matches well with the rabbit’s. Rabbits appreciate the pig’s simplicity and honesty.", "Famous people who is this zodiac: Wilhelm Röntgen, Johann Wolfgang von Goethe, J.K.Rowling, Oprah Winfrey, John F. Kennedy, Pablo Picasso, and Charles Darwin", "picture/longSnake.jpg", "picture/squareSnake.jpg");
         JFrame frame = new JFrame("Snake");
         super.create(frame, panel);
 

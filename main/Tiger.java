@@ -45,6 +45,7 @@ public class Tiger implements Animals{
                     " the river."
         String famousPeople = "Marilyn Monroe, Leonardo DiCaprio, Tom Cruise, Steven Irwin, Queen Elizabeth II,"+ 
                                 "Robert Pattinson, and Usain Bolt. ";
+                                
     }
 
     // private static void createAndShowGUI() {
