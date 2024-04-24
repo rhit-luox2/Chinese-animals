@@ -152,7 +152,7 @@ public abstract class AnimalMain {
         frame.setVisible(true);
 
     }
-
+//
     
 
 }
