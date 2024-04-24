@@ -13,6 +13,8 @@ public class Tiger extends AnimalMain{
         description(frame, panel);
         description2(frame, panel);
         description3(frame, panel);
+    }
+    
 
     public static void main(String[] args) {
         new Tiger();
