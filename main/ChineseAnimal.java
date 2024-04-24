@@ -74,7 +74,7 @@ public class ChineseAnimal {
                 });
         panel.add(learnMoreButton);
 
-        JButton findyourZod = createButton("Click here to find your zodiac or your friends", redColor,
+        JButton findyourZod = createButton("Click here to find your zodiac or your friend's zodiac", redColor,
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {

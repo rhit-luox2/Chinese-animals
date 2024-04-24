@@ -45,6 +45,7 @@ public abstract class AnimalMain {
         this.famous = l;
 
         this.panel = new JPanel();
+        this.frame = new JFrame();
     }
 
     public void create(JFrame frame, JPanel panel) {
@@ -136,7 +137,7 @@ public abstract class AnimalMain {
             });
         panel.add(learnMoreButton);
 
-        JButton findyourZod = new JButton("Click here to find your zodiac or your friends");
+        JButton findyourZod = new JButton("Click here to find your zodiac or your friend's zodiac");
         findyourZod.addActionListener(
                 new ActionListener() {
                     @Override
@@ -152,7 +153,7 @@ public abstract class AnimalMain {
         frame.setVisible(true);
 
     }
-//
+
     
 
 }
