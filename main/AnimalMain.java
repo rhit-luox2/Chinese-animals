@@ -2,6 +2,8 @@ package main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public abstract class AnimalMain {
 
@@ -22,6 +24,9 @@ public abstract class AnimalMain {
 
     JFrame frame;
     JPanel panel;
+    String text;
+    Color textColor;
+    ActionListener listener;
 
     public AnimalMain(String a, String b, String c, String d, String e, String f, String g, String h, String i, String j, String k, String l){
         this.name = a;
@@ -42,15 +47,19 @@ public abstract class AnimalMain {
         this.panel = new JPanel();
     }
 
-    public void create(JFrame frame, JPanel panel){
+    public void create(JFrame frame, JPanel panel) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
         
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+
 
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
+        
 
         panel.add(Box.createVerticalStrut(20));
 
@@ -114,5 +123,36 @@ public abstract class AnimalMain {
         frame.setVisible(true);
 
     }
+    public void createButton(JFrame frame, JPanel panel,String text, Color textColor, ActionListener listener){
+     // Add Buttons to Lead to Other Pages
+        JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
+        learnMoreButton.addActionListener(
+             new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                System.out.println("Learn More button clicked");
+                new SelectAnimal();
+                }
+            });
+        panel.add(learnMoreButton);
+
+        JButton findyourZod = new JButton("Click here to find your zodiac or your friends");
+        findyourZod.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("Find Your Zodiac button clicked");
+                        new WheelManager();
+                    }
+                });
+        panel.add(findyourZod);
+
+
+        frame.add(panel);
+        frame.setVisible(true);
+
+    }
+
+    
 
 }
