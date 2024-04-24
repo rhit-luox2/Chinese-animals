@@ -14,10 +14,7 @@ public class Rat extends AnimalMain {
         "to be sociable, cheerful, and thrive in groups. Rat personalities are clever and quick-thinkers. " +
         "They are naturally cautious and tend to observe and avoid risk-taking. A weakness of the rats is that "
         +
-        "they tend to be selfish and only care about improving themselves rather than worrying about others.", "What does it say about your success? Rats are able to find success in the fields of music, planning and management, and mathematics.", "Your compatibility with the other animals:", "Rat & rat: You are a committed couple with a lack of mystery because you know each other so well." + 
-        " Rat & ox: Both of you are willing to share family responsibilities. You know how to work with your complementary characters to help each other work work and home lives." + 
-        " Rat & dragon: Both of you can be mature and confident. You can trust and give space to each other." + 
-        " Rat & monkey: You are both understanding and care to support each other. This level of support is the solution when conflict arises.", "Famous people who is this zodiac: Apple CEO TIm Cook, Katy Perry, Dwayne ‘The Rock’ Johnson, and Enimen");
+        "they tend to be selfish and only care about improving themselves rather than worrying about others.", "What does it say about your success? Rats are able to find success in the fields of music, planning and management, and mathematics.", "Your compatibility with the other animals:", "Rat & rat: You are a committed couple with a lack of mystery because you know each other so well. \nRat & ox: Both of you are willing to share family responsibilities. You know how to work with your complementary characters to help each other work work and home lives. \nRat & dragon: Both of you can be mature and confident. You can trust and give space to each other. \nRat & monkey: You are both understanding and care to support each other. This level of support is the solution when conflict arises.", "Famous people who is this zodiac: Apple CEO TIm Cook, Katy Perry, Dwayne ‘The Rock’ Johnson, and Enimen");
         JFrame frame = new JFrame("Rat");
         super.create(frame, panel);
 
