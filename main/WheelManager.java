@@ -169,7 +169,7 @@ public class WheelManager extends JFrame {
         // Add the label to the input panel, next to the Get Zodiac button
         mainPanel.add(arrowLabel);
 
-        // Setting Title
+        // Setting Title.
         JLabel title = new JLabel("Find Your Zodiac!");
         title.setFont(new Font("Serif", Font.BOLD, 36));
         title.setForeground(redColor);
