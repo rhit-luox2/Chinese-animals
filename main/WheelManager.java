@@ -142,7 +142,7 @@ public class WheelManager extends JFrame {
     private ImageIcon wheelIcon;
     private SpinningWheelPanel wheelPanel;
     private Timer spinTimer;
-    private final double angleIncrement = 0.1; // Speed of spinning
+    private final double angleIncrement = 0.3; // Speed of spinning
     private double currentAngle = 0;
     private double finalAngle;
     private static final Color backgroundColor = new Color(233, 197, 105);
@@ -162,11 +162,10 @@ public class WheelManager extends JFrame {
         mainPanel.setBackground(backgroundColor);
         getContentPane().add(mainPanel);
 
-        // Create a label with a Unicode arrow symbol
-        JLabel arrowLabel = new JLabel("\u25BC"); // Unicode for a downward-pointing triangle
-        arrowLabel.setFont(new Font("SansSerif", Font.BOLD, 24)); // Set the font size as needed
+        // Arrow symbol
+        JLabel arrowLabel = new JLabel("\u25BC");
+        arrowLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
 
-        // Add the label to the input panel, next to the Get Zodiac button
         mainPanel.add(arrowLabel);
 
         // Setting Title.
