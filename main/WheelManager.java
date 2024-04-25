@@ -1,130 +1,5 @@
 package main;
 
-// import javax.swing.*;
-// import java.awt.*;
-// import java.awt.event.ActionEvent;
-// import java.awt.event.ActionListener;
-
-// public class WheelManager extends JFrame {
-
-//     private JTextField enterYear;
-//     private JButton getZodiacButton;
-//     private ImageIcon wheelIcon;
-//     private static final Color backgroundColor = new Color(233, 197, 105);
-//     private static final Color redColor = new Color(227, 33, 25);
-
-//     public WheelManager() {
-//         // Window setup
-//         setTitle("Find Your Zodiac!");
-//         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//         setSize(600, 900);
-//         setLocationRelativeTo(null);
-
-//         // Main panel setup
-//         JPanel mainPanel = new JPanel();
-//         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-//         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-//         mainPanel.setBackground(backgroundColor);
-//         getContentPane().add(mainPanel);
-
-//         // Setting Title
-//         JLabel title = new JLabel("Find Your Zodiac!");
-//         title.setFont(new Font("Serif", Font.BOLD, 36));
-//         title.setForeground(redColor);
-//         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-//         mainPanel.add(title);
-
-//         mainPanel.add(Box.createVerticalStrut(50));
-
-//         // Label and Text field
-//         JPanel inputPanel = new JPanel();
-//         inputPanel.setLayout(new FlowLayout());
-//         inputPanel.setBackground(backgroundColor);
-//         JLabel labelYear = new JLabel("Enter the Year You Were Born:");
-//         labelYear.setForeground(redColor);
-//         labelYear.setFont(new Font("Arial", Font.BOLD, 16));
-//         enterYear = new JTextField(10);
-//         inputPanel.add(labelYear);
-//         inputPanel.add(enterYear);
-//         mainPanel.add(inputPanel);
-
-//         mainPanel.add(Box.createVerticalStrut(20));
-
-//         // Button
-//         getZodiacButton = new JButton("Get Zodiac");
-//         styleButton(getZodiacButton, redColor);
-//         getZodiacButton.addActionListener(new ZodiacActionListener());
-//         inputPanel.add(getZodiacButton);
-//         mainPanel.add(getZodiacButton);
-
-//         // Load wheel image
-//         wheelIcon = new ImageIcon("picture/main1.png");
-
-//         setVisible(true);
-//     }
-
-//     private class ZodiacActionListener implements ActionListener {
-//         @Override
-//         public void actionPerformed(ActionEvent e) {
-//             try {
-//                 int birthYear = Integer.parseInt(enterYear.getText().trim());
-//                 String zodiac = getZodiac(birthYear);
-//                 spinWheel(); // Simulates the wheel spinning
-
-//                 JOptionPane.showMessageDialog(WheelManager.this, "You are the " + zodiac + "!");
-//                 navigateToZodiacPage(zodiac.toLowerCase());
-//             } catch (NumberFormatException ex) {
-//                 JOptionPane.showMessageDialog(WheelManager.this, "Invalid input. Please enter a valid year.");
-//             }
-//         }
-//     }
-
-//     private void spinWheel() {
-//         JLabel wheelLabel = new JLabel(wheelIcon);
-//         JOptionPane.showMessageDialog(this, wheelLabel, "Spinning...", JOptionPane.INFORMATION_MESSAGE, null);
-//     }
-
-//     private String getZodiac(int year) {
-//         String[] zodiacs = { "Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake",
-//                 "Horse", "Goat" };
-//         return zodiacs[year % 12];
-//     }
-
-//     private void navigateToZodiacPage(String zodiac) {
-//         try {
-//             String className = "main." + capitalize(zodiac);
-//             Class<?> clazz = Class.forName(className);
-//             JFrame page = (JFrame) clazz.getDeclaredConstructor().newInstance();
-
-//             // Make the zodiac page visible
-//             page.setVisible(true);
-//             this.dispose();
-
-//         } catch (Exception e) {
-//             JOptionPane.showMessageDialog(this, "Error loading zodiac page: " + e.getMessage(),
-//                     "Error", JOptionPane.ERROR_MESSAGE);
-//             e.printStackTrace();
-//         }
-//     }
-
-//     private String capitalize(String input) {
-//         if (input == null || input.isEmpty()) {
-//             return input;
-//         }
-//         return input.substring(0, 1).toUpperCase() + input.substring(1);
-//     }
-
-//     private void styleButton(JButton button, Color textColor) {
-//         button.setFont(new Font("Arial", Font.BOLD, 14));
-//         button.setForeground(textColor);
-//         button.setAlignmentX(Component.CENTER_ALIGNMENT);
-//     }
-
-//     public static void main(String[] args) {
-//         new WheelManager();
-//     }
-// }
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -139,10 +14,9 @@ public class WheelManager extends JFrame {
 
     private JTextField enterYear;
     private JButton getZodiacButton;
-    private ImageIcon wheelIcon;
     private SpinningWheelPanel wheelPanel;
     private Timer spinTimer;
-    private final double angleIncrement = 0.3; // Speed of spinning
+    private final double angleIncrement = 0.3;
     private double currentAngle = 0;
     private double finalAngle;
     private static final Color backgroundColor = new Color(233, 197, 105);
@@ -200,7 +74,7 @@ public class WheelManager extends JFrame {
 
         // Load wheel image and set up the spinning wheel panel
         try {
-            BufferedImage wheelImage = ImageIO.read(new File("picture/main1.png")); // Update the path
+            BufferedImage wheelImage = ImageIO.read(new File("picture/main1.png"));
             wheelPanel = new SpinningWheelPanel(wheelImage);
             mainPanel.add(wheelPanel);
         } catch (IOException ex) {
@@ -255,18 +129,20 @@ public class WheelManager extends JFrame {
 
     private void navigateToZodiacPage(String zodiac) {
         try {
+            // Construct the full class name and attempt to load the class
             String className = "main." + capitalize(zodiac);
             Class<?> clazz = Class.forName(className);
-            JFrame page = (JFrame) clazz.getDeclaredConstructor().newInstance();
 
-            // Make the zodiac page visible
+            // Instantiate the class assuming it is a JFrame
+            JFrame page = (JFrame) clazz.newInstance();
+
+            // Display the new page and dispose of the current window
             page.setVisible(true);
-            this.dispose(); // Close the WheelManager window
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error loading zodiac page: " + e.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
+            this.dispose();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, "Zodiac class not found: " + ex.getMessage(),
+                    "Class Not Found", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
         }
     }
 
@@ -298,6 +174,7 @@ public class WheelManager extends JFrame {
         public SpinningWheelPanel(BufferedImage wheelImage) {
             this.wheelImage = wheelImage;
             setPreferredSize(new Dimension(wheelImage.getWidth(), wheelImage.getHeight()));
+            setBackground(Color.BLACK);
         }
 
         public void setAngle(double angle) {
