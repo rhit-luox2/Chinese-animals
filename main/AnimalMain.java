@@ -33,11 +33,9 @@ public abstract class AnimalMain {
     Image image1;
     Image image2;
 
-
-
-    public AnimalMain(String a, String b, String c, String d, String e, String f, 
-                    String g, String h, String i, String j, String k, String l, String m,
-                    String n){
+    public AnimalMain(String a, String b, String c, String d, String e, String f,
+            String g, String h, String i, String j, String k, String l, String m,
+            String n) {
         this.name = a;
         this.lifespan = b;
         this.habitat = c;
@@ -52,7 +50,7 @@ public abstract class AnimalMain {
         this.comp = j;
         this.w = k;
         this.famous = l;
-        
+
         this.image1Icon = m;
         this.image2Icon = n;
 
@@ -63,22 +61,19 @@ public abstract class AnimalMain {
     public void create(JFrame frame, JPanel panel) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 1100);
-        
+
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-
-
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
-        
 
         panel.add(Box.createVerticalStrut(20));
 
     }
 
-    public void description(JFrame frame, JPanel panel){
+    public void description(JFrame frame, JPanel panel) {
         JTextArea description = new JTextArea(
                 name + System.lineSeparator() + lifespan + System.lineSeparator()
                         + habitat +
@@ -100,14 +95,13 @@ public abstract class AnimalMain {
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(imageLabel);
 
-
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
     }
 
-    public void description2(JFrame frame, JPanel panel){
+    public void description2(JFrame frame, JPanel panel) {
         JTextArea description2 = new JTextArea(
                 story + System.lineSeparator() + year + System.lineSeparator()
                         + you +
@@ -125,7 +119,6 @@ public abstract class AnimalMain {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-
         ImageIcon originalIcon = new ImageIcon(image2Icon);
         Image image2 = originalIcon.getImage();
         Image resizedImage = image2.getScaledInstance(240, 240, Image.SCALE_SMOOTH);
@@ -136,7 +129,7 @@ public abstract class AnimalMain {
 
     }
 
-    public void description3(JFrame frame, JPanel panel){
+    public void description3(JFrame frame, JPanel panel) {
         JTextArea description3 = new JTextArea(
                 comp + System.lineSeparator() + w + System.lineSeparator()
                         + famous);
@@ -155,38 +148,34 @@ public abstract class AnimalMain {
 
     }
 
-
-
-    public void createButton(JFrame frame, JPanel panel,String text, Color textColor, ActionListener listener){
-     // Add Buttons to Lead to Other Pages
+    public void createButton(String text, Color textColor, ActionListener listener) {
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
-        learnMoreButton.addActionListener(
-             new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
+        learnMoreButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Learn More button clicked");
                 new SelectAnimal();
-                }
-            });
+            }
+        });
         panel.add(learnMoreButton);
 
         JButton findyourZod = new JButton("Click here to find your zodiac or your friend's zodiac");
-        findyourZod.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        System.out.println("Find Your Zodiac button clicked");
-                        new WheelManager();
-                    }
-                });
+        findyourZod.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Find Your Zodiac button clicked");
+                new WheelManager();
+            }
+        });
         panel.add(findyourZod);
-
-
-        frame.add(panel);
-        frame.setVisible(true);
-
+        panel.revalidate();
+        panel.repaint();
     }
 
-    
+    public void finalizeFrame() {
+        frame.add(panel);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
 
 }
