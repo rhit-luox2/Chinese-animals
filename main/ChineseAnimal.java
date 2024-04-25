@@ -30,7 +30,7 @@ public class ChineseAnimal {
         Color redColor = new Color(227, 33, 25);
 
         // Setting Title
-        JLabel title = new JLabel("12 Chinese Zodiac");
+        JLabel title = new JLabel("12 Chinese Zodiacs");
         title.setFont(new Font("Serif", Font.BOLD, 36));
         title.setForeground(redColor);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -46,6 +46,13 @@ public class ChineseAnimal {
         JLabel imageLabel = new JLabel(resizedIcon);
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(imageLabel);
+        
+        // Set disclaimer
+        JLabel disclaimer = new JLabel("Disclaimer: Goat and Sheep are interchangeable in Chinese astrology");
+        disclaimer.setFont(new Font("Serif", Font.BOLD, 14));
+        disclaimer.setForeground(redColor);
+        disclaimer.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(disclaimer);
 
         // Adds Text Box
         panel.add(Box.createVerticalStrut(20)); // Space between image and text box
@@ -53,7 +60,7 @@ public class ChineseAnimal {
         JTextArea description = new JTextArea(
                 "The Lunar New Year has been celebrated for almost 3,500 years starting in the Shang Dynasty. "
                         + "Celebrations begin with the second new moon after the winter solstice. The Lunar New Year is heavily correlated with "
-                        + "Chinese zodiacs and each new year symbolizes the transition from one animal to the next.");
+                        + "Chinese zodiacs and each new year symbolizes the transition from one animal to the next." + System.lineSeparator() + "Legend has it that the Jade Emperor summoned all the animals to his palace in a “Great Race” (or possibly for a banquet), and the order in which they arrived determined the animal’s place in the zodiac. Several animals raced to the Southern Heavenly Gate. The zodiac winners are Rat, Ox, Tiger, Dragon, Rabbit, Snake, Horse, Goat, Monkey, Rooster, Dog, and Pig. ");
         description.setFont(new Font("Serif", Font.ITALIC, 16));
         description.setWrapStyleWord(true);
         description.setLineWrap(true);
