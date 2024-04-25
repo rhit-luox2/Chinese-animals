@@ -39,7 +39,7 @@ public class WheelManager extends JFrame {
         // Arrow symbol
         JLabel arrowLabel = new JLabel("\u25BC");
         arrowLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
-
+        arrowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(arrowLabel);
 
         // Setting Title.
