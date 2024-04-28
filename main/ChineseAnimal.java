@@ -70,6 +70,11 @@ public class ChineseAnimal {
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description);
 
+        JScrollPane scrollableTextArea = new JScrollPane(description);
+        scrollableTextArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollableTextArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        frame.getContentPane().add(scrollableTextArea);
+
         // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = createButton("Click here to read about the Chinese zodiacs", redColor,
                 new ActionListener() {
