@@ -33,6 +33,9 @@ public abstract class AnimalMain {
     Image image1;
     Image image2;
 
+    JScrollBar scrollBar;
+    JPanel scrollBarPanel;
+
     public AnimalMain(String a, String b, String c, String d, String e, String f,
             String g, String h, String i, String j, String k, String l, String m,
             String n) {
@@ -141,6 +144,7 @@ public abstract class AnimalMain {
         description3.setAlignmentX(Component.CENTER_ALIGNMENT);
         description3.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description3);
+        createButton(textColor, listener);
 
         frame.add(panel);
         frame.setLocationRelativeTo(null);
@@ -148,7 +152,7 @@ public abstract class AnimalMain {
 
     }
 
-    public void createButton(String text, Color textColor, ActionListener listener) {
+    public void createButton(Color textColor, ActionListener listener) {
         JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
@@ -157,6 +161,7 @@ public abstract class AnimalMain {
                 new SelectAnimal();
             }
         });
+        learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(learnMoreButton);
 
         JButton findyourZod = new JButton("Click here to find your zodiac or your friend's zodiac");
@@ -167,6 +172,7 @@ public abstract class AnimalMain {
                 new WheelManager();
             }
         });
+        findyourZod.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(findyourZod);
         panel.revalidate();
         panel.repaint();
