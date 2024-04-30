@@ -40,7 +40,7 @@ public abstract class Players {
 			centerY = (int)Math.min( Math.max(centerY, 0), dim.getHeight());
 		}
 	}
-    public boolean overlapsWith(SimulationObject other) {
+    public boolean overlapsWith(Players other) {
 		int xDiff =  centerX - other.centerX;
 		int yDiff =  centerY - other.centerY;
 		double distance = Math.sqrt(  xDiff*xDiff + yDiff * yDiff );

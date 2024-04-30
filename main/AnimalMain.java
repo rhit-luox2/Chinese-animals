@@ -33,7 +33,7 @@ public abstract class AnimalMain {
     Image image1;
     Image image2;
 
-    JScrollBar scrollBar;
+    JScrollPane jsp;
     JPanel scrollBarPanel;
 
     public AnimalMain(String a, String b, String c, String d, String e, String f,
@@ -69,14 +69,19 @@ public abstract class AnimalMain {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
+        //addScrollBar();
+
+        
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
 
         panel.add(Box.createVerticalStrut(20));
+        
 
     }
 
     public void description(JFrame frame, JPanel panel) {
+
         JTextArea description = new JTextArea(
                 name + System.lineSeparator() + lifespan + System.lineSeparator()
                         + habitat +
@@ -98,9 +103,15 @@ public abstract class AnimalMain {
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(imageLabel);
 
+        // jsp = new JScrollPane(panel);
+        // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // frame.add(jsp);
+
+       // addScrollBar();
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
 
     }
 
@@ -118,9 +129,15 @@ public abstract class AnimalMain {
         description2.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description2);
 
+       // addScrollBar();
+
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        // jsp = new JScrollPane(panel);
+        // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // frame.add(jsp);
 
         ImageIcon originalIcon = new ImageIcon(image2Icon);
         Image image2 = originalIcon.getImage();
@@ -129,6 +146,7 @@ public abstract class AnimalMain {
         JLabel imageLabel = new JLabel(resizedIcon);
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(imageLabel);
+    
 
     }
 
@@ -145,6 +163,11 @@ public abstract class AnimalMain {
         description3.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description3);
         createButton(textColor, listener);
+    
+
+        // jsp = new JScrollPane(panel);
+        // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // frame.add(jsp);
 
         frame.add(panel);
         frame.setLocationRelativeTo(null);
@@ -174,11 +197,29 @@ public abstract class AnimalMain {
         });
         findyourZod.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(findyourZod);
+
+        // jsp = new JScrollPane(panel);
+        // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // frame.add(jsp);
+
+
         panel.revalidate();
         panel.repaint();
     }
+    public void addScrollBar(){
+
+        panel.add(jsp);
+        jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        frame.add(jsp);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+
+    }
 
     public void finalizeFrame() {
+        addScrollBar();
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
