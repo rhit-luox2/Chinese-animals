@@ -21,8 +21,6 @@ public abstract class Players extends Game{
     }
 
     public void drawOn(Graphics2D g) {
-
-		//avoid having to untranslate by mutating a copy of the graphics content
 		g = (Graphics2D)g.create();
 		g.setColor(this.color);
 		g.translate(centerX-radius, centerY-radius);
