@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Dimension2D;
 
-public abstract class Players {
+public abstract class Players extends Game{
     protected int centerX, centerY, radius, velX, velY, moveSpeed;
 	protected Color color;
 
@@ -33,10 +33,9 @@ public abstract class Players {
 		centerY += velY;
 		if (centerX > dim.getWidth() || centerX < 0) {
 			centerX = (int)Math.min( Math.max(centerX, 0), dim.getWidth());
-			velX = -velX;
+			;
 		}
 		if (centerY > dim.getHeight() || centerY < 0) {
-			velY = -velY;
 			centerY = (int)Math.min( Math.max(centerY, 0), dim.getHeight());
 		}
 	}

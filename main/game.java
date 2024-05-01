@@ -16,6 +16,8 @@ public class Game {
     private final int winScore = 40; 
     private KeyAdapter keyListener; 
 
+    protected Players players;
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Game()::launchGame);
     }
