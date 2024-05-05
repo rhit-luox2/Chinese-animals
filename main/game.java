@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Game {
-//
+
     private JFrame gameFrame;
     private JPanel trackPanel;
     private JLabel player1Label, player2Label;

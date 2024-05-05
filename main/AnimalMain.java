@@ -63,7 +63,7 @@ public abstract class AnimalMain {
 
     public void create(JFrame frame, JPanel panel) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 1100);
+        frame.setSize(600, 1200);
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

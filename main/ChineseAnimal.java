@@ -15,7 +15,7 @@ public class ChineseAnimal {
         // Initialize Main Page
         JFrame frame = new JFrame("12 Chinese Zodiac");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 900);
+        frame.setSize(600, 1000);
 
         // Layout and Creating Borders
         JPanel panel = new JPanel();
