@@ -91,6 +91,7 @@ public class ChineseAnimal {
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Learn More button clicked");
                         new SelectAnimal();
+                        frame.dispose();
                     }
                 });
         panel.add(learnMoreButton);
@@ -101,6 +102,7 @@ public class ChineseAnimal {
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Find Your Zodiac button clicked");
                         new WheelManager();
+                        frame.dispose();
                     }
                 });
         panel.add(findyourZod);
@@ -112,6 +114,7 @@ public class ChineseAnimal {
                 System.out.println("Game button clicked");
                 Game game = new Game();
                 game.main(null);
+                frame.dispose();
             }
         });
         panel.add(gameButton); 

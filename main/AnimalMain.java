@@ -183,6 +183,7 @@ public abstract class AnimalMain {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Learn More button clicked");
                 new SelectAnimal();
+                frame.dispose();
             }
         });
         learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -194,6 +195,7 @@ public abstract class AnimalMain {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Find Your Zodiac button clicked");
                 new WheelManager();
+                frame.dispose();
             }
         });
         findyourZod.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -206,6 +208,7 @@ public abstract class AnimalMain {
                 System.out.println("Game button clicked");
                 Game game = new Game();
                 game.main(null);
+                frame.dispose();
             }
         });
         gameButton.setAlignmentX(Component.CENTER_ALIGNMENT);;

@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 public class SelectAnimal extends JFrame {
 
+    JFrame frame;
+
     public SelectAnimal() {
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,6 +56,7 @@ public class SelectAnimal extends JFrame {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+                frame.dispose();
             }
         });
         animalButton.setBorder(BorderFactory.createEmptyBorder());
