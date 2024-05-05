@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 
 public class SelectAnimal extends JFrame {
 
-    JFrame frame;
+    static JFrame frame;
 
-    public SelectAnimal() {
+    private static void createAndShowGUI(){
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -42,7 +42,10 @@ public class SelectAnimal extends JFrame {
         frame.setVisible(true);
     }
 
-    private JButton createAnimalButton(String animalName) {
+
+    
+    @SuppressWarnings("deprecation")
+    private static JButton createAnimalButton(String animalName) {
         ImageIcon originalIcon = new ImageIcon("picture/" + animalName + ".PNG");
         Image scaledImage = originalIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(scaledImage);
@@ -55,17 +58,23 @@ public class SelectAnimal extends JFrame {
                     Class.forName("main." + animalName).getDeclaredConstructor().newInstance();
                 } catch (Exception ex) {
                     ex.printStackTrace();
+                    
                 }
-                frame.dispose();
+                
             }
         });
+        if (animalButton.action(null, animalButton) == true){ 
+            frame.dispose();
+        }
+
         animalButton.setBorder(BorderFactory.createEmptyBorder());
         animalButton.setContentAreaFilled(false);
         animalButton.setPreferredSize(new Dimension(150, 150));
         return animalButton;
+        
     }
 
     public static void main(String[] args) {
-        new SelectAnimal();
+        SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 }
