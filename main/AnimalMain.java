@@ -59,6 +59,7 @@ public abstract class AnimalMain {
 
         this.panel = new JPanel();
         this.frame = new JFrame();
+        this.scrollBarPanel = new JPanel();
     }
 
     public void create(JFrame frame, JPanel panel) {
@@ -67,11 +68,11 @@ public abstract class AnimalMain {
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+       // panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         //addScrollBar();
-
-        
+        scrollBarPanel.setLayout(new BoxLayout(scrollBarPanel,BoxLayout.Y_AXIS));
+            
         Color backgroundColor = new Color(233, 197, 105);
         panel.setBackground(backgroundColor);
 
@@ -198,6 +199,19 @@ public abstract class AnimalMain {
         findyourZod.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(findyourZod);
 
+        JButton gameButton = new JButton("Click here to race your friends in the Great Race");
+        gameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Game button clicked");
+                Game game = new Game();
+                game.main(null);
+            }
+        });
+        gameButton.setAlignmentX(Component.CENTER_ALIGNMENT);;
+        panel.add(gameButton); 
+
+
         // jsp = new JScrollPane(panel);
         // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         // frame.add(jsp);
@@ -208,18 +222,19 @@ public abstract class AnimalMain {
     }
     public void addScrollBar(){
 
-        panel.add(jsp);
-        jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        frame.add(jsp);
+        // scrollBarPanel.add(jsp);
+        // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // frame.add(scrollBarPanel);
 
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        // frame.setLocationRelativeTo(null);
+        // frame.setVisible(true);
 
 
     }
 
     public void finalizeFrame() {
         addScrollBar();
+        //frame.add(scrollBarPanel);
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
