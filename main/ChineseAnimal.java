@@ -105,6 +105,17 @@ public class ChineseAnimal {
                 });
         panel.add(findyourZod);
 
+        JButton gameButton = createButton("Click here to race your friends in the Great Race", redColor,
+        new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Game button clicked");
+                Game game = new Game();
+                game.main(null);
+            }
+        });
+        panel.add(gameButton); 
+
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
