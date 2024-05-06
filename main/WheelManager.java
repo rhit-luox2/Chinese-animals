@@ -14,11 +14,6 @@ public class WheelManager extends JFrame {
 
     private JTextField enterYear;
     private JButton getZodiacButton;
-    private SpinningWheelPanel wheelPanel;
-    private Timer spinTimer;
-    private final double angleIncrement = 0.3;
-    private double currentAngle = 0;
-    private double finalAngle;
     private static final Color backgroundColor = new Color(233, 197, 105);
     private static final Color redColor = new Color(227, 33, 25);
 
@@ -72,17 +67,8 @@ public class WheelManager extends JFrame {
         arrowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(arrowLabel);
 
-        // Load wheel image and set up the spinning wheel panel
-        try {
-            BufferedImage wheelImage = ImageIO.read(new File("picture/main1.png"));
-            wheelPanel = new SpinningWheelPanel(wheelImage);
-            mainPanel.add(wheelPanel);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Failed to load wheel image.", "Error", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
-        }
+        
 
-        setVisible(true);
     }
 
     private class ZodiacActionListener implements ActionListener {
@@ -99,27 +85,7 @@ public class WheelManager extends JFrame {
         }
     }
 
-    private void spinWheel() {
-        spinTimer = new Timer(10, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentAngle < finalAngle) {
-                    currentAngle += angleIncrement;
-                    if (currentAngle > finalAngle) {
-                        currentAngle = finalAngle;
-                        spinTimer.stop();
-                        String zodiac = getZodiacFromAngle(finalAngle);
-                        JOptionPane.showMessageDialog(WheelManager.this, "Your Chinese zoidac is " + zodiac + "!");
-                        navigateToZodiacPage(zodiac.toLowerCase());
-                    }
-                    wheelPanel.setAngle(currentAngle);
-                }
-            }
-        });
-        spinTimer.start();
-    }
-
-    private String getZodiacFromAngle(double finalAngle) {
+    protected String getZodiacFromAngle(double finalAngle) {
         int zodiacIndex = (int) Math.round((360 - finalAngle) / 30) % 12;
         String[] zodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster",
                 "Dog", "Pig" };
@@ -152,49 +118,12 @@ public class WheelManager extends JFrame {
         return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 
-    private double calculateFinalAngle(int year) {
-        int yearDifference = (year - 1984) % 12;
-        if (yearDifference < 0) {
-            yearDifference += 12;
-        }
-        return (360.0 - ((yearDifference) * 30.0)) % 360;
-    }
-
     private void styleButton(JButton button, Color textColor) {
         button.setFont(new Font("Arial", Font.BOLD, 14));
         button.setForeground(textColor);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
-    private class SpinningWheelPanel extends JPanel {
-        private final BufferedImage wheelImage;
-        private double angle;
-
-        public SpinningWheelPanel(BufferedImage wheelImage) {
-            this.wheelImage = wheelImage;
-            setPreferredSize(new Dimension(wheelImage.getWidth(), wheelImage.getHeight()));
-            setBackground(Color.BLACK);
-        }
-
-        public void setAngle(double angle) {
-            this.angle = angle;
-            repaint();
-        }
-
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            Graphics2D g2d = (Graphics2D) g.create();
-            int x = (getWidth() - wheelImage.getWidth()) / 2;
-            int y = (getHeight() - wheelImage.getHeight()) / 2;
-            AffineTransform at = AffineTransform.getRotateInstance(Math.toRadians(angle),
-                    x + wheelImage.getWidth() / 2.0, y + wheelImage.getHeight() / 2.0);
-            at.translate(x, y);
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2d.drawImage(wheelImage, at, this);
-            g2d.dispose();
-        }
-    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

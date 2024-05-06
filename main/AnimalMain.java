@@ -98,7 +98,7 @@ public abstract class AnimalMain {
 
         ImageIcon originalIcon = new ImageIcon(image1Icon);
         Image image1 = originalIcon.getImage();
-        Image resizedImage = image1.getScaledInstance(240, 240, Image.SCALE_SMOOTH);
+        Image resizedImage = image1.getScaledInstance(360, 240, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
         JLabel imageLabel = new JLabel(resizedIcon);
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
