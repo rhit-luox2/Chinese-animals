@@ -36,12 +36,6 @@ public class WheelManager extends JFrame {
         mainPanel.setBackground(backgroundColor);
         getContentPane().add(mainPanel);
 
-        // Arrow symbol
-        JLabel arrowLabel = new JLabel("\u25BC");
-        arrowLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
-        arrowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        mainPanel.add(arrowLabel);
-
         // Setting Title.
         JLabel title = new JLabel("Find Your Zodiac!");
         title.setFont(new Font("Serif", Font.BOLD, 36));
@@ -72,6 +66,12 @@ public class WheelManager extends JFrame {
         inputPanel.add(getZodiacButton);
         mainPanel.add(getZodiacButton);
 
+        // Arrow symbol
+        JLabel arrowLabel = new JLabel("\u25BC");
+        arrowLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
+        arrowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        mainPanel.add(arrowLabel);
+
         // Load wheel image and set up the spinning wheel panel
         try {
             BufferedImage wheelImage = ImageIO.read(new File("picture/main1.png"));
@@ -90,7 +90,7 @@ public class WheelManager extends JFrame {
         public void actionPerformed(ActionEvent e) {
             try {
                 int year = Integer.parseInt(enterYear.getText().trim());
-                finalAngle = calculateFinalAngle(year); // Calculates the final angle based on the zodiac year
+                finalAngle = calculateFinalAngle(year);
                 spinWheel();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(WheelManager.this, "Invalid input. Please enter a valid year.", "Error",
@@ -109,7 +109,7 @@ public class WheelManager extends JFrame {
                         currentAngle = finalAngle;
                         spinTimer.stop();
                         String zodiac = getZodiacFromAngle(finalAngle);
-                        JOptionPane.showMessageDialog(WheelManager.this, "You are the " + zodiac + "!");
+                        JOptionPane.showMessageDialog(WheelManager.this, "Your Chinese zoidac is " + zodiac + "!");
                         navigateToZodiacPage(zodiac.toLowerCase());
                     }
                     wheelPanel.setAngle(currentAngle);
@@ -120,7 +120,6 @@ public class WheelManager extends JFrame {
     }
 
     private String getZodiacFromAngle(double finalAngle) {
-        // This will convert the final angle to the zodiac index
         int zodiacIndex = (int) Math.round((360 - finalAngle) / 30) % 12;
         String[] zodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster",
                 "Dog", "Pig" };
