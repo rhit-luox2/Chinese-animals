@@ -4,64 +4,87 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
-
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
-public class Wheel {
+
+public class Wheel{
 
     private int year;
-    private SpinningWheelPanel wheelPanel;
     private Timer spinTimer;
     private final double angleIncrement = 0.3;
     private double currentAngle = 0;
     private double finalAngle;
+    protected SpinningWheelPanel wheelPanel;
+
 
     public Wheel(){
+       
+        SpinningWheelPanel wheelPanel = new SpinningWheelPanel(null);
 
          // Load wheel image and set up the spinning wheel panel
         try {
             BufferedImage wheelImage = ImageIO.read(new File("picture/main1.png"));
             wheelPanel = new SpinningWheelPanel(wheelImage);
-            mainPanel.add(wheelPanel);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Failed to load wheel image.", "Error", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(this, "Failed to load wheel image.", "Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
 
-        setVisible(true);
-
-
     }
 
-    private void spinWheel() {
+
+    void spinWheel() {
+
         spinTimer = new Timer(10, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentAngle < finalAngle) {
-                    currentAngle += angleIncrement;
-                    if (currentAngle > finalAngle) {
-                        currentAngle = finalAngle;
+
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (currentAngle < finalAngle) {
+                currentAngle += angleIncrement;
+                if (currentAngle > finalAngle) {
+                    currentAngle = finalAngle;
                         spinTimer.stop();
-                        String zodiac = getZodiacFromAngle(finalAngle);
-                        JOptionPane.showMessageDialog(WheelManager.this, "Your Chinese zoidac is " + zodiac + "!");
-                        navigateToZodiacPage(zodiac.toLowerCase());
-                    }
-                    wheelPanel.setAngle(currentAngle);
-                }
+                        }
+                wheelPanel.setAngle(currentAngle);
             }
-        });
+        }});
         spinTimer.start();
+    
     }
 
-    private double calculateFinalAngle(int year) {
+        
+        // 10, new ActionListener() {
+        //     @Override
+        //     public void actionPerformed(ActionEvent e) {
+        //         if (currentAngle < finalAngle) {
+        //             currentAngle += angleIncrement;
+        //             if (currentAngle > finalAngle) {
+        //                 currentAngle = finalAngle;
+        //                 spinTimer.stop();
+        //                 String zodiac = getZodiacFromAngle(finalAngle);
+        //                 JOptionPane.showMessageDialog(WheelManager.this, "Your Chinese zoidac is " + zodiac + "!");
+        //                 navigateToZodiacPage(zodiac.toLowerCase());
+        //             }
+        //             wheelPanel.setAngle(currentAngle);
+        //         }
+        //     }
+        // }
+
+        //spinTimer.start();
+
+    
+
+    double calculateFinalAngle(int year) {
         int yearDifference = (year - 1984) % 12;
         if (yearDifference < 0) {
             yearDifference += 12;
