@@ -39,11 +39,11 @@ public class ChineseAnimal {
         panel.add(Box.createVerticalStrut(30)); // Space between title and image
 
         // German Flag
-        ImageIcon icon = new ImageIcon("picture/horselong.jpg");
-        Image img = icon.getImage();
-        JLabel imageLabel = new JLabel(new ImageIcon(img));
-        panel.add(imageLabel, BorderLayout.NORTH);
-        panel.setVisible(true);
+        // ImageIcon icon = new ImageIcon("picture/horselong.jpg");
+        // Image img = icon.getImage();
+        // JLabel imageLabel = new JLabel(new ImageIcon(img));
+        // panel.add(imageLabel, BorderLayout.NORTH);
+        // panel.setVisible(true);
 
         // Insert image
         ImageIcon originalIcon = new ImageIcon("picture/main2.jpg");
