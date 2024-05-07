@@ -9,7 +9,9 @@ public class SelectAnimal extends JFrame {
 
     static JFrame frame;
 
-    private static void createAndShowGUI(){
+    public SelectAnimal() {
+
+    
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -74,7 +76,8 @@ public class SelectAnimal extends JFrame {
         
     }
 
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> createAndShowGUI());
+        new SelectAnimal();
     }
 }

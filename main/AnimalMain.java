@@ -93,6 +93,7 @@ public abstract class AnimalMain {
         description.setEditable(false);
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        description.setFont(new Font("Serif", Font.PLAIN, 16));
         panel.add(description);
 
         ImageIcon originalIcon = new ImageIcon(image1Icon);
@@ -126,6 +127,7 @@ public abstract class AnimalMain {
         description2.setEditable(false);
         description2.setAlignmentX(Component.CENTER_ALIGNMENT);
         description2.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        description2.setFont(new Font("Serif", Font.PLAIN, 16));
         panel.add(description2);
 
         // addScrollBar();
@@ -158,6 +160,7 @@ public abstract class AnimalMain {
         description3.setEditable(false);
         description3.setAlignmentX(Component.CENTER_ALIGNMENT);
         description3.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        description3.setFont(new Font("Serif", Font.PLAIN, 16));
         panel.add(description3);
         createButton(textColor, listener);
 

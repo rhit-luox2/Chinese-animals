@@ -8,15 +8,14 @@ public abstract class Players extends Game{
 	protected Color color;
 
 
-    protected String image2Icon;
+    protected ImageIcon image2Icon;
     protected Image image1;
 
 
 
-    public Players(int x, int y) {
-        this.centerX = x;
+    public Players(int y, ImageIcon playerIcon) {
 		this.centerY = y;
-		this.velX = (int)(moveSpeed - Math.random() * moveSpeed * 2);
+		this.velY = (int)(moveSpeed - Math.random() * moveSpeed * 2);
 		normalizeVelocity();
     }
 

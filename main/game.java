@@ -91,6 +91,7 @@ public class Game {
     private void startGame() {
         scorePlayer1 = 0;
         scorePlayer2 = 0;
+        
         setupTrack();
         gameStarted = true;
         setupKeyListener();
