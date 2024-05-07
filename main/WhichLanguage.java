@@ -37,8 +37,7 @@ public class WhichLanguage {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Learn More button clicked");
-                        new SelectAnimal();
+                        new ChineseAnimal();
                         frame.dispose();
                     }
                 });

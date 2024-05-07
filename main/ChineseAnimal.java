@@ -5,13 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ChineseAnimal {
+public class ChineseAnimal extends JFrame{
+
+    static JFrame frame;
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> createAndShowGUI());
+        new ChineseAnimal();
     }
 
-    private static void createAndShowGUI() {
+    public ChineseAnimal() {
         // Initialize Main Page
         JFrame frame = new JFrame("12 Chinese Zodiac");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,21 +81,6 @@ public class ChineseAnimal {
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description);
 
-        // JScrollPane scrollPane = new JScrollPane(panel,
-        // JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-        // JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-        // // Create a vertical scrollbar
-        // JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
-
-        // // Add components to the content panel
-        // panel.add(description);
-        // frame.add(scrollPane, BorderLayout.CENTER);
-
-        // // Add the content panel to the frame
-        // // frame.add(panel);
-
-        // frame.setVisible(true);
 
         // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = createButton("Click here to read about the Chinese zodiacs", redColor,
