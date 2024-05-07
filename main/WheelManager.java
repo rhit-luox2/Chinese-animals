@@ -16,6 +16,8 @@ public class WheelManager extends JFrame {
     private JButton getZodiacButton;
     private static final Color backgroundColor = new Color(233, 197, 105);
     private static final Color redColor = new Color(227, 33, 25);
+    protected Wheel wheel;
+    //private SpinningWheelPanel wheelPanel;
 
     public WheelManager() {
         // Window setup
@@ -67,17 +69,23 @@ public class WheelManager extends JFrame {
         arrowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(arrowLabel);
 
-        
+        Wheel wheel = new Wheel();
+        mainPanel.add(wheel.wheelPanel);
 
     }
+
 
     private class ZodiacActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
                 int year = Integer.parseInt(enterYear.getText().trim());
-                finalAngle = calculateFinalAngle(year);
-                spinWheel();
+                double finalAngle = wheel.calculateFinalAngle(year);
+                wheel.spinWheel();
+                String zodiac = getZodiacFromAngle(finalAngle);
+                JOptionPane.showMessageDialog(WheelManager.this, "Your Chinese zoidac is " + zodiac + "!");
+                navigateToZodiacPage(zodiac.toLowerCase());
+
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(WheelManager.this, "Invalid input. Please enter a valid year.", "Error",
                         JOptionPane.ERROR_MESSAGE);
