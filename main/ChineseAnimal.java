@@ -53,7 +53,7 @@ public class ChineseAnimal {
         JLabel imageLabel = new JLabel(resizedIcon);
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(imageLabel);
-        
+
         // Set disclaimer
         JLabel disclaimer = new JLabel("Disclaimer: Goat and Sheep are interchangeable in Chinese astrology");
         disclaimer.setFont(new Font("Serif", Font.BOLD, 14));
@@ -67,7 +67,9 @@ public class ChineseAnimal {
         JTextArea description = new JTextArea(
                 "The Lunar New Year has been celebrated for almost 3,500 years starting in the Shang Dynasty. "
                         + "Celebrations begin with the second new moon after the winter solstice. The Lunar New Year is heavily correlated with "
-                        + "Chinese zodiacs and each new year symbolizes the transition from one animal to the next." + System.lineSeparator() + "Legend has it that the Jade Emperor summoned all the animals to his palace in a “Great Race” (or possibly for a banquet), and the order in which they arrived determined the animal’s place in the zodiac. Several animals raced to the Southern Heavenly Gate. The zodiac winners are Rat, Ox, Tiger, Dragon, Rabbit, Snake, Horse, Goat, Monkey, Rooster, Dog, and Pig. ");
+                        + "Chinese zodiacs and each new year symbolizes the transition from one animal to the next."
+                        + System.lineSeparator()
+                        + "Legend has it that the Jade Emperor summoned all the animals to his palace in a “Great Race” (or possibly for a banquet), and the order in which they arrived determined the animal’s place in the zodiac. Several animals raced to the Southern Heavenly Gate. The zodiac winners are Rat, Ox, Tiger, Dragon, Rabbit, Snake, Horse, Goat, Monkey, Rooster, Dog, and Pig. ");
         description.setFont(new Font("Serif", Font.ITALIC, 16));
         description.setWrapStyleWord(true);
         description.setLineWrap(true);
@@ -77,19 +79,21 @@ public class ChineseAnimal {
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description);
 
-        // JScrollPane scrollPane = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER); 
-  
-        //     // Create a vertical scrollbar 
-        //     JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar(); 
-  
-        //     // Add components to the content panel
-        //     panel.add(description);
-        //     frame.add(scrollPane, BorderLayout.CENTER);
-  
-        //     // Add the content panel to the frame 
-        //     // frame.add(panel);
-  
-        //     frame.setVisible(true);
+        // JScrollPane scrollPane = new JScrollPane(panel,
+        // JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+        // JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        // // Create a vertical scrollbar
+        // JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
+
+        // // Add components to the content panel
+        // panel.add(description);
+        // frame.add(scrollPane, BorderLayout.CENTER);
+
+        // // Add the content panel to the frame
+        // // frame.add(panel);
+
+        // frame.setVisible(true);
 
         // Add Buttons to Lead to Other Pages
         JButton learnMoreButton = createButton("Click here to read about the Chinese zodiacs", redColor,
@@ -115,16 +119,16 @@ public class ChineseAnimal {
         panel.add(findyourZod);
 
         JButton gameButton = createButton("Click here to race your friends in the Great Race", redColor,
-        new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Game button clicked");
-                Game game = new Game();
-                game.main(null);
-                frame.dispose();
-            }
-        });
-        panel.add(gameButton); 
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("Game button clicked");
+                        Game Game = new Game();
+                        Game.main(null);
+                        frame.dispose();
+                    }
+                });
+        panel.add(gameButton);
 
         frame.add(panel);
         frame.setLocationRelativeTo(null);

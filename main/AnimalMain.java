@@ -64,21 +64,20 @@ public abstract class AnimalMain {
 
     public void create(JFrame frame, JPanel panel) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 1200);
+        frame.setSize(600, 900); // Consider if this size is appropriate for your content.
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-       // panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-        //addScrollBar();
-        scrollBarPanel.setLayout(new BoxLayout(scrollBarPanel,BoxLayout.Y_AXIS));
-            
-        Color backgroundColor = new Color(233, 197, 105);
-        panel.setBackground(backgroundColor);
-
+        panel.setBackground(new Color(233, 197, 105));
         panel.add(Box.createVerticalStrut(20));
-        
 
+        JScrollPane scrollPane = new JScrollPane(panel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        frame.add(scrollPane);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 
     public void description(JFrame frame, JPanel panel) {
@@ -104,15 +103,14 @@ public abstract class AnimalMain {
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(imageLabel);
 
+        panel.revalidate();
+        panel.repaint();
+
         // jsp = new JScrollPane(panel);
         // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         // frame.add(jsp);
 
-       // addScrollBar();
-        frame.add(panel);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-
+        // addScrollBar();
 
     }
 
@@ -130,11 +128,10 @@ public abstract class AnimalMain {
         description2.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description2);
 
-       // addScrollBar();
+        // addScrollBar();
 
-        frame.add(panel);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        panel.revalidate();
+        panel.repaint();
 
         // jsp = new JScrollPane(panel);
         // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -147,7 +144,6 @@ public abstract class AnimalMain {
         JLabel imageLabel = new JLabel(resizedIcon);
         imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(imageLabel);
-    
 
     }
 
@@ -164,15 +160,13 @@ public abstract class AnimalMain {
         description3.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description3);
         createButton(textColor, listener);
-    
 
         // jsp = new JScrollPane(panel);
         // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         // frame.add(jsp);
 
-        frame.add(panel);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        panel.revalidate();
+        panel.repaint();
 
     }
 
@@ -211,19 +205,19 @@ public abstract class AnimalMain {
                 frame.dispose();
             }
         });
-        gameButton.setAlignmentX(Component.CENTER_ALIGNMENT);;
-        panel.add(gameButton); 
-
+        gameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        ;
+        panel.add(gameButton);
 
         // jsp = new JScrollPane(panel);
         // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         // frame.add(jsp);
 
-
         panel.revalidate();
         panel.repaint();
     }
-    public void addScrollBar(){
+
+    public void addScrollBar() {
 
         // scrollBarPanel.add(jsp);
         // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -232,12 +226,11 @@ public abstract class AnimalMain {
         // frame.setLocationRelativeTo(null);
         // frame.setVisible(true);
 
-
     }
 
     public void finalizeFrame() {
         addScrollBar();
-        //frame.add(scrollBarPanel);
+        // frame.add(scrollBarPanel);
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
