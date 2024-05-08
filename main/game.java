@@ -213,6 +213,8 @@ public class Game {
     private void checkForWinner() {
         if (scorePlayer1 >= winScore || scorePlayer2 >= winScore) {
             endGame();
+            timer.stop();
+            oneSecTimer.stop();
         }
         for (int score : mpcScores.values()) {
             if (score >= winScore){
