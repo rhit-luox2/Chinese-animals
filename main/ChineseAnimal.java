@@ -40,13 +40,6 @@ public class ChineseAnimal extends JFrame{
 
         panel.add(Box.createVerticalStrut(30)); // Space between title and image
 
-        // German Flag
-        // ImageIcon icon = new ImageIcon("picture/horselong.jpg");
-        // Image img = icon.getImage();
-        // JLabel imageLabel = new JLabel(new ImageIcon(img));
-        // panel.add(imageLabel, BorderLayout.NORTH);
-        // panel.setVisible(true);
-
         // Insert image
         ImageIcon originalIcon = new ImageIcon("picture/main2.jpg");
         Image image = originalIcon.getImage();
@@ -91,16 +84,8 @@ public class ChineseAnimal extends JFrame{
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description);
-
-
-        // Add Buttons to Lead to Other Pages
-        JButton learnMoreButton = new JButton();
-        if(isGerman){
-            learnMoreButton.setText("Klicken Sie hier, um mehr über die chinesischen Tierkreiszeichen zu erfahren. ");
-        }else{
-            learnMoreButton.setText("Click here to read about the Chinese zodiacs");
-        }
-        JButton learnMoreButton = createButton("Click here to read about the Chinese zodiacs", redColor,
+        
+        JButton learnMoreButton = createButton(isGerman ? "Klicken Sie hier, um mehr über die chinesischen Tierkreiszeichen zu erfahren." : "Click here to read about the Chinese zodiacs", redColor,
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
