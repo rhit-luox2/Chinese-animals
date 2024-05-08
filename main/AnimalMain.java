@@ -26,6 +26,9 @@ public abstract class AnimalMain {
     JPanel panel;
     String text;
     Color textColor;
+    Color backgroundColor;
+    Color hoverColor;
+    Color borderColor;
     ActionListener listener;
 
     String image1Icon;
@@ -66,19 +69,25 @@ public abstract class AnimalMain {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
 
-        // Top panel to hold the Go Back button
+        Color backgroundColor = new Color(255, 206, 0); // golden yellow
+        Color hoverColor = new Color(204, 164, 0); // darker gold
+        Color borderColor = new Color(0, 0, 0); // Black border
+
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
         topPanel.setBackground(new Color(233, 197, 105));
-        JButton goBackButton = new JButton("Go Back");
+
+        JButton goBackButton = createStyledButton(" Go Back ", backgroundColor, hoverColor, borderColor);
+
         goBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new SelectAnimal();
-                frame.dispose(); // Close current frame
+                frame.dispose();
             }
         });
-        topPanel.add(goBackButton, BorderLayout.WEST); // Add the button to the left side of the top panel
+
+        topPanel.add(goBackButton, BorderLayout.WEST); // left
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -94,6 +103,7 @@ public abstract class AnimalMain {
         frame.add(scrollPane);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 
     public void description(JFrame frame, JPanel panel) {
@@ -174,7 +184,12 @@ public abstract class AnimalMain {
     }
 
     public void createButton(Color textColor, ActionListener listener) {
-        JButton learnMoreButton = new JButton("Click here to read about the Chinese zodiacs");
+        Color backgroundColor = new Color(255, 206, 0); // golden yellow
+        Color hoverColor = new Color(204, 164, 0); // darker gold
+        Color borderColor = new Color(0, 0, 0); // Black border
+
+        JButton learnMoreButton = createStyledButton(" Click here to read about the Chinese zodiacs ", backgroundColor,
+                hoverColor, borderColor);
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -183,11 +198,12 @@ public abstract class AnimalMain {
                 frame.dispose();
             }
         });
-        learnMoreButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(learnMoreButton);
+        panel.add(Box.createVerticalStrut(10));
 
-        JButton findyourZod = new JButton("Click here to find your zodiac or your friend's zodiac");
-        findyourZod.addActionListener(new ActionListener() {
+        JButton findYourZod = createStyledButton(" Click here to find your zodiac or your friend's zodiac ",
+                backgroundColor, hoverColor, borderColor);
+        findYourZod.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Find Your Zodiac button clicked");
@@ -195,10 +211,11 @@ public abstract class AnimalMain {
                 frame.dispose();
             }
         });
-        findyourZod.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(findyourZod);
+        panel.add(findYourZod);
+        panel.add(Box.createVerticalStrut(10));
 
-        JButton gameButton = new JButton("Click here to race your friends in the Great Race");
+        JButton gameButton = createStyledButton(" Click here to race your friends in the Great Race ", backgroundColor,
+                hoverColor, borderColor);
         gameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -208,12 +225,35 @@ public abstract class AnimalMain {
                 frame.dispose();
             }
         });
-        gameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        ;
         panel.add(gameButton);
+        panel.add(Box.createVerticalStrut(10));
 
         panel.revalidate();
         panel.repaint();
+    }
+
+    private JButton createStyledButton(String text, Color backgroundColor, Color hoverColor, Color borderColor) {
+        JButton button = new JButton(text);
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setBackground(backgroundColor);
+        button.setForeground(Color.BLACK);
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createLineBorder(borderColor, 2));
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.setMargin(new Insets(5, 15, 5, 15));
+
+        // hover effect
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(hoverColor);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(backgroundColor);
+            }
+        });
+
+        return button;
     }
 
     public void addScrollBar() {
