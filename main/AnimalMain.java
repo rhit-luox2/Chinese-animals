@@ -234,7 +234,7 @@ public abstract class AnimalMain {
 
     private JButton createStyledButton(String text, Color backgroundColor, Color hoverColor, Color borderColor) {
         JButton button = new JButton(text);
-        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setFont(new Font("Arial", Font.BOLD, 18));
         button.setBackground(backgroundColor);
         button.setForeground(Color.BLACK);
         button.setFocusPainted(false);
