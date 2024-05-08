@@ -37,11 +37,24 @@ public class WhichLanguage {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        new ChineseAnimal();
+                        new ChineseAnimal(false);
                         frame.dispose();
                     }
                 });
         panel.add(english);
+
+        frame.add(panel);
+        frame.setVisible(true);
+
+        JButton german = createButton("Click here to switch to German", redColor,
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        new ChineseAnimal(true);
+                        frame.dispose();
+                    }
+                });
+        panel.add(german);
 
         frame.add(panel);
         frame.setVisible(true);
