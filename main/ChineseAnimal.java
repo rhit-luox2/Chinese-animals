@@ -94,7 +94,12 @@ public class ChineseAnimal extends JFrame{
 
 
         // Add Buttons to Lead to Other Pages
-        // JButton 
+        JButton learnMoreButton = new JButton();
+        if(isGerman){
+            learnMoreButton.setText("Klicken Sie hier, um mehr über die chinesischen Tierkreiszeichen zu erfahren. ");
+        }else{
+            learnMoreButton.setText("Click here to read about the Chinese zodiacs");
+        }
         JButton learnMoreButton = createButton("Click here to read about the Chinese zodiacs", redColor,
                 new ActionListener() {
                     @Override
