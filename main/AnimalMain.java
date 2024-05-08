@@ -69,6 +69,7 @@ public abstract class AnimalMain {
         // Top panel to hold the Go Back button
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
+        topPanel.setBackground(new Color(233, 197, 105));
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {
             @Override
