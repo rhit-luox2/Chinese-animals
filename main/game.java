@@ -229,12 +229,14 @@ public class Game {
 
     private void checkForWinner() {
         if (scorePlayer1 >= winScore || scorePlayer2 >= winScore) {
+            System.out.println("it made it ");
             endGame();
             timer.stop();
             oneSecTimer.stop();
         }
         for (int score : mpcScores.values()) {
             if (score >= winScore){
+                System.out.println("it made it:");
                 timer.stop();
                 oneSecTimer.stop();
                 endGame();
