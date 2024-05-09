@@ -291,7 +291,7 @@ public class Game {
     // function to sort hashmap based on values
     public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
         // Creating a list from elements of HashMap
-        List<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
+        LinkedList<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
 
         // Sorting the list using Collections.sort() method
         // using Comparator
