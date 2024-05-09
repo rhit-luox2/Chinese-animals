@@ -37,7 +37,8 @@ public class WhichLanguage {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        new ChineseAnimal(false);
+                        Language myLanguage = new English();
+                        new ChineseAnimal(myLanguage);
                         frame.dispose();
                     }
                 });
@@ -50,7 +51,8 @@ public class WhichLanguage {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        new ChineseAnimal(true);
+                        Language myLanguage = new German();
+                        new ChineseAnimal(myLanguage);
                         frame.dispose();
                     }
                 });

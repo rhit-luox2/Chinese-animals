@@ -9,15 +9,16 @@ public class ChineseAnimal extends JFrame{
 
     static JFrame frame;
 
-    public static void main(String[] args) {
-        new ChineseAnimal(false);
-        GermanFlag pictureFrame = new GermanFlag();
-        pictureFrame.setVisible(true);
+    public static void main(Language myLanguage) {
+        new ChineseAnimal(myLanguage);
+        // GermanFlag pictureFrame = new GermanFlag();
+        // pictureFrame.setVisible(true);
     }
 
-    public ChineseAnimal(boolean isGerman) {
+    public ChineseAnimal(Language myLanguage) {
         // Initialize Main Page
-        JFrame frame = new JFrame("12 Chinese Zodiac");
+        String hello = myLanguage.gettitleChineseAnimal();
+        JFrame frame = new JFrame(hello);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 1000);
 
@@ -34,7 +35,7 @@ public class ChineseAnimal extends JFrame{
         Color redColor = new Color(227, 33, 25);
 
         // Setting Title
-        JLabel title = new JLabel("12 Chinese Zodiacs");
+        JLabel title = new JLabel(hello);
         title.setFont(new Font("Serif", Font.BOLD, 36));
         title.setForeground(redColor);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -52,13 +53,9 @@ public class ChineseAnimal extends JFrame{
         panel.add(imageLabel);
 
         // Set disclaimer
+        String disclaimertext = myLanguage.getdisclaimerChineseAnimal();
         JLabel disclaimer = new JLabel();
-        if (isGerman) {
-            disclaimer.setText("Haftungsausschluss: Ziege und Schaf sind in der chinesischen Astrologie austauschbar");
-        }
-        else {
-            disclaimer.setText("Disclaimer: Goat and Sheep are interchangeable in Chinese astrology");
-        }
+        disclaimer.setText(disclaimertext);
         disclaimer.setFont(new Font("Serif", Font.BOLD, 14));
         disclaimer.setForeground(redColor);
         disclaimer.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -67,17 +64,9 @@ public class ChineseAnimal extends JFrame{
         // Adds Text Box
         panel.add(Box.createVerticalStrut(20)); // Space between image and text box
 
+        String descriptiontext = myLanguage.getdescriptionChineseAnimal();
         JTextArea description = new JTextArea();
-        if(isGerman){
-            description.setText("Das Mondneujahr wird seit der Shang-Dynastie seit fast 3.500 Jahren gefeiert. Die Feierlichkeiten beginnen mit dem zweiten Neumond nach der Wintersonnenwende. Das neue Mondjahr steht in engem Zusammenhang mit den chinesischen Tierkreisen und jedes neue Jahr symbolisiert den Übergang von einem Tier zum nächsten." + 
-            System.lineSeparator() + "Der Legende nach rief der Jadekaiser alle Tiere zu einem „Großen Rennen“ (oder möglicherweise zu einem Bankett) in seinen Palast und die Reihenfolge, in der sie ankamen, bestimmte den Platz des Tieres im Tierkreis. Mehrere Tiere rannten zum südlichen Himmelstor. Die Gewinner des Tierkreiszeichens sind Ratte, Ochse, Tiger, Drache, Kaninchen, Schlange, Pferd, Ziege, Affe, Hahn, Hund und Schwein.");
-        }else{
-            description.setText("The Lunar New Year has been celebrated for almost 3,500 years starting in the Shang Dynasty. "
-            + "Celebrations begin with the second new moon after the winter solstice. The Lunar New Year is heavily correlated with "
-            + "Chinese zodiacs and each new year symbolizes the transition from one animal to the next."
-            + System.lineSeparator()
-            + "Legend has it that the Jade Emperor summoned all the animals to his palace in a “Great Race” (or possibly for a banquet), and the order in which they arrived determined the animal’s place in the zodiac. Several animals raced to the Southern Heavenly Gate. The zodiac winners are Rat, Ox, Tiger, Dragon, Rabbit, Snake, Horse, Goat, Monkey, Rooster, Dog, and Pig. ");
-        }
+        description.setText(descriptiontext);
         description.setFont(new Font("Serif", Font.ITALIC, 16));
         description.setWrapStyleWord(true);
         description.setLineWrap(true);
@@ -87,7 +76,8 @@ public class ChineseAnimal extends JFrame{
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description);
         
-        JButton learnMoreButton = createButton(isGerman ? "Klicken Sie hier, um mehr über die chinesischen Tierkreiszeichen zu erfahren." : "Click here to read about the Chinese zodiacs", redColor,
+        String readAboutZodiacstext = myLanguage.getreadABoutZodiacs();
+        JButton learnMoreButton = createButton(readAboutZodiacstext, redColor,
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -98,7 +88,8 @@ public class ChineseAnimal extends JFrame{
                 });
         panel.add(learnMoreButton);
 
-        JButton findyourZod = createButton("Click here to find your zodiac or your friend's zodiac", redColor,
+        String findYourZodiactext = myLanguage.getfindYourZodiac();
+        JButton findyourZod = createButton(findYourZodiactext, redColor,
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -109,7 +100,8 @@ public class ChineseAnimal extends JFrame{
                 });
         panel.add(findyourZod);
 
-        JButton gameButton = createButton("Click here to race your friends in the Great Race", redColor,
+        String toGoToGametext = myLanguage.gettoGoToGame();
+        JButton gameButton = createButton(toGoToGametext, redColor,
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
