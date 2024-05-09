@@ -78,7 +78,7 @@ public class SelectAnimal extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        new SelectAnimal();
+    public static void main(Language myLanguage) {
+        new SelectAnimal(myLanguage);
     }
 }

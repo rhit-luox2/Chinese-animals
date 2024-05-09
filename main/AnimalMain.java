@@ -87,7 +87,7 @@ public abstract class AnimalMain {
         goBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new SelectAnimal();
+                new SelectAnimal(myLanguage);
                 frame.dispose();
             }
         });
@@ -199,7 +199,7 @@ public abstract class AnimalMain {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Learn More button clicked");
-                new SelectAnimal();
+                new SelectAnimal(myLanguage);
                 frame.dispose();
             }
         });
