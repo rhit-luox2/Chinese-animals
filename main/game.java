@@ -16,8 +16,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-
-
 public class game {
 
     private JFrame gameFrame;
