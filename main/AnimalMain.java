@@ -39,6 +39,8 @@ public abstract class AnimalMain {
     JScrollPane jsp;
     JPanel scrollBarPanel;
 
+    Language myLanguage;
+
     public AnimalMain(String a, String b, String c, String d, String e, String f,
             String g, String h, String i, String j, String k, String l, String m,
             String n) {
@@ -65,7 +67,7 @@ public abstract class AnimalMain {
         this.scrollBarPanel = new JPanel();
     }
 
-    public void create(JFrame frame, JPanel panel) {
+    public void create(JFrame frame, JPanel panel, Language myLanguage) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
 
@@ -77,7 +79,8 @@ public abstract class AnimalMain {
         topPanel.setLayout(new BorderLayout());
         topPanel.setBackground(new Color(233, 197, 105));
 
-        JButton goBackButton = createStyledButton(" Go Back ", backgroundColor, hoverColor, borderColor);
+        String goBacktext = myLanguage.getgoBack();
+        JButton goBackButton = createStyledButton(goBacktext, backgroundColor, hoverColor, borderColor);
 
         goBackButton.addActionListener(new ActionListener() {
             @Override
@@ -214,19 +217,19 @@ public abstract class AnimalMain {
         panel.add(findYourZod);
         panel.add(Box.createVerticalStrut(10));
 
-        JButton gameButton = createStyledButton(" Click here to race your friends in the Great Race ", backgroundColor,
-                hoverColor, borderColor);
-        gameButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Game button clicked");
-                Game game = new Game();
-                game.main(null);
-                frame.dispose();
-            }
-        });
-        panel.add(gameButton);
-        panel.add(Box.createVerticalStrut(10));
+        // JButton gameButton = createStyledButton(" Click here to race your friends in the Great Race ", backgroundColor,
+        //         hoverColor, borderColor);
+        // gameButton.addActionListener(new ActionListener() {
+        //     @Override
+        //     public void actionPerformed(ActionEvent e) {
+        //         System.out.println("Game button clicked");
+        //         Game game = new Game();
+        //         game.main(null);
+        //         frame.dispose();
+        //     }
+        // });
+        // panel.add(gameButton);
+        // panel.add(Box.createVerticalStrut(10));
 
         panel.revalidate();
         panel.repaint();

@@ -10,7 +10,9 @@ public class German implements Language{
     String readAboutZodiacs = "Klicken Sie hier, um mehr über die chinesischen Tierkreiszeichen zu erfahren";
     String findYourZodiac = "Klicken Sie hier, um Ihr Sternzeichen oder das Sternzeichen Ihres Freundes zu finden.";
     String toGoToGame = "Klicken Sie hier, um das Rennspiel zu spielen";
+    String goBack = "Geh zurück";
 
+    //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
         return titleChineseAnimal;
@@ -24,6 +26,7 @@ public class German implements Language{
         return descriptionChineseAnimal;
     }
 
+    //on all pages
     @Override
     public String getreadABoutZodiacs() {
         return readAboutZodiacs;
@@ -35,5 +38,9 @@ public class German implements Language{
     @Override
     public String gettoGoToGame() {
         return toGoToGame;
+    }
+    @Override
+    public String getgoBack() {
+        return goBack;
     }
 }

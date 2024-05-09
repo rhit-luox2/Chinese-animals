@@ -9,4 +9,5 @@ public interface Language {
     public String getreadABoutZodiacs();
     public String getfindYourZodiac();
     public String gettoGoToGame();
+    public String getgoBack();
 }

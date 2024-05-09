@@ -13,7 +13,9 @@ public class English implements Language{
     String readAboutZodiacs = "Click here to read about the Chinese zodiacs";
     String findYourZodiac = "Click here to find your zodiac or your friend's zodiac";
     String toGoToGame = "Click here to race your friends in the Great Race";
+    String goBack = "Go back";
 
+    //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
         return titleChineseAnimal;
@@ -27,6 +29,7 @@ public class English implements Language{
         return descriptionChineseAnimal;
     }
 
+    //will use on all pages
     @Override
     public String getreadABoutZodiacs() {
         return readAboutZodiacs;
@@ -38,5 +41,9 @@ public class English implements Language{
     @Override
     public String gettoGoToGame() {
         return toGoToGame;
+    }
+    @Override
+    public String getgoBack() {
+        return goBack;
     }
 }

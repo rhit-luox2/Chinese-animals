@@ -47,7 +47,7 @@ public class WhichLanguage {
         frame.add(panel);
         frame.setVisible(true);
 
-        JButton german = createButton("Click here to switch to German", redColor,
+        JButton german = createButton("Klicken Sie hier, um auf Deutsch zu wechseln", redColor,
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
