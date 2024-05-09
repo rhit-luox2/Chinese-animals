@@ -18,7 +18,7 @@ import java.util.Map;
 
 
 
-public class Game {
+public class game {
 
     private JFrame gameFrame;
     protected JPanel trackPanel;
