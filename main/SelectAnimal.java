@@ -8,9 +8,10 @@ import java.awt.event.ActionListener;
 public class SelectAnimal extends JFrame {
 
     static JFrame frame;
+    Language myLanguage;
 
-    public SelectAnimal() {
-
+    public SelectAnimal(Language myLanguage) {
+        this.myLanguage = myLanguage;
     
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

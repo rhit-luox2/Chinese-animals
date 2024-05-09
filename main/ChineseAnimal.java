@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class ChineseAnimal extends JFrame{
 
     static JFrame frame;
+    Language myLanguage;
 
     public static void main(Language myLanguage) {
         new ChineseAnimal(myLanguage);
@@ -16,6 +17,7 @@ public class ChineseAnimal extends JFrame{
     }
 
     public ChineseAnimal(Language myLanguage) {
+        this.myLanguage = myLanguage;
         // Initialize Main Page
         String hello = myLanguage.gettitleChineseAnimal();
         JFrame frame = new JFrame(hello);
@@ -82,7 +84,7 @@ public class ChineseAnimal extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Learn More button clicked");
-                        new SelectAnimal();
+                        new SelectAnimal(myLanguage);
                         frame.dispose();
                     }
                 });

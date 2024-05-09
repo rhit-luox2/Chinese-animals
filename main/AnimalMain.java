@@ -43,7 +43,7 @@ public abstract class AnimalMain {
 
     public AnimalMain(String a, String b, String c, String d, String e, String f,
             String g, String h, String i, String j, String k, String l, String m,
-            String n) {
+            String n, Language myLanguage) {
         this.name = a;
         this.lifespan = b;
         this.habitat = c;
@@ -65,6 +65,8 @@ public abstract class AnimalMain {
         this.panel = new JPanel();
         this.frame = new JFrame();
         this.scrollBarPanel = new JPanel();
+
+        this.myLanguage = myLanguage;
     }
 
     public void create(JFrame frame, JPanel panel, Language myLanguage) {
@@ -79,8 +81,8 @@ public abstract class AnimalMain {
         topPanel.setLayout(new BorderLayout());
         topPanel.setBackground(new Color(233, 197, 105));
 
-        String goBacktext = myLanguage.getgoBack();
-        JButton goBackButton = createStyledButton(goBacktext, backgroundColor, hoverColor, borderColor);
+        // String goBacktext = myLanguage.getgoBack();
+        JButton goBackButton = createStyledButton("hello", backgroundColor, hoverColor, borderColor);
 
         goBackButton.addActionListener(new ActionListener() {
             @Override
