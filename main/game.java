@@ -114,8 +114,9 @@ public class Game {
             otherLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
             mpcRacers.put(otherLabel, speed);
             mpcScores.put(otherLabel,0);
-
         }
+        mpcNames.put(player1, scorePlayer1);
+        mpcNames.put(player2, scorePlayer2);
       
         
         
@@ -166,9 +167,11 @@ public class Game {
                 if (e.getKeyChar() == '1') {
                     scorePlayer1++;
                     moveIcon(player1Label, scorePlayer1);
+                    mpcNames.put(player1,scorePlayer1);
                 } else if (e.getKeyChar() == '0') {
                     scorePlayer2++;
                     moveIcon(player2Label, scorePlayer2);
+                    mpcNames.put(player2, scorePlayer2);
                 }
                 checkForWinner();
             }
@@ -185,13 +188,14 @@ public class Game {
                 for (JLabel labels: mpcRacers.keySet()){
                     int newScore = mpcRacers.get(labels) + mpcScores.get(labels);
                     mpcScores.replace(labels, newScore);
-                    mpcNames.replace(labels.toString(), newScore);
+                    //mpcNames.replace(labels.toString(), newScore);
                     moveIcon(labels, newScore);
                     System.out.println(newScore);
                 }
                 if (counter < 20) {
                     oneSecTimer.restart();
                     System.out.println("heheehheheeh" + counter);
+                    System.out.println("mpcNames: " + mpcNames.keySet() + " values: " + mpcNames.values());
                 }
                 checkForWinner();
 
@@ -247,16 +251,16 @@ public class Game {
         else if (scorePlayer2 >= winScore){
             winnerText = "Player 2 wins!";
         }        
-        mpcNames.put(player1, scorePlayer1);
-        mpcNames.put(player2, scorePlayer2);
         HashMap<String, Integer> sortedNames = sortByValue(mpcNames);
 
-        // System.out.println("Unsorted list: " + Scores);
-        // Scores.sort(null);
-        // System.out.println("Sorted list: " + Scores);
-        // String winnersOutput = "Winners: ";
+        String winnerOutput = "Winners: ";
+
+
         ImageIcon beersIcon = new ImageIcon("picture/beersClinkin.png");
-        JOptionPane.showOptionDialog(gameFrame, sortedNames, winnerText, JOptionPane.CANCEL_OPTION, counter, beersIcon, null, beersIcon);
+        Image imagebeers = beersIcon.getImage();
+        Image resizedImage = imagebeers.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        JOptionPane.showOptionDialog(gameFrame, sortedNames, winnerText, JOptionPane.CANCEL_OPTION, counter, resizedIcon, null, JOptionPane.PLAIN_MESSAGE);
         resetGame();
     }
 
@@ -266,6 +270,7 @@ public class Game {
         int xpos = 130;
         for (JLabel label : mpcRacers.keySet()){
             mpcScores.replace(label, 0);
+            mpcNames.replace(label.toString(), 0);
             label.setLocation(xpos, trackPanel.getHeight() - 50);
             xpos += 55;
         }
