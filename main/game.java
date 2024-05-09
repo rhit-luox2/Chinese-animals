@@ -12,11 +12,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.TreeMap;
+
 
 
 public class Game {
@@ -188,10 +187,20 @@ public class Game {
                 for (JLabel labels: mpcRacers.keySet()){
                     int newScore = mpcRacers.get(labels) + mpcScores.get(labels);
                     mpcScores.replace(labels, newScore);
-                    //mpcNames.replace(labels.toString(), newScore);
                     moveIcon(labels, newScore);
                     System.out.println(newScore);
                 }
+                int i = 0;
+                for (String name : mpcNames.keySet()){
+                    int numAtIndex = mpcScores.get(i);
+                    mpcNames.replace(name, numAtIndex);
+                    if (name == player1 || name == player2){
+                        mpcNames.replace(name,mpcNames.get(i));
+                    }\
+                    System.out.println("");
+                    i++;
+                }
+                
                 if (counter < 20) {
                     oneSecTimer.restart();
                     System.out.println("heheehheheeh" + counter);
@@ -256,13 +265,18 @@ public class Game {
         HashMap<String, Integer> sortedNames = sortByValue(mpcNames);
 
         String winnerOutput = "Winners: ";
+        int i = 0;
+        for (String key : sortedNames.keySet()){
+            winnerOutput += "/n" + (i + 1) + ": " + key + sortedNames.get(i); 
+            i++; 
+        }
 
 
         ImageIcon beersIcon = new ImageIcon("picture/beersClinkin.png");
         Image imagebeers = beersIcon.getImage();
         Image resizedImage = imagebeers.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
-        JOptionPane.showOptionDialog(gameFrame, sortedNames, winnerText, JOptionPane.CANCEL_OPTION, counter, resizedIcon, null, JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showOptionDialog(gameFrame, winnerOutput, winnerText, JOptionPane.CANCEL_OPTION, counter, resizedIcon, null, JOptionPane.PLAIN_MESSAGE);
         resetGame();
     }
 
