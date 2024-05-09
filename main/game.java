@@ -35,6 +35,7 @@ public class Game {
     private Timer timer = new Timer(2000, null);
     private Timer oneSecTimer;
     private int counter;
+    private int i;
 
     private HashMap<JLabel, Integer> mpcRacers;
     private HashMap<JLabel, Integer> mpcScores;
@@ -179,6 +180,7 @@ public class Game {
         gameFrame.requestFocusInWindow();
         startButton.setEnabled(false);
 
+        i = 0;
         counter = 0;
         oneSecTimer = new Timer(1000, new ActionListener() {
             @Override
@@ -190,15 +192,14 @@ public class Game {
                     moveIcon(labels, newScore);
                     System.out.println(newScore);
                 }
-                int i = 0;
                 for (String name : mpcNames.keySet()){
-                    int numAtIndex = mpcScores.get(i);
-                    mpcNames.replace(name, numAtIndex);
+                    //int numAtIndex = mpcScores.get(i);
+                    //mpcNames.replace(name, numAtIndex);
                     if (name == player1 || name == player2){
-                        mpcNames.replace(name,mpcNames.get(i));
-                    }\
-                    System.out.println("");
-                    i++;
+                        //mpcNames.replace(name,mpcNames.get(i));
+                    }
+                    System.out.println(i);
+                    i+= 1;
                 }
                 
                 if (counter < 20) {
@@ -253,6 +254,7 @@ public class Game {
         }
     }
 
+    @SuppressWarnings("unlikely-arg-type")
     private void endGame() {
         gameStarted = false;
         String winnerText = "Computer Wins";
@@ -267,7 +269,7 @@ public class Game {
         String winnerOutput = "Winners: ";
         int i = 0;
         for (String key : sortedNames.keySet()){
-            winnerOutput += "/n" + (i + 1) + ": " + key + sortedNames.get(i); 
+            winnerOutput += "\n" + (i + 1) + ": " + key + ": "+ sortedNames.get(i); 
             i++; 
         }
 
@@ -312,7 +314,7 @@ public class Game {
     // function to sort hashmap based on values
     public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
         // Creating a list from elements of HashMap
-        LinkedList<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
+        ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>(hm.entrySet());
 
         // Sorting the list using Collections.sort() method
         // using Comparator
