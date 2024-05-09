@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.HashMap;
+import java.util.Iterator;
 
 
 public class Game {
@@ -234,7 +235,33 @@ public class Game {
         else if (scorePlayer2 >= winScore){
             winnerText = "Player 2 wins!";
         }        
-        JOptionPane.showMessageDialog(gameFrame, winnerText, "Game Over", JOptionPane.INFORMATION_MESSAGE);
+        mpcScores.put(player1Label, scorePlayer1);
+        mpcScores.put(player2Label, scorePlayer2);
+
+          // Print the original HashMap
+        System.out.println("Before Sorting:");
+        Iterator<Integer> it = mpcScores.values().iterator();
+        while (it.hasNext()) {
+            int key = it.next();
+            System.out.println("Roll no: " + key + " name: " + mpcScores.get(key));
+        }
+
+        // Sort the HashMap by keys using TreeMap
+        HashMap<Integer, String> sortedMap = new TreeMap<>(mpcScores);
+
+        // Print the sorted HashMap
+        System.out.println("\nAfter Sorting:");
+        Iterator<Integer> itr = sortedMap.keySet().iterator();
+        while (itr.hasNext()) {
+            int key = itr.next();
+            System.out.println("Roll no: " + key + " name: " + mpcScores.get(key));
+        }
+        // System.out.println("Unsorted list: " + Scores);
+        // Scores.sort(null);
+        // System.out.println("Sorted list: " + Scores);
+        // String winnersOutput = "Winners: ";
+      
+        JOptionPane.showOptionDialog(gameFrame, winnerText, "Game Over", null, );
         resetGame();
     }
 

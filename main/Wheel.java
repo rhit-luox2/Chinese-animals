@@ -26,6 +26,7 @@ public class Wheel{
     protected SpinningWheelPanel wheelPanel;
 
 
+
     public Wheel(){
        
         SpinningWheelPanel wheelPanel = new SpinningWheelPanel(null);
@@ -40,7 +41,6 @@ public class Wheel{
         }
 
     }
-
 
     void spinWheel() {
 
@@ -60,29 +60,7 @@ public class Wheel{
         }});
         spinTimer.start();
     
-    }
-
-        
-        // 10, new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         if (currentAngle < finalAngle) {
-        //             currentAngle += angleIncrement;
-        //             if (currentAngle > finalAngle) {
-        //                 currentAngle = finalAngle;
-        //                 spinTimer.stop();
-        //                 String zodiac = getZodiacFromAngle(finalAngle);
-        //                 JOptionPane.showMessageDialog(WheelManager.this, "Your Chinese zoidac is " + zodiac + "!");
-        //                 navigateToZodiacPage(zodiac.toLowerCase());
-        //             }
-        //             wheelPanel.setAngle(currentAngle);
-        //         }
-        //     }
-        // }
-
-        //spinTimer.start();
-
-    
+    } 
 
     double calculateFinalAngle(int year) {
         int yearDifference = (year - 1984) % 12;
