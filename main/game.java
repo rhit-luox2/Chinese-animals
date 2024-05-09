@@ -8,9 +8,15 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.TreeMap;
 
 
 public class Game {
@@ -33,6 +39,7 @@ public class Game {
 
     private HashMap<JLabel, Integer> mpcRacers;
     private HashMap<JLabel, Integer> mpcScores;
+    private HashMap<String, Integer> mpcNames;
 
 
     public static void main(String[] args) {
@@ -91,13 +98,17 @@ public class Game {
         if (!animals.remove(player2)){
             animals.remove(0);
         }
-
+        // mpc Racers keeps track of the mpc's speed and the image that it is.
         mpcRacers = new HashMap<JLabel, Integer>();
+        // mpc Scores keeps track of the mpc's score and the image that it is.
         mpcScores = new HashMap<JLabel, Integer>();
+        // mpc Names&Scores keeps track of the players name, and the scores.
+        mpcNames = new HashMap<String, Integer>();
         for (int i = 0; i < animals.size(); i++){
             int speed = 2 + (int)Math.round(Math.random() * 3);
             // I choose 2 as a minimul to reach the score in the time limit of 20 seconds
             // and then at a maximum of 5 to reach score within 8 seconds. 
+            mpcNames.put(animals.get(i), 0);
             ImageIcon icon = new ImageIcon("picture/" + animals.get(i) + ".PNG");
             JLabel otherLabel = new JLabel();
             otherLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
@@ -174,6 +185,7 @@ public class Game {
                 for (JLabel labels: mpcRacers.keySet()){
                     int newScore = mpcRacers.get(labels) + mpcScores.get(labels);
                     mpcScores.replace(labels, newScore);
+                    mpcNames.replace(labels.toString(), newScore);
                     moveIcon(labels, newScore);
                     System.out.println(newScore);
                 }
@@ -235,33 +247,16 @@ public class Game {
         else if (scorePlayer2 >= winScore){
             winnerText = "Player 2 wins!";
         }        
-        mpcScores.put(player1Label, scorePlayer1);
-        mpcScores.put(player2Label, scorePlayer2);
+        mpcNames.put(player1, scorePlayer1);
+        mpcNames.put(player2, scorePlayer2);
+        HashMap<String, Integer> sortedNames = sortByValue(mpcNames);
 
-          // Print the original HashMap
-        System.out.println("Before Sorting:");
-        Iterator<Integer> it = mpcScores.values().iterator();
-        while (it.hasNext()) {
-            int key = it.next();
-            System.out.println("Roll no: " + key + " name: " + mpcScores.get(key));
-        }
-
-        // Sort the HashMap by keys using TreeMap
-        HashMap<Integer, String> sortedMap = new TreeMap<>(mpcScores);
-
-        // Print the sorted HashMap
-        System.out.println("\nAfter Sorting:");
-        Iterator<Integer> itr = sortedMap.keySet().iterator();
-        while (itr.hasNext()) {
-            int key = itr.next();
-            System.out.println("Roll no: " + key + " name: " + mpcScores.get(key));
-        }
         // System.out.println("Unsorted list: " + Scores);
         // Scores.sort(null);
         // System.out.println("Sorted list: " + Scores);
         // String winnersOutput = "Winners: ";
-      
-        JOptionPane.showOptionDialog(gameFrame, winnerText, "Game Over", null, );
+        ImageIcon beersIcon = new ImageIcon("picture/beersClinkin.png");
+        JOptionPane.showOptionDialog(gameFrame, sortedNames, winnerText, JOptionPane.CANCEL_OPTION, counter, beersIcon, null, beersIcon);
         resetGame();
     }
 
@@ -291,5 +286,28 @@ public class Game {
         button.setBackground(backgroundColor);
         button.setOpaque(true);
         button.setBorderPainted(false);
+    }
+
+    // function to sort hashmap based on values
+    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
+        // Creating a list from elements of HashMap
+        List<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
+
+        // Sorting the list using Collections.sort() method
+        // using Comparator
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+        public int compare(Map.Entry<String, Integer> object1, Map.Entry<String, Integer> object2) {
+            return (object1.getValue()).compareTo(object2.getValue());
+            }
+        });
+
+        // putting the data from sorted list back to hashmap
+        HashMap<String, Integer> result = new LinkedHashMap<String, Integer>();
+        for (Map.Entry<String, Integer> me : list) {
+            result.put(me.getKey(), me.getValue());
+        }
+ 
+        // returning the sorted HashMap
+        return result;
     }
 }
