@@ -15,9 +15,11 @@ public class WheelManager extends JFrame {
     protected Wheel wheel;
     private JFrame wheelFrame;
     private Timer timer;
+    Language myLanguage;
     //private SpinningWheelPanel wheelPanel;
 
-    public WheelManager() {
+    public WheelManager(Language myLanguage) {
+        this.myLanguage = myLanguage;
         // Window setup
         wheelFrame = new JFrame();
         wheelFrame.setTitle("Find Your Zodiac!");
@@ -34,7 +36,8 @@ public class WheelManager extends JFrame {
         wheelFrame.add(mainPanel);
 
         // Setting Title.
-        JLabel title = new JLabel("Find Your Zodiac!");
+        String titletext = myLanguage.gettitleChineseAnimal();
+        JLabel title = new JLabel(titletext);
         title.setFont(new Font("Serif", Font.BOLD, 36));
         title.setForeground(redColor);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -46,7 +49,8 @@ public class WheelManager extends JFrame {
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new FlowLayout());
         inputPanel.setBackground(backgroundColor);
-        JLabel labelYear = new JLabel("Enter the Year You Were Born:");
+        String enterYeartext = myLanguage.getenterYearWheelManager();
+        JLabel labelYear = new JLabel(enterYeartext);
         labelYear.setForeground(redColor);
         labelYear.setFont(new Font("Arial", Font.BOLD, 16));
         enterYear = new JTextField(10);
@@ -57,7 +61,8 @@ public class WheelManager extends JFrame {
         mainPanel.add(Box.createVerticalStrut(20));
 
         // Button
-        getZodiacButton = new JButton("Get Zodiac");
+        String zodiacButtontext = myLanguage.getzodiacButtonWheelManager();
+        getZodiacButton = new JButton(zodiacButtontext);
         styleButton(getZodiacButton, redColor);
         getZodiacButton.addActionListener(new ZodiacActionListener());
         inputPanel.add(getZodiacButton);
@@ -85,8 +90,9 @@ public class WheelManager extends JFrame {
                 timer = new Timer(6700, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        String zodiac = getZodiacFromAngle(finalAngle);
-                        JOptionPane.showMessageDialog(wheelFrame, "Your Chinese zoidac is " + zodiac + "!");
+                        String zodiac = getZodiacFromAngle(finalAngle, myLanguage);
+                        String resulttext = myLanguage.getresultWheelManager();
+                        JOptionPane.showMessageDialog(wheelFrame, resulttext + zodiac + "!");
                         navigateToZodiacPage(zodiac.toLowerCase());
                         timer.stop();
                         }
@@ -97,17 +103,18 @@ public class WheelManager extends JFrame {
                 timer.start();
 
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(wheelFrame, "Invalid input. Please enter a valid year.", "Error",
+                String invalidtext = myLanguage.getinvalidWheelManager();
+                String errortext = myLanguage.geterrorWheelManager();
+                JOptionPane.showMessageDialog(wheelFrame, invalidtext, errortext,
                         JOptionPane.ERROR_MESSAGE);
                 System.out.println(ex);
             }
         }
     }
 
-    protected static String getZodiacFromAngle(double finalAngle) {
+    protected static String getZodiacFromAngle(double finalAngle, Language myLanguage) {
         int zodiacIndex = (int) Math.round((Math.toDegrees(finalAngle) - 30)  / 30) % 12;
-        String[] zodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster",
-                "Dog", "Pig" };
+        String[] zodiacs = myLanguage.getanimalListWheelManager();
         return zodiacs[zodiacIndex];
     }
 

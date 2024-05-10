@@ -97,7 +97,7 @@ public class ChineseAnimal extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Find Your Zodiac button clicked");
-                        new WheelManager();
+                        new WheelManager(myLanguage);
                         frame.dispose();
                     }
                 });

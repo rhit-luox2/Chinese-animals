@@ -81,6 +81,13 @@ public class German implements Language{
     "Tiger und Hund: Ihr seid beide charmant, sanft und freundlich. Sie beide respektieren die Meinungen anderer und haben keine Angst davor, einen Schritt zurückzutreten. Tiger sind sehr kontaktfreudig und kommunikationsstark, was bei Hunden, die gutherzig und rücksichtsvoll sind, gut funktioniert. \nTiger und Schwein: Sie sind beide sehr ermutigend und äußerst loyal und hingebungsvoll. Auch wenn Sie vielleicht unterschiedlich sind, bewundern Sie beide die Qualitäten Ihres Partners. \nTiger & Pferd: Ihr seid beide aufgeschlossen, kommunikationsstark und ausgelassen. Tiger sind rücksichtsvoll und charmant, und Pferde gleichen das gut aus, weil sie tugendhaft und freundlich sind.", 
     "Berühmte Persönlichkeiten dieses Sternzeichens: Rainer Maria Rilke, Marilyn Monroe, Leonardo DiCaprio, Tom Cruise, Steven Irwin, Königin Elizabeth II., Robert Pattinson und Usain Bolt."};
 
+
+    String enterYearWheelManager = "Geben Sie Ihr Geburtsjahr ein:";
+    String zodiacButtonWheelManager = "Holen Sie sich Zodiac";
+    String resultWheelManager = "Dein Sternzeichen ist der ";
+    String[] animalListWheelManager = {"Ratte", "Ochse", "Tiger", "Kaninchen", "Drache", "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"};
+    String invalidWheelManager = "Ungültige Eingabe. Bitte ein gültiges Jahr eingeben.";
+    String errorWheelManager = "Fehler";
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -95,7 +102,7 @@ public class German implements Language{
         return descriptionChineseAnimal;
     }
 
-    //on all pages
+    //use again
     @Override
     public String getreadABoutZodiacs() {
         return readAboutZodiacs;
@@ -161,5 +168,30 @@ public class German implements Language{
     @Override
     public String[] gettigerInfo() {
         return tigerInfo;
+    }
+
+    @Override
+    public String getenterYearWheelManager() {
+        return enterYearWheelManager;
+    }
+    @Override
+    public String getzodiacButtonWheelManager() {
+        return zodiacButtonWheelManager;
+    }
+    @Override
+    public String getresultWheelManager() {
+        return resultWheelManager;
+    }
+    @Override
+    public String[] getanimalListWheelManager() {
+        return animalListWheelManager;
+    }
+    @Override
+    public String getinvalidWheelManager() {
+        return invalidWheelManager;
+    }
+    @Override
+    public String geterrorWheelManager() {
+        return errorWheelManager;
     }
 }

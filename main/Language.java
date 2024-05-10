@@ -23,4 +23,12 @@ public interface Language {
     public String[] getroosterInfo();
     public String[] getsnakeInfo();
     public String[] gettigerInfo();
+
+    //Wheel Manager text
+    public String getenterYearWheelManager();
+    public String getzodiacButtonWheelManager();
+    public String getresultWheelManager();
+    public String[] getanimalListWheelManager();
+    public String getinvalidWheelManager();
+    public String geterrorWheelManager();
 }

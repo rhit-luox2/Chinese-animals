@@ -218,21 +218,7 @@ public abstract class AnimalMain {
         });
         panel.add(findYourZod);
         panel.add(Box.createVerticalStrut(10));
-
-        // JButton gameButton = createStyledButton(" Click here to race your friends in the Great Race ", backgroundColor,
-        //         hoverColor, borderColor);
-        // gameButton.addActionListener(new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         System.out.println("Game button clicked");
-        //         Game game = new Game();
-        //         game.main(null);
-        //         frame.dispose();
-        //     }
-        // });
-        // panel.add(gameButton);
-        // panel.add(Box.createVerticalStrut(10));
-
+        
         panel.revalidate();
         panel.repaint();
     }
