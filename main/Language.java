@@ -45,4 +45,6 @@ public interface Language {
     public String getcomputerWinsGame();
     public String getplayer1WinsGame();
     public String getplayer2WinsGame();
+    public String getplayer1ChooseGame();
+    public String getplayer2ChooseGame();
 }

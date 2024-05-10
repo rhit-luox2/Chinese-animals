@@ -49,7 +49,7 @@ public class Game1{
     }
 
     private void launchGame1() {
-        Game1Frame = new JFrame("Zodiac Race Game");
+        Game1Frame = new JFrame();
         Game1Frame.setSize(700, 900);
         Game1Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Game1Frame.setLocationRelativeTo(null);
@@ -93,13 +93,16 @@ public class Game1{
     }
     // Liz Purintun 
     private void selectZodiacForPlayers() {
+        
         ArrayList<String> animals = new ArrayList<String>(Arrays.asList( "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse", "Snake", "Goat", "Monkey", "Rooster",
                 "Dog", "Pig" ));
 
         players = new ArrayList<Player>();
 
-        HashMap<ImageIcon, String> player1Pair = selectZodiac("Player 1, choose your zodiac", animals);
-        HashMap<ImageIcon, String> player2Pair = selectZodiac("Player 2, choose your zodiac", animals);
+        String player1ChooseGametext = myLanguage.getplayer1ChooseGame();
+        String player2ChooseGametext = myLanguage.getplayer2ChooseGame();
+        HashMap<ImageIcon, String> player1Pair = selectZodiac(player1ChooseGametext, animals);
+        HashMap<ImageIcon, String> player2Pair = selectZodiac(player2ChooseGametext, animals);
         player1Icon = (ImageIcon)(player1Pair.keySet().toArray()[0]);
         player1Label.setIcon(new ImageIcon(player1Icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         player2Icon = (ImageIcon)(player2Pair.keySet().toArray()[0]);

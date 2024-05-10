@@ -66,6 +66,8 @@ public class English implements Language{
     String computerWinsGame = "Winners: ";
     String player1WinsGame = "Player 1 wins!";
     String player2WinsGame = "Player 2 wins!";
+    String player1ChooseGame = "Player 1, please choose your zodiac";
+    String player2ChooseGame = "Player 2, please choose your zodiac";
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -203,5 +205,13 @@ public class English implements Language{
     @Override
     public String getplayer2WinsGame() {
         return player2WinsGame;
+    }
+    @Override
+    public String getplayer1ChooseGame() {
+        return player1ChooseGame;
+    }
+    @Override
+    public String getplayer2ChooseGame() {
+        return player2ChooseGame;
     }
 }
