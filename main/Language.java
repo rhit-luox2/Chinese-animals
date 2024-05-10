@@ -1,7 +1,5 @@
 package main;
 
-import java.lang.reflect.Array;
-
 public interface Language {
 
     public String gettitleChineseAnimal();
