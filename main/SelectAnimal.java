@@ -60,12 +60,11 @@ public class SelectAnimal extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Start of action listener");
-                System.out.println(myLanguage);
                 if(animalName == "Rat"){
                     new Rat(myLanguage);
                 }else if(animalName == "Ox"){
-                    new Ox(myLanguage);
+                    String[] oxInfoArray = myLanguage.getoxInfo();
+                    new Ox(myLanguage, oxInfoArray);
                 }else if(animalName == "Tiger"){
                     new Tiger(myLanguage);
                 }else if(animalName == "Rabbit"){

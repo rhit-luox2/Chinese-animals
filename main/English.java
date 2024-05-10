@@ -25,7 +25,8 @@ public class English implements Language{
     "The two have been incompatible ever since. During the race, the monkey won ninth place.", "Years: 1956, 1968, 1980, 1992, 2004, 2016, 2028, 2040", "What does this zodiac say about you? People who are born in the year of the monkey tend " + 
     "to be sociable, forward-thinking, and inventive. Monkey personalities are creative and unpredictable. " + 
     "They are naturally sharp-minded and fun to be around. A weakness of the rats is that they lack patience with anything that requires effort.", "What does your zodiac say about your success? Monkeys are able to find success in the fields of sports and entertainment and any career that is tasked with solving complicated problems such as a detective or lawyer.", "Your compatibility with the other animals:", "Monkey & rat: You are both understanding and care to support each other. This level of support is the solution when conflict arises. \nMonkey & dog: Both of you treat each other with respect and know each other’s needs. This couple is mature and can handle conflicts well. \nMonkey & dragon: Both of you understand the importance of cherishing and bonding with each other. You know how to work with each other so that you can learn and help each other because are both ambitious and positive.", "Famous people who is this zodiac: Franz Kafka, Oskar Schindler, Christina Aguilera, Celine Dion, Will Smith, Jennifer Aniston, and Tom Hanks"};
-
+    String[] oxInfo = {"Scientific name: Bos taurus", "Lifespan: about 15 years", "Habitat: North America, Europe, Asia, and Africa; no wild oxen in South America and Australia", "One interesting thing about oxen is: Oxen have been domesticated for over 6,000 years, used for agricultural purposes.", "How many oxen are there in the world? About 300 to 400 million", "The story of the ox: Ox ranks the second among the Chinese zodiacs because it helped the Rat but was later tricked by it. The myth goes that the Jade Emperor declared the order of zodiac signs would be based on the arrival orders of 12 animals. Ox could have arrived first but kindly gave a ride to Rat. However, when arriving, Rat just jumped to the terminus ahead of Ox, and thus Ox lost the first place.", "Years: 1913, 1925, 1937, 1949, 1961, 1973, 1985, 1997, 2009, 2021, 2033", "What does this say about you? Oxen are faithful, obliging, persistent, and sympathetic", "What does it say about your success? Oxen are typical realists, upright and simple, suited for roles like lawyers, consultants, doctors, and technicians.", "Your compatibility with the other animals:", "Ox & rat: Both of you are willing to share family responsibilities. You know how to work with your complementary characters to help each other work work and home lives. \nOx & snake: Their compatibility is considered to be excellent because they have similar preferences. This allows them to collaborate and understand each other well. The spontaneity of the snake is able to inspire the rational and meticulous ox. \nOx & rooster: Both animals like to think about long-term goals. They also have materialistic goals that they like to work towards because they are both hard-working zodiac animals.", "Famous people of this zodiac: Lothar Mattaus, Walt Disney, Margaret Thatcher, Diana Spencer, Barack Obama, and Bruno Mars"};
+    
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -77,5 +78,9 @@ public class English implements Language{
     @Override
     public String[] getmonkeyInfo() {
         return monkeyInfo;
+    }
+    @Override
+    public String[] getoxInfo() {
+        return oxInfo;
     }
 }
