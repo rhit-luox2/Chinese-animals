@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 // Main Writers: Xiaoxi
 // Editor: Liz Purintun
+// Seperated the classes
 public class WheelManager extends JFrame {
 
     private JTextField enterYear;
