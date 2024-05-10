@@ -14,6 +14,7 @@ public class ChineseAnimal extends JFrame {
         new ChineseAnimal(myLanguage);
         // GermanFlag pictureFrame = new GermanFlag();
         // pictureFrame.setVisible(true);
+        
     }
 
     public ChineseAnimal(Language myLanguage) {
