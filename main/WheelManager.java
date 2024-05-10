@@ -21,13 +21,8 @@ public class WheelManager extends JFrame {
     protected Wheel wheel;
     private JFrame wheelFrame;
     private Timer timer;
-<<<<<<< HEAD
     private static Language myLanguage;
     //private SpinningWheelPanel wheelPanel;
-=======
-    Language myLanguage;
-    // private SpinningWheelPanel wheelPanel;
->>>>>>> 4a1941a80bb4f1b9ddc400739ec3f0a4c6dc2bc4
 
     public WheelManager(Language myLanguage) {
         WheelManager.myLanguage = myLanguage;
@@ -166,11 +161,7 @@ public class WheelManager extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-<<<<<<< HEAD
                 new WheelManager(myLanguage);
-=======
-                new WheelManager(null);
->>>>>>> 4a1941a80bb4f1b9ddc400739ec3f0a4c6dc2bc4
             }
         });
     }
