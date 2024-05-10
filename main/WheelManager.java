@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class WheelManager extends JFrame {
 
     private JTextField enterYear;
@@ -16,7 +15,7 @@ public class WheelManager extends JFrame {
     private JFrame wheelFrame;
     private Timer timer;
     Language myLanguage;
-    //private SpinningWheelPanel wheelPanel;
+    // private SpinningWheelPanel wheelPanel;
 
     public WheelManager(Language myLanguage) {
         this.myLanguage = myLanguage;
@@ -79,7 +78,6 @@ public class WheelManager extends JFrame {
 
     }
 
-
     private class ZodiacActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -95,10 +93,9 @@ public class WheelManager extends JFrame {
                         JOptionPane.showMessageDialog(wheelFrame, resulttext + zodiac + "!");
                         navigateToZodiacPage(zodiac.toLowerCase());
                         timer.stop();
-                        }
-                    
+                    }
+
                 });
-                
 
                 timer.start();
 
@@ -113,7 +110,7 @@ public class WheelManager extends JFrame {
     }
 
     protected static String getZodiacFromAngle(double finalAngle, Language myLanguage) {
-        int zodiacIndex = (int) Math.round((Math.toDegrees(finalAngle) - 30)  / 30) % 12;
+        int zodiacIndex = (int) Math.round((Math.toDegrees(finalAngle) - 30) / 30) % 12;
         String[] zodiacs = myLanguage.getanimalListWheelManager();
         return zodiacs[zodiacIndex];
     }
@@ -133,7 +130,7 @@ public class WheelManager extends JFrame {
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(this, "Zodiac class not found: " + ex.getMessage(),
                     "Class Not Found", JOptionPane.ERROR_MESSAGE);
-                    System.out.println(ex);
+            System.out.println(ex);
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -154,11 +151,10 @@ public class WheelManager extends JFrame {
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new WheelManager();
+                new WheelManager(null);
             }
         });
     }
