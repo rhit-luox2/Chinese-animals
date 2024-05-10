@@ -317,7 +317,7 @@ public class Game {
         }
         startButton.setEnabled(true);
         gameFrame.removeKeyListener(gameFrame.getKeyListeners()[0]);
-    }
+    }//
 
     private void styleLabel(JLabel label) {
         label.setFont(new Font("Arial", Font.BOLD, 18));
