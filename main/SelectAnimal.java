@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 public class SelectAnimal extends JFrame {
 
     static JFrame frame;
-    // static Language myLanguage;
 
     public SelectAnimal(Language myLanguage) {
         System.out.println("Start of Select Animal");
@@ -35,7 +34,6 @@ public class SelectAnimal extends JFrame {
         String[] animals = {"Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse",
                 "Snake", "Goat", "Monkey", "Rooster", "Dog", "Pig" };
         for (String animalName : animals) {
-            // System.out.println("hello" + myLanguage);
             JButton animalButton = createAnimalButton(animalName, myLanguage);
             panel.add(animalButton);
         }
@@ -53,8 +51,6 @@ public class SelectAnimal extends JFrame {
         ImageIcon originalIcon = new ImageIcon("picture/" + animalName + ".PNG");
         Image scaledImage = originalIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(scaledImage);
-        System.out.println("Start of create Animal");
-        System.out.println(myLanguage);
         JButton animalButton = new JButton(icon);
         animalButton.addActionListener(new ActionListener() {
 
