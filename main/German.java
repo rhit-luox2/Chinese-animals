@@ -1,4 +1,8 @@
+//Kaila James
 package main;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class German implements Language{
 
@@ -97,6 +101,10 @@ public class German implements Language{
     String computerWinsGame = "Gewinner: ";
     String player1WinsGame = "Spieler 1 gewinnt!";
     String player2WinsGame = "Spieler 2 gewinnt!";
+    String player1ChooseGame = "Spieler 1, bitte wähle deinen Sternzeichen";
+    String player2ChooseGame = "Spieler 2, bitte wähle deinen Sternzeichen";
+    ArrayList<String> animalListGame = new ArrayList<>(Arrays.asList("Ratte", "Ochse", "Tiger", "Kaninchen", "Drache", "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"));
+
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -232,5 +240,17 @@ public class German implements Language{
     @Override
     public String getplayer2WinsGame() {
         return player2WinsGame;
+    }
+    @Override
+    public String getplayer1ChooseGame() {
+        return player1ChooseGame;
+    }
+    @Override
+    public String getplayer2ChooseGame() {
+        return player2ChooseGame;
+    }
+    @Override
+    public ArrayList<String> getanimalListGame() {
+        return animalListGame;
     }
 }
