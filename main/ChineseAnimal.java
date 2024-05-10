@@ -14,7 +14,7 @@ public class ChineseAnimal extends JFrame {
         new ChineseAnimal(myLanguage);
         // GermanFlag pictureFrame = new GermanFlag();
         // pictureFrame.setVisible(true);
-        
+
     }
 
     public ChineseAnimal(Language myLanguage) {
@@ -109,8 +109,10 @@ public class ChineseAnimal extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Game button clicked");
-                        Game Game = new Game();
-                        Game.main(null);
+                        System.out.println("Start of GameButton");
+                        System.out.println(myLanguage);
+                        Game1 hello = new Game1(myLanguage);
+                        Game1.main(myLanguage);
                         frame.dispose();
                     }
                 });
