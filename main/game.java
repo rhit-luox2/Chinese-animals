@@ -22,6 +22,8 @@ public class Game {
 
     private JFrame gameFrame;
     protected JPanel trackPanel;
+    private JPanel gamePanel;
+    private JLabel bgLabel;
     private JLabel player1Label, player2Label;
     private String player1, player2;
 
@@ -56,12 +58,12 @@ public class Game {
     }
 
     private JPanel setupGamePanel() {
-        JPanel gamePanel = new JPanel(new BorderLayout());
+        gamePanel = new JPanel(new BorderLayout());
         gamePanel.setBackground(new Color(233, 197, 105));
         trackPanel = new JPanel(null);
         trackPanel.setPreferredSize(new Dimension(700, 800));
         ImageIcon icon = new ImageIcon("picture/squaredDog.jpg");
-        JLabel bgLabel = new JLabel();
+        bgLabel = new JLabel();
         bgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(700, 800, Image.SCALE_SMOOTH)));
         bgLabel.setBounds(0, 0, 700, 800);
         gamePanel.add(bgLabel);
@@ -102,12 +104,12 @@ public class Game {
         player2 = (String)(player2Pair.values().toArray()[0]);
 
 
-        players.add(new Player(player1, scorePlayer1, 0, player1Label));
-        players.add(new Player(player2, scorePlayer2, 0, player2Label));
-        animals.remove(player1);
-        animals.remove(player2);
+        players.add(new Player("Player 1", scorePlayer1, 0, player1Label));
+        players.add(new Player("Player 2", scorePlayer2, 0, player2Label));
 
-        if (animals.remove(player2)){
+        animals.remove(player1);
+        
+        if (!animals.remove(player2)){
             animals.remove(0);
         }
         
@@ -172,16 +174,18 @@ public class Game {
                     scorePlayer1++;
                     moveIcon(player1Label, scorePlayer1);
                     for (Player myPlayer : players){
-                        if (myPlayer.getName() == player1){
-                            myPlayer.setScore(scorePlayer1);
+                        if (myPlayer.getName() == "Player 1"){
+                            myPlayer.setScore(myPlayer.getScore() + 1);
+                            break;
                         }
                     }
                 } else if (e.getKeyChar() == '0') {
                     scorePlayer2++;
                     moveIcon(player2Label, scorePlayer2);
                     for (Player myPlayer : players){
-                        if (myPlayer.getName() == player2){
-                            myPlayer.setScore(scorePlayer2);
+                        if (myPlayer.getName() == "Player 2"){
+                            myPlayer.setScore(myPlayer.getScore() + 1);
+                            break;
                         }
                     }
                 }
@@ -219,8 +223,11 @@ public class Game {
     }
 
     private void moveIcon(JLabel label, int score) {
+        bgLabel.setBounds(0, 0, 700, 800);
+        trackPanel.add(bgLabel);
         int position = (int) ((trackPanel.getHeight() - 50) * ((double) score / winScore));
         label.setLocation(label.getX(), trackPanel.getHeight() - position - label.getHeight());
+        
     }
 
     private void setupTrack() {
@@ -235,6 +242,7 @@ public class Game {
             trackPanel.add(labelToAdd);
             labelToAdd.setLocation(xpos, trackPanel.getHeight() - 50);
             xpos += 55;
+            moveIcon(labelToAdd, 0);
         }
         trackPanel.revalidate();
         trackPanel.repaint();
@@ -271,7 +279,15 @@ public class Game {
         String winnerOutput = "Winners: ";
         int i = 0;
 
-        
+        Comparator<Player> sortMostPoints = new Comparator<Player>() {
+            @Override
+            public int compare(Player s1, Player s2) {
+            int first = s1.getScore();
+            int second = s2.getScore();
+            return second - first;
+            }
+        };
+        players.sort(sortMostPoints);
         for (Player myPlayer : players) {
             winnerOutput += "\n" + (i +1) + ": " + myPlayer.getName() + " :" + myPlayer.getScore();
             i++;
@@ -291,15 +307,14 @@ public class Game {
         // player2Label.setLocation(75, trackPanel.getHeight() - 50);
         int xpos = 20;
         for (Player myPlayer : players){
+            myPlayer.setScore(0);
             JLabel labelToAdd = myPlayer.getLabel();
             trackPanel.add(labelToAdd);
             labelToAdd.setLocation(xpos, trackPanel.getHeight() - 50);
             xpos += 55;
+            moveIcon(labelToAdd, 0);
             
         }
-        scorePlayer1 = 0;
-        scorePlayer2 = 0;
-
         startButton.setEnabled(true);
         gameFrame.removeKeyListener(gameFrame.getKeyListeners()[0]);
     }
@@ -315,4 +330,5 @@ public class Game {
         button.setOpaque(true);
         button.setBorderPainted(false);
     }
+   
 }
