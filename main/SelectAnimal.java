@@ -94,7 +94,6 @@ public class SelectAnimal extends JFrame {
                     String[] pigInfoArray = myLanguage.getpigInfo();
                     new Pig(myLanguage, pigInfoArray);
                 }
-                frame.dispose();
                 
             }
         });
