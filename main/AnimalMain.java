@@ -39,7 +39,7 @@ public abstract class AnimalMain {
     JScrollPane jsp;
     JPanel scrollBarPanel;
 
-    Language myLanguage;
+    static Language myLanguage;
 
     public AnimalMain(String a, String b, String c, String d, String e, String f,
             String g, String h, String i, String j, String k, String l, String m,
@@ -66,7 +66,9 @@ public abstract class AnimalMain {
         this.frame = new JFrame();
         this.scrollBarPanel = new JPanel();
 
-        this.myLanguage = myLanguage;
+        System.out.println("Start of animal main");
+        System.out.println(myLanguage);
+        AnimalMain.myLanguage = myLanguage;
     }
 
     public void create(JFrame frame, JPanel panel, Language myLanguage) {
