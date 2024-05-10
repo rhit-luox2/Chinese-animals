@@ -66,8 +66,6 @@ public abstract class AnimalMain {
         this.frame = new JFrame();
         this.scrollBarPanel = new JPanel();
 
-        System.out.println("Start of animal main");
-        System.out.println(myLanguage);
         AnimalMain.myLanguage = myLanguage;
     }
 
