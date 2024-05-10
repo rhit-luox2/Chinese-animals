@@ -78,7 +78,8 @@ public class SelectAnimal extends JFrame {
                 }else if(animalName == "Snake"){
                     new Snake(myLanguage);
                 }else if(animalName == "Goat"){
-                    new Goat(myLanguage);
+                    String[] goatInfoArray = myLanguage.getgoatInfo();
+                    new Goat(myLanguage, goatInfoArray);
                 }else if(animalName == "Monkey"){
                     new Monkey(myLanguage);
                 }else if(animalName ==  "Rooster"){

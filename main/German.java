@@ -24,7 +24,18 @@ public class German implements Language{
     String[] dragonInfo = {"Wissenschaftlicher Name: N/A", "Lebensdauer: N/A", "Lebensraum: N/A", "Eine interessante Tatsache über Drachen: In China symbolisieren Drachen Reichtum, Macht und Führung, da angenommen wurde, dass chinesische Kaiser Nachkommen von Drachen seien.", "Wie viele Drachen gibt es auf der Welt? N / A", "Die Geschichte des Drachen: Der Drache war das fünfte Tierkreiszeichen. Obwohl es schneller hätte gehen sollen, hatte der Drache bei einem Dorf angehalten, um für Regen zu sorgen, und half dem Kaninchen, indem er ihn ans Ufer blies.", 
 "Jahre: 1904, 1916, 1928, 1940, 1952, 1964, 1976, 1988, 2000, 2012, 2024", "Was sagt dieses Sternzeichen über Sie aus? Drachen gelten als mächtig, gutherzig, wohlhabend, mutig, führend und innovativ. Sie können auch prüfend, egoistisch, leicht verärgert und übermütig sein.", "Was sagt Ihr Sternzeichen über Ihren Erfolg aus? Drachen können fast jeden Job mit hoher Kompetenz und Effizienz erledigen. Sie können im wissenschaftlichen oder künstlerischen Bereich erfolgreich sein. Für Drachen werden Jobs im Gesundheitswesen, Unternehmer, Lehrer, Psychologen und Schriftsteller empfohlen",
 "Ihre Verträglichkeit mit anderen Tieren:", "Drache und Ratte: Wertschätzen die Eigenschaften des anderen trotz der Unterschiede. \nDrache und Affe: Sie holen das Beste aus einander heraus und bringen Leidenschaft und Humor in Einklang. \nDrache und Hahn: Zielstrebig und geradlinig wissen beide, was sie wollen.", "Berühmte Personen: Ruth Westheimer, John Lennon, Bruce Lee, Rihanna, Martin Luther King Jr., Wladimir Putin, Shakira, Jeb Bush, Christian Dior, Robert Oppenheimer, Shirley Temple, Adele, Dr. Seuss, Sandra Bullock, and Alexei Nikolaevich"};
-
+    String[] goatInfo = {"Wissenschaftlicher Name: Capra hircus", 
+    "Lebensdauer: bis zu 18 Jahre", 
+    "Lebensraum: Ziegen werden seit vielen Jahren domestiziert und von Menschen typischerweise für Handarbeit, Milch und Fell verwendet. Sie sind ausgezeichnete Kletterer und können praktisch in jedem Klima außer extremen Temperaturen überleben, bevorzugen aber Grasflächen und ziehen in Herden. Sie kommen typischerweise in Asien, Nordamerika und Teilen Europas vor.", 
+    "Eine interessante Tatsache über die Ziege: Es gab eine Studie der Queen Mary University in London, in der sie herausfanden, dass Ziegen Menschen um Hilfe bitten, wenn sie eine Aufgabe nicht erledigen können. Sie gaben Ziegen eine Schachtel mit einem Leckerli darin und als die Ziege die Schachtel nicht öffnen konnte, brachten sie sie zu den Forschern, damit diese den Deckel öffneten.",
+    "Wie viele Ziegen gibt es auf der Welt? rund eine Milliarde Ziegen", 
+    "Die Geschichte der Ziege: Die Ziege belegte im Tierkreisrennen den 8. Platz. Der Hahn, der Affe und die Ziege hatten den Plan, ein Floß zu ziehen, um über den Fluss zu gelangen.", 
+"Jahre: 1907, 1919, 1931, 1943, 1955, 1967, 1979, 1991, 2003, 2015, 2027", 
+"Was sagt dieses Sternzeichen über Sie aus? Ziegen sind typischerweise höflich, schüchtern, sanftmütig und visionär. Allerdings können Ziegen pessimistisch und unrealistisch sein und sich stur verhalten. Sie neigen dazu, eine hohe Ausdauer zu haben und werden von den Menschen um sie herum sehr motiviert. Sie sind ideale Innovatoren, kreativ und mitfühlend.", 
+"Was sagt Ihr Tier zu Ihrem Erfolg? Obwohl Ziegen als schüchtern und weiblicher gelten. Sie sind sehr charmant, anmutig und talentiert in Kunst und Musik. Geeignete Berufe wären Medizin, Philanthropologie, Künstler, Schriftsteller, Tänzer, Philosophen, Lehrer, Krankenschwestern, Servicekräfte und Verkäufer.", 
+"Ihre Kompatibilität mit den anderen Tieren:", 
+"Ziege und Kaninchen: Beide gehen sehr aufmerksam auf die Wünsche des anderen ein. Schafe sind sehr romantisch, Kaninchen sind sehr nachdenklich und neigen dazu, einander gut zu ergänzen. Kaninchen neigen dazu, vorauszuschauen und zu planen, während Schafe große Angst vor dem haben, was kommen könnte. Ziegen sind sehr bereit, ihre vielen Träume zu verwirklichen, und Kaninchen sind vorsichtiger und kalkulierter. Beide erkennen die Fehler des anderen und finden Wege, trotzdem miteinander auszukommen. \nZiege und Schwein: Die Ziege und das Schwein haben eine sehr ausgeglichene, lustige und liebevolle Beziehung. Obwohl die Ziege impulsiv ist, gibt das Schwein der Ziege Halt. Das Schwein ist in der Regel der Organisator der Beziehung, während die Ziege mit ihrer Kreativität und Bereicherung beiträgt. Sie mögen zwischen Struktur und Freiheit streiten, neigen aber dazu, gemeinsame Werte zu teilen, die ihre Beziehung festigen. \nZiege und Pferd: Ziegen sind sentimental und freundlich; Sie neigen auch dazu, eifersüchtig zu sein. Pferde sind jedoch sehr ruhig und können das Interesse der Ziege wecken. Als Freunde passen sie am besten zusammen, was ihre Beziehung als Paar stärkt. Das Einzige, was empfohlen wird, ist, dass sie in ihrer Beziehung unabhängig sein und aufgeschlossen sein müssen.", 
+"Berühmte Persönlichkeiten dieses Sternzeichens: Claus von Stauffenberg, Steve Jobs, George Harrison, Bruce Willis, Bill Gates, Kurt Cobain, Billie Jean King, Tita Moerno, Mikhail Gorachev, Olivia Rodrigo, Julia Roberts, John Wayne, Mick Jagger und Ed Sheeran"};
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -65,5 +76,9 @@ public class German implements Language{
     @Override
     public String[] getdragonInfo() {
         return dragonInfo;
+    }
+    @Override
+    public String[] getgoatInfo() {
+        return goatInfo;
     }
 }
