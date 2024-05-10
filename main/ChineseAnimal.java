@@ -84,7 +84,6 @@ public class ChineseAnimal extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Learn More button clicked");
-                        // System.out.println("hello" + myLanguage);
                         new SelectAnimal(myLanguage);
                         frame.dispose();
                     }
