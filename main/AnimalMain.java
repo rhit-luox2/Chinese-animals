@@ -255,6 +255,20 @@ public abstract class AnimalMain {
         panel.add(findYourZod);
         panel.add(Box.createVerticalStrut(10));
 
+        // String gameText = myLanguage.runGame();
+        // JButton gameButton = createStyledButton(gameText, backgroundColor,
+        // hoverColor, borderColor);
+        // gameButton.addActionListener(new ActionListener() {
+        // @Override
+        // public void actionPerformed(ActionEvent e) {
+        // System.out.println("Game button clicked");
+        // new Game(myLanguage);
+        // frame.dispose();
+        // }
+        // });
+        // panel.add(gameButton);
+        // panel.add(Box.createVerticalStrut(10));
+
         panel.revalidate();
         panel.repaint();
     }
