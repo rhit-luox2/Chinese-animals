@@ -17,7 +17,8 @@ public class SelectAnimal extends JFrame {
         frame.setSize(600, 900);
         frame.setLayout(new BorderLayout());
 
-        JLabel title = new JLabel("Please select an animal that you would like to know about");
+        String titleSelectAnimaltext = myLanguage.gettitleSelectanimal();
+        JLabel title = new JLabel(titleSelectAnimaltext);
         title.setFont(new Font("Arial", Font.BOLD, 18));
         title.setHorizontalAlignment(JLabel.CENTER);
         title.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));

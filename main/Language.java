@@ -2,15 +2,18 @@ package main;
 
 public interface Language {
 
+    //ChineseAnimal
     public String gettitleChineseAnimal();
     public String getdisclaimerChineseAnimal();
     public String getdescriptionChineseAnimal();
 
+    //will use again
     public String getreadABoutZodiacs();
     public String getfindYourZodiac();
     public String gettoGoToGame();
     public String getgoBack();
-
+    
+    //animals' info
     public String[] getdogInfo();
     public String[] getdragonInfo();
     public String[] getgoatInfo();
@@ -31,4 +34,7 @@ public interface Language {
     public String[] getanimalListWheelManager();
     public String getinvalidWheelManager();
     public String geterrorWheelManager();
+
+    //SelectAnimal
+    public String gettitleSelectanimal();
 }

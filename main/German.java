@@ -88,6 +88,8 @@ public class German implements Language{
     String[] animalListWheelManager = {"Ratte", "Ochse", "Tiger", "Kaninchen", "Drache", "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"};
     String invalidWheelManager = "Ungültige Eingabe. Bitte ein gültiges Jahr eingeben.";
     String errorWheelManager = "Fehler";
+
+    String titleSelectAnimal = "Bitte wählen Sie ein Tier aus, über das Sie mehr wissen möchten";
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -193,5 +195,10 @@ public class German implements Language{
     @Override
     public String geterrorWheelManager() {
         return errorWheelManager;
+    }
+
+    @Override
+    public String gettitleSelectanimal() {
+        return titleSelectAnimal;
     }
 }

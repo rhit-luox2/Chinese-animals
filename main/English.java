@@ -57,6 +57,8 @@ public class English implements Language{
     "Dog", "Pig" };
     String invalidWheelManager = "Invalid input. Please enter a valid year.";
     String errorWheelManager = "Error";
+
+    String titleSelectAnimal = "Please select an animal that you would like to learn about";
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -164,5 +166,10 @@ public class English implements Language{
     @Override
     public String geterrorWheelManager() {
         return errorWheelManager;
+    }
+   
+    @Override
+    public String gettitleSelectanimal() {
+        return titleSelectAnimal;
     }
 }
