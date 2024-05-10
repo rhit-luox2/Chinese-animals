@@ -67,7 +67,8 @@ public class SelectAnimal extends JFrame {
                     String[] oxInfoArray = myLanguage.getoxInfo();
                     new Ox(myLanguage, oxInfoArray);
                 }else if(animalName == "Tiger"){
-                    new Tiger(myLanguage);
+                    String[] tigerInfoArray = myLanguage.gettigerInfo();
+                    new Tiger(myLanguage, tigerInfoArray);
                 }else if(animalName == "Rabbit"){
                     String[] rabbitInfoArray = myLanguage.getrabbitInfo();
                     new Rabbit(myLanguage, rabbitInfoArray);
