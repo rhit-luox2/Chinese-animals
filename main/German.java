@@ -23,7 +23,7 @@ public class German implements Language{
 "Ihre Kompatibilität mit den anderen Tieren:", "Hund und Tiger: Hunde vertragen sich am besten mit ihren schlagfertigen Artgenossen, und Hunde bringen einen Mangel an Ego in Beziehungen mit sich, und Tiger müssen sie mit der Energie „um jeden Preis beschützen“. Sehr treue Partner und ein großes Gespür für Freundlichkeit und Recht und Unrecht. \nHund und Kaninchen: Kaninchen haben einen eher verspielten Charme, der den Hund dazu bringen soll, sich mehr zu entspannen. Sie bauen Beziehungen normalerweise auf Ehrlichkeit und Anziehung auf. Kaninchen können unsicher sein, aber die Loyalität des Hundes macht die Beziehung zu einem sicheren Ort. \nHund & Pferd: Beide sehr direkt und offenherzig. Sehr ausgeprägte Kommunikationsfähigkeiten und bringen das Beste voneinander zum Vorschein. Der Hund überzeugt das Pferd davon, dass es eher freiheitsorientiert ist, sich niederzulassen. Während der Hund von der aufgeschlossenen Persönlichkeit des Pferdes inspiriert ist.", "Berühmte Persönlichkeiten dieses Sternzeichens: \"Famous people who is this zodiac: Ursula von der Leyen, Anne Hathaway, Michael Jackson, George W. Bush, Zhou Enlai, Winston Churchill, Donald Trump, Elvis Presley, Kim Jong-un, and Nicki Minaj"};
     String[] dragonInfo = {"Wissenschaftlicher Name: N/A", "Lebensdauer: N/A", "Lebensraum: N/A", "Eine interessante Tatsache über Drachen: In China symbolisieren Drachen Reichtum, Macht und Führung, da angenommen wurde, dass chinesische Kaiser Nachkommen von Drachen seien.", "Wie viele Drachen gibt es auf der Welt? N / A", "Die Geschichte des Drachen: Der Drache war das fünfte Tierkreiszeichen. Obwohl es schneller hätte gehen sollen, hatte der Drache bei einem Dorf angehalten, um für Regen zu sorgen, und half dem Kaninchen, indem er ihn ans Ufer blies.", 
 "Jahre: 1904, 1916, 1928, 1940, 1952, 1964, 1976, 1988, 2000, 2012, 2024", "Was sagt dieses Sternzeichen über Sie aus? Drachen gelten als mächtig, gutherzig, wohlhabend, mutig, führend und innovativ. Sie können auch prüfend, egoistisch, leicht verärgert und übermütig sein.", "Was sagt Ihr Sternzeichen über Ihren Erfolg aus? Drachen können fast jeden Job mit hoher Kompetenz und Effizienz erledigen. Sie können im wissenschaftlichen oder künstlerischen Bereich erfolgreich sein. Für Drachen werden Jobs im Gesundheitswesen, Unternehmer, Lehrer, Psychologen und Schriftsteller empfohlen",
-"Ihre Verträglichkeit mit anderen Tieren:", }
+"Ihre Verträglichkeit mit anderen Tieren:", "Drache und Ratte: Wertschätzen die Eigenschaften des anderen trotz der Unterschiede. \nDrache und Affe: Sie holen das Beste aus einander heraus und bringen Leidenschaft und Humor in Einklang. \nDrache und Hahn: Zielstrebig und geradlinig wissen beide, was sie wollen.", "Berühmte Personen: Ruth Westheimer, John Lennon, Bruce Lee, Rihanna, Martin Luther King Jr., Wladimir Putin, Shakira, Jeb Bush, Christian Dior, Robert Oppenheimer, Shirley Temple, Adele, Dr. Seuss, Sandra Bullock, Alexei Nikolaevich"};
 
     //ChineseAnimal
     @Override
@@ -57,8 +57,13 @@ public class German implements Language{
         return goBack;
     }
 
+    //animals' info
     @Override
     public String[] getdogInfo() {
         return dogInfo;
+    }
+    @Override
+    public String[] getdragonInfo() {
+        return dragonInfo;
     }
 }
