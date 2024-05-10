@@ -104,7 +104,7 @@ public class WheelManager extends JFrame {
         }
     }
 
-    protected String getZodiacFromAngle(double finalAngle) {
+    protected static String getZodiacFromAngle(double finalAngle) {
         int zodiacIndex = (int) Math.round((Math.toDegrees(finalAngle) - 30)  / 30) % 12;
         String[] zodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster",
                 "Dog", "Pig" };
