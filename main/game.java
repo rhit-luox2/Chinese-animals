@@ -18,7 +18,7 @@ import java.util.Map;
 
 
 
-public class Game {
+public class Game{
 
     private JFrame gameFrame;
     protected JPanel trackPanel;
@@ -38,12 +38,16 @@ public class Game {
     private Timer oneSecTimer;
     private int counter;
 
-    private ArrayList<Player> players; 
+    private ArrayList<Player> players;
 
+    Language myLanguage;
 
+    public Game(Language myLanguage){
+        this.myLanguage = myLanguage;
+    }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Game()::launchGame);
+    public static void main(Language myLanguage) {
+        SwingUtilities.invokeLater(new Game(myLanguage)::launchGame);
     }
 
     private void launchGame() {
@@ -71,13 +75,16 @@ public class Game {
         gamePanel.add(trackPanel, BorderLayout.CENTER);
 
         JPanel infoPanel = new JPanel(new GridLayout(1, 3));
-        player1Label = new JLabel("Player 1", JLabel.CENTER);
-        player2Label = new JLabel("Player 2", JLabel.CENTER);
+        String player1Gametext = myLanguage.getplayer1Game();
+        String player2Gametext = myLanguage.getplayer2Game();
+        player1Label = new JLabel(player1Gametext, JLabel.CENTER);
+        player2Label = new JLabel(player2Gametext, JLabel.CENTER);
         styleLabel(player1Label);
         styleLabel(player2Label);
         infoPanel.add(player1Label);
 
-        startButton = new JButton("Start Race");
+        String startRacetext = myLanguage.getstartRaceGame();
+        startButton = new JButton(startRacetext);
         styleButton(startButton, new Color(233, 197, 105));
         startButton.addActionListener(e -> startGame());
         infoPanel.add(startButton);
@@ -103,9 +110,10 @@ public class Game {
         player1 = (String)(player1Pair.values().toArray()[0]);
         player2 = (String)(player2Pair.values().toArray()[0]);
 
-
-        players.add(new Player("Player 1", scorePlayer1, 0, player1Label));
-        players.add(new Player("Player 2", scorePlayer2, 0, player2Label));
+        String player1Gametext = myLanguage.getplayer1Game();
+        String player2Gametext = myLanguage.getplayer2Game();
+        players.add(new Player(player1Gametext, scorePlayer1, 0, player1Label));
+        players.add(new Player(player2Gametext, scorePlayer2, 0, player2Label));
 
         animals.remove(player1);
         
@@ -166,6 +174,8 @@ public class Game {
     }
 
     private void setupKeyListener() {
+        String player1Gametext = myLanguage.getplayer1Game();
+        String player2Gametext = myLanguage.getplayer2Game();
         gameFrame.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 if (!gameStarted)
@@ -174,7 +184,7 @@ public class Game {
                     scorePlayer1++;
                     moveIcon(player1Label, scorePlayer1);
                     for (Player myPlayer : players){
-                        if (myPlayer.getName() == "Player 1"){
+                        if (myPlayer.getName() == player1Gametext){
                             myPlayer.setScore(myPlayer.getScore() + 1);
                             break;
                         }
@@ -183,7 +193,7 @@ public class Game {
                     scorePlayer2++;
                     moveIcon(player2Label, scorePlayer2);
                     for (Player myPlayer : players){
-                        if (myPlayer.getName() == "Player 2"){
+                        if (myPlayer.getName() == player2Gametext){
                             myPlayer.setScore(myPlayer.getScore() + 1);
                             break;
                         }
@@ -268,15 +278,19 @@ public class Game {
 
     private void endGame() {
         gameStarted = false;
-        String winnerText = "Computer Wins";
+        
+        String computerWinstext = myLanguage.getcomputerWinsGame();
+        String player1Winstext = myLanguage.getplayer1WinsGame();
+        String player2Winstext = myLanguage.getplayer2WinsGame();
+        String winnerText = computerWinstext;
         if (scorePlayer1 >= winScore){
-            winnerText = "Player 1 wins!";
+            winnerText = player1Winstext;
         }
         else if (scorePlayer2 >= winScore){
-            winnerText = "Player 2 wins!";
+            winnerText = player2Winstext;
         }        
 
-        String winnerOutput = "Winners: ";
+        String winnerOutput = computerWinstext;
         int i = 0;
 
         Comparator<Player> sortMostPoints = new Comparator<Player>() {

@@ -59,6 +59,13 @@ public class English implements Language{
     String errorWheelManager = "Error";
 
     String titleSelectAnimal = "Please select an animal that you would like to learn about";
+
+    String player1Game = "Player 1";
+    String player2Game = "Player 2";
+    String startRaceGame = "Start Race";
+    String computerWinsGame = "Winners: ";
+    String player1WinsGame = "Player 1 wins!";
+    String player2WinsGame = "Player 2 wins!";
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -171,5 +178,30 @@ public class English implements Language{
     @Override
     public String gettitleSelectanimal() {
         return titleSelectAnimal;
+    }
+
+    @Override
+    public String getplayer1Game() {
+        return player1Game;
+    }
+    @Override
+    public String getplayer2Game() {
+        return player2Game;
+    }
+    @Override
+    public String getstartRaceGame() {
+        return startRaceGame;
+    }
+    @Override
+    public String getcomputerWinsGame() {
+        return computerWinsGame;
+    }
+    @Override
+    public String getplayer1WinsGame() {
+        return player1WinsGame;
+    }
+    @Override
+    public String getplayer2WinsGame() {
+        return player2WinsGame;
     }
 }
