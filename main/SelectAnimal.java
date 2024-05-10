@@ -89,7 +89,8 @@ public class SelectAnimal extends JFrame {
                     String[] dogInfoArray = myLanguage.getdogInfo();
                     new Dog(myLanguage, dogInfoArray);
                 }else{
-                    new Pig(myLanguage);
+                    String[] pigInfoArray = myLanguage.getpigInfo();
+                    new Pig(myLanguage, pigInfoArray);
                 }
                 frame.dispose();
                 
