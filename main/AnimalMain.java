@@ -193,7 +193,8 @@ public abstract class AnimalMain {
         Color hoverColor = new Color(204, 164, 0); // darker gold
         Color borderColor = new Color(0, 0, 0); // Black border
 
-        JButton learnMoreButton = createStyledButton(" Click here to read about the Chinese zodiacs ", backgroundColor,
+        String readAboutChineseZodiacs = myLanguage.getreadABoutZodiacs();
+        JButton learnMoreButton = createStyledButton(readAboutChineseZodiacs, backgroundColor,
                 hoverColor, borderColor);
         learnMoreButton.addActionListener(new ActionListener() {
             @Override
@@ -206,13 +207,14 @@ public abstract class AnimalMain {
         panel.add(learnMoreButton);
         panel.add(Box.createVerticalStrut(10));
 
-        JButton findYourZod = createStyledButton(" Click here to find your zodiac or your friend's zodiac ",
+        String findYourZodiactext = myLanguage.getfindYourZodiac();
+        JButton findYourZod = createStyledButton(findYourZodiactext,
                 backgroundColor, hoverColor, borderColor);
         findYourZod.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Find Your Zodiac button clicked");
-                new WheelManager();
+                new WheelManager(myLanguage);
                 frame.dispose();
             }
         });
