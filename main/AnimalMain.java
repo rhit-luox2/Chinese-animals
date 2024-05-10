@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public abstract class AnimalMain {
 
@@ -69,6 +73,38 @@ public abstract class AnimalMain {
         AnimalMain.myLanguage = myLanguage;
     }
 
+    public void addDownloadButton(JPanel topPanel) {
+        JButton downloadButton = createStyledButton("Download Page", backgroundColor, hoverColor, borderColor);
+
+        downloadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder pageContent = new StringBuilder();
+
+                for (Component component : panel.getComponents()) {
+                    if (component instanceof JTextArea) {
+                        pageContent.append(((JTextArea) component).getText()).append(System.lineSeparator())
+                                .append(System.lineSeparator());
+                    }
+                }
+
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Save Page as Text");
+                int userSelection = fileChooser.showSaveDialog(null);
+
+                if (userSelection == JFileChooser.APPROVE_OPTION) {
+                    File fileToSave = fileChooser.getSelectedFile();
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToSave))) {
+                        writer.write(pageContent.toString());
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null, "Error saving file: " + ex.getMessage(), "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+    }
+
     public void create(JFrame frame, JPanel panel, Language myLanguage) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
@@ -93,6 +129,7 @@ public abstract class AnimalMain {
         });
 
         topPanel.add(goBackButton, BorderLayout.WEST); // left
+        addDownloadButton(topPanel);
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -220,7 +257,7 @@ public abstract class AnimalMain {
         });
         panel.add(findYourZod);
         panel.add(Box.createVerticalStrut(10));
-        
+
         panel.revalidate();
         panel.repaint();
     }
