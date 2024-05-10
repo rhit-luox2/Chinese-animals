@@ -21,4 +21,5 @@ public interface Language {
     public String[] getrabbitInfo();
     public String[] getratInfo();
     public String[] getroosterInfo();
+    public String[] getsnakeInfo();
 }
