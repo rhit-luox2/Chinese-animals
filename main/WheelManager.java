@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Main Writers: Xiaoxi
+// Editor: Liz Purintun
+
 
 public class WheelManager extends JFrame {
 
@@ -15,11 +18,11 @@ public class WheelManager extends JFrame {
     protected Wheel wheel;
     private JFrame wheelFrame;
     private Timer timer;
-    Language myLanguage;
+    private static Language myLanguage;
     //private SpinningWheelPanel wheelPanel;
 
     public WheelManager(Language myLanguage) {
-        this.myLanguage = myLanguage;
+        WheelManager.myLanguage = myLanguage;
         // Window setup
         wheelFrame = new JFrame();
         wheelFrame.setTitle("Find Your Zodiac!");
@@ -121,7 +124,7 @@ public class WheelManager extends JFrame {
     private void navigateToZodiacPage(String zodiac) {
         try {
             // Construct the full class name and attempt to load the class
-            String className = "main." + capitalize(zodiac);
+            String className = "main." + capitalize(zodiac) + ".java";
             Class<?> clazz = Class.forName(className);
 
             // Instantiate the class assuming it is a JFrame
@@ -158,7 +161,7 @@ public class WheelManager extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new WheelManager();
+                new WheelManager(myLanguage);
             }
         });
     }
