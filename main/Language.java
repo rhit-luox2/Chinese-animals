@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+
 public interface Language {
 
     //ChineseAnimal
@@ -47,4 +49,5 @@ public interface Language {
     public String getplayer2WinsGame();
     public String getplayer1ChooseGame();
     public String getplayer2ChooseGame();
+    public ArrayList<String> getanimalListGame();
 }

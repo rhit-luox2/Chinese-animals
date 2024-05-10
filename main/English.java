@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class English implements Language{
     String titleChineseAnimal = "12 Chinese Zodiacs";
     String disclaimerChineseAnimal = "Disclaimer: Goat and Sheep are interchangeable in Chinese astrology";
@@ -68,6 +71,9 @@ public class English implements Language{
     String player2WinsGame = "Player 2 wins!";
     String player1ChooseGame = "Player 1, please choose your zodiac";
     String player2ChooseGame = "Player 2, please choose your zodiac";
+     ArrayList<String> animalListGame = new ArrayList<>(Arrays.asList("Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster",
+     "Dog", "Pig" ));
+
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -213,5 +219,9 @@ public class English implements Language{
     @Override
     public String getplayer2ChooseGame() {
         return player2ChooseGame;
+    }
+    @Override
+    public ArrayList<String> getanimalListGame() {
+        return animalListGame;
     }
 }

@@ -94,8 +94,9 @@ public class Game1{
     // Liz Purintun 
     private void selectZodiacForPlayers() {
         
-        ArrayList<String> animals = new ArrayList<String>(Arrays.asList( "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse", "Snake", "Goat", "Monkey", "Rooster",
-                "Dog", "Pig" ));
+        ArrayList<String> animals = myLanguage.getanimalListGame();
+        // ArrayList<String> animals = new ArrayList<String>(Arrays.asList( "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse", "Snake", "Goat", "Monkey", "Rooster",
+        //         "Dog", "Pig" ));
 
         players = new ArrayList<Player>();
 

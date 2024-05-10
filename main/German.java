@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class German implements Language{
 
     String titleChineseAnimal = "12 chinesische Tierkreiszeichen";
@@ -99,6 +102,7 @@ public class German implements Language{
     String player2WinsGame = "Spieler 2 gewinnt!";
     String player1ChooseGame = "Spieler 1, bitte wähle deinen Sternzeichen";
     String player2ChooseGame = "Spieler 2, bitte wähle deinen Sternzeichen";
+    ArrayList<String> animalListGame = new ArrayList<>(Arrays.asList("Ratte", "Ochse", "Tiger", "Kaninchen", "Drache", "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"));
 
     //ChineseAnimal
     @Override
@@ -243,5 +247,9 @@ public class German implements Language{
     @Override
     public String getplayer2ChooseGame() {
         return player2ChooseGame;
+    }
+    @Override
+    public ArrayList<String> getanimalListGame() {
+        return animalListGame;
     }
 }
