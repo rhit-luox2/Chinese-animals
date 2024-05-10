@@ -61,7 +61,8 @@ public class SelectAnimal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(animalName == "Rat"){
-                    new Rat(myLanguage);
+                    String[] ratInfoArray = myLanguage.getratInfo();
+                    new Rat(myLanguage, ratInfoArray);
                 }else if(animalName == "Ox"){
                     String[] oxInfoArray = myLanguage.getoxInfo();
                     new Ox(myLanguage, oxInfoArray);

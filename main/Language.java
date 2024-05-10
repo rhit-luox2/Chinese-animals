@@ -19,4 +19,5 @@ public interface Language {
     public String[] getoxInfo();
     public String[] getpigInfo();
     public String[] getrabbitInfo();
+    public String[] getratInfo();
 }
