@@ -1,6 +1,6 @@
 //Kaila James
+//Liz Purintun
 package main;
-
 import javax.swing.*;
 
 public class Tiger extends AnimalMain{

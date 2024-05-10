@@ -1,4 +1,4 @@
-//Kaila James
+//Kaila James added lists
 package main;
 
 import javax.swing.*;
@@ -131,8 +131,8 @@ public class Game1{
 
     
         // This has both the German and English names
-        int i = 0;
-        for (String englishAnimal : englishAnimals){
+        
+        for (int i = 0; i < animals.size(); i++){
             int speed = 2 + (int)Math.round(Math.random() * 3);
             // I choose 2 as a minimul to reach the score in the time limit of 20 seconds
             // and then at a maximum of 5 to reach score within 8 seconds. 
@@ -141,9 +141,9 @@ public class Game1{
             otherLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
             Player player = new Player(animals.get(i), 0, speed, otherLabel);
             players.add(player);
-            if(){
+            // if(){
                 
-            }
+            // }
             i++;
         }
       

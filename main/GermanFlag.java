@@ -1,4 +1,5 @@
 //Kaila James
+// Liz Purintun
 package main;
 
 import java.awt.Dimension;
@@ -23,7 +24,7 @@ public class GermanFlag extends JPanel{
         this.framewidth = framewidth;
         this.FlagPanel = new JPanel();
         setSize(framewidth, 100);
-        
+
         JLabel imagLabel = new JLabel(banner);
         // imagLabel.setHorizontalAlignment(SwingConstants.NORTH);
         imagLabel.setBounds(0, 0, 700, 75);
