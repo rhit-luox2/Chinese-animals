@@ -16,6 +16,8 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+
+
 public class Game {
 
     private JFrame gameFrame;
@@ -33,11 +35,9 @@ public class Game {
     private Timer timer = new Timer(2000, null);
     private Timer oneSecTimer;
     private int counter;
-    private int i;
 
-    private HashMap<JLabel, Integer> mpcRacers;
-    private HashMap<JLabel, Integer> mpcScores;
-    private HashMap<String, Integer> mpcNames;
+    private ArrayList<Player> players; 
+
 
 
     public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class Game {
 
     private void launchGame() {
         gameFrame = new JFrame("Zodiac Race Game");
-        gameFrame.setSize(600, 900);
+        gameFrame.setSize(700, 900);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setLocationRelativeTo(null);
         JPanel gamePanel = setupGamePanel();
@@ -59,7 +59,7 @@ public class Game {
         JPanel gamePanel = new JPanel(new BorderLayout());
         gamePanel.setBackground(new Color(233, 197, 105));
         trackPanel = new JPanel(null);
-        trackPanel.setPreferredSize(new Dimension(600, 800));
+        trackPanel.setPreferredSize(new Dimension(700, 800));
         gamePanel.add(trackPanel, BorderLayout.CENTER);
 
         JPanel infoPanel = new JPanel(new GridLayout(1, 3));
@@ -78,10 +78,13 @@ public class Game {
 
         return gamePanel;
     }
-
+    // Liz Purintun 
     private void selectZodiacForPlayers() {
         ArrayList<String> animals = new ArrayList<String>(Arrays.asList( "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse", "Snake", "Goat", "Monkey", "Rooster",
                 "Dog", "Pig" ));
+
+        players = new ArrayList<Player>();
+
         HashMap<ImageIcon, String> player1Pair = selectZodiac("Player 1, choose your zodiac", animals);
         HashMap<ImageIcon, String> player2Pair = selectZodiac("Player 2, choose your zodiac", animals);
         player1Icon = (ImageIcon)(player1Pair.keySet().toArray()[0]);
@@ -91,35 +94,32 @@ public class Game {
 
         player1 = (String)(player1Pair.values().toArray()[0]);
         player2 = (String)(player2Pair.values().toArray()[0]);
+
+
+        players.add(new Player(player1, scorePlayer1, 0, player1Label));
+        players.add(new Player(player2, scorePlayer2, 0, player2Label));
         animals.remove(player1);
         animals.remove(player2);
-        if (!animals.remove(player2)){
+
+        if (animals.remove(player2)){
             animals.remove(0);
         }
-        // mpc Racers keeps track of the mpc's speed and the image that it is.
-        mpcRacers = new HashMap<JLabel, Integer>();
-        // mpc Scores keeps track of the mpc's score and the image that it is.
-        mpcScores = new HashMap<JLabel, Integer>();
-        // mpc Names&Scores keeps track of the players name, and the scores.
-        mpcNames = new HashMap<String, Integer>();
+        
         for (int i = 0; i < animals.size(); i++){
             int speed = 2 + (int)Math.round(Math.random() * 3);
             // I choose 2 as a minimul to reach the score in the time limit of 20 seconds
             // and then at a maximum of 5 to reach score within 8 seconds. 
-            mpcNames.put(animals.get(i), 0);
             ImageIcon icon = new ImageIcon("picture/" + animals.get(i) + ".PNG");
             JLabel otherLabel = new JLabel();
             otherLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-            mpcRacers.put(otherLabel, speed);
-            mpcScores.put(otherLabel,0);
+            Player player = new Player(animals.get(i), 0, speed, otherLabel);
+            players.add(player);
         }
-        mpcNames.put(player1, scorePlayer1);
-        mpcNames.put(player2, scorePlayer2);
       
         
         
     }
-
+    // Liz & Xiaoxi
     private HashMap<ImageIcon, String> selectZodiac(String title, ArrayList<String> animals) {
 
         JDialog dialog = new JDialog(gameFrame, title, true);
@@ -165,11 +165,19 @@ public class Game {
                 if (e.getKeyChar() == '1') {
                     scorePlayer1++;
                     moveIcon(player1Label, scorePlayer1);
-                    mpcNames.put(player1,scorePlayer1);
+                    for (Player myPlayer : players){
+                        if (myPlayer.getName() == player1){
+                            myPlayer.setScore(scorePlayer1);
+                        }
+                    }
                 } else if (e.getKeyChar() == '0') {
                     scorePlayer2++;
                     moveIcon(player2Label, scorePlayer2);
-                    mpcNames.put(player2, scorePlayer2);
+                    for (Player myPlayer : players){
+                        if (myPlayer.getName() == player2){
+                            myPlayer.setScore(scorePlayer2);
+                        }
+                    }
                 }
                 checkForWinner();
             }
@@ -178,32 +186,22 @@ public class Game {
         gameFrame.requestFocusInWindow();
         startButton.setEnabled(false);
 
-        i = 0;
         counter = 0;
         oneSecTimer = new Timer(1000, new ActionListener() {
             @Override
              public void actionPerformed(ActionEvent e) {
                 counter += 1;
-                for (JLabel labels: mpcRacers.keySet()){
-                    int newScore = mpcRacers.get(labels) + mpcScores.get(labels);
-                    mpcScores.replace(labels, newScore);
-                    moveIcon(labels, newScore);
+                for (Player myPlayer : players){
+                    int newScore = myPlayer.getScore() + myPlayer.getSpeed();
+                    myPlayer.setScore(newScore);
+                    moveIcon(myPlayer.getLabel(), newScore);
+                    System.out.println(myPlayer.getName());
                     System.out.println(newScore);
-                }
-                for (String name : mpcNames.keySet()){
-                    //int numAtIndex = mpcScores.get(i);
-                    //mpcNames.replace(name, numAtIndex);
-                    if (name == player1 || name == player2){
-                        //mpcNames.replace(name,mpcNames.get(i));
-                    }
-                    System.out.println(i);
-                    i+= 1;
                 }
                 
                 if (counter < 20) {
                     oneSecTimer.restart();
                     System.out.println("heheehheheeh" + counter);
-                    System.out.println("mpcNames: " + mpcNames.keySet() + " values: " + mpcNames.values());
                 }
                 checkForWinner();
 
@@ -220,30 +218,32 @@ public class Game {
     }
 
     private void setupTrack() {
-        player1Label.setBounds(20, trackPanel.getHeight() - 50, 50, 50);
-        player2Label.setBounds(75, trackPanel.getHeight() - 50, 50, 50);
-        trackPanel.add(player1Label);
-        trackPanel.add(player2Label);
-        int xpos = 130;
-        for (JLabel labelToAdd : mpcRacers.keySet()){
+        // player1Label.setBounds(20, trackPanel.getHeight() - 50, 50, 50);
+        // player2Label.setBounds(75, trackPanel.getHeight() - 50, 50, 50);
+        // trackPanel.add(player1Label);
+        // trackPanel.add(player2Label);
+        int xpos = 20;
+        for (Player myPlayer : players){
+            JLabel labelToAdd = myPlayer.getLabel();
+            myPlayer.getLabel().setBounds(xpos, trackPanel.getHeight() - 50, 50, 50);
             trackPanel.add(labelToAdd);
             labelToAdd.setLocation(xpos, trackPanel.getHeight() - 50);
             xpos += 55;
-            
         }
         trackPanel.revalidate();
         trackPanel.repaint();
     }
 
     private void checkForWinner() {
-        if (scorePlayer1 >= winScore || scorePlayer2 >= winScore) {
-            System.out.println("it made it ");
-            endGame();
-            timer.stop();
-            oneSecTimer.stop();
-        }
-        for (int score : mpcScores.values()) {
-            if (score >= winScore){
+        // if (scorePlayer1 >= winScore || scorePlayer2 >= winScore) {
+        //     System.out.println("it made it ");
+        //     timer.stop();
+        //     oneSecTimer.stop();
+        //     endGame();
+
+        // }
+        for (Player myPlayer : players) {
+            if (myPlayer.getScore() >= winScore){
                 System.out.println("it made it:");
                 timer.stop();
                 oneSecTimer.stop();
@@ -252,7 +252,6 @@ public class Game {
         }
     }
 
-    @SuppressWarnings("unlikely-arg-type")
     private void endGame() {
         gameStarted = false;
         String winnerText = "Computer Wins";
@@ -262,13 +261,14 @@ public class Game {
         else if (scorePlayer2 >= winScore){
             winnerText = "Player 2 wins!";
         }        
-        HashMap<String, Integer> sortedNames = sortByValue(mpcNames);
 
         String winnerOutput = "Winners: ";
         int i = 0;
-        for (String key : sortedNames.keySet()){
-            winnerOutput += "\n" + (i + 1) + ": " + key + ": "+ sortedNames.get(i); 
-            i++; 
+
+        
+        for (Player myPlayer : players) {
+            winnerOutput += "\n" + (i +1) + ": " + myPlayer.getName() + " :" + myPlayer.getScore();
+            i++;
         }
 
 
@@ -276,19 +276,20 @@ public class Game {
         Image imagebeers = beersIcon.getImage();
         Image resizedImage = imagebeers.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
-        JOptionPane.showOptionDialog(gameFrame, winnerOutput, winnerText, JOptionPane.CANCEL_OPTION, counter, resizedIcon, null, JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(gameFrame, winnerOutput, winnerText, JOptionPane.PLAIN_MESSAGE,resizedIcon);
         resetGame();
     }
 
     private void resetGame() {
-        player1Label.setLocation(20, trackPanel.getHeight() - 50);
-        player2Label.setLocation(75, trackPanel.getHeight() - 50);
-        int xpos = 130;
-        for (JLabel label : mpcRacers.keySet()){
-            mpcScores.replace(label, 0);
-            mpcNames.replace(label.toString(), 0);
-            label.setLocation(xpos, trackPanel.getHeight() - 50);
+        // player1Label.setLocation(20, trackPanel.getHeight() - 50);
+        // player2Label.setLocation(75, trackPanel.getHeight() - 50);
+        int xpos = 20;
+        for (Player myPlayer : players){
+            JLabel labelToAdd = myPlayer.getLabel();
+            trackPanel.add(labelToAdd);
+            labelToAdd.setLocation(xpos, trackPanel.getHeight() - 50);
             xpos += 55;
+            
         }
         scorePlayer1 = 0;
         scorePlayer2 = 0;
@@ -307,28 +308,5 @@ public class Game {
         button.setBackground(backgroundColor);
         button.setOpaque(true);
         button.setBorderPainted(false);
-    }
-
-    // function to sort hashmap based on values
-    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
-        // Creating a list from elements of HashMap
-        ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>(hm.entrySet());
-
-        // Sorting the list using Collections.sort() method
-        // using Comparator
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
-        public int compare(Map.Entry<String, Integer> object1, Map.Entry<String, Integer> object2) {
-            return (object1.getValue()).compareTo(object2.getValue());
-            }
-        });
-
-        // putting the data from sorted list back to hashmap
-        HashMap<String, Integer> result = new LinkedHashMap<String, Integer>();
-        for (Map.Entry<String, Integer> me : list) {
-            result.put(me.getKey(), me.getValue());
-        }
- 
-        // returning the sorted HashMap
-        return result;
     }
 }
