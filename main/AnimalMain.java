@@ -256,13 +256,13 @@ public abstract class AnimalMain {
         panel.add(Box.createVerticalStrut(10));
 
         String gameText = myLanguage.gettoGoToGame();
-        JButton gameButton = createStyledButton(gameText, backgroundColor,
-            hoverColor, borderColor);
+        JButton gameButton = createStyledButton(gameText, backgroundColor, hoverColor, borderColor);
         gameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Game button clicked");
                 new Game1(myLanguage);
+                Game1.main(myLanguage);
                 frame.dispose();
         }
         });
