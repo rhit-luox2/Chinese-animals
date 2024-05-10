@@ -90,6 +90,13 @@ public class German implements Language{
     String errorWheelManager = "Fehler";
 
     String titleSelectAnimal = "Bitte wählen Sie ein Tier aus, über das Sie mehr wissen möchten";
+
+    String player1Game = "Spieler 1";
+    String player2Game = "Spieler 2";
+    String startRaceGame = "Rennen Starten";
+    String computerWinsGame = "Gewinner: ";
+    String player1WinsGame = "Spieler 1 gewinnt!";
+    String player2WinsGame = "Spieler 2 gewinnt!";
     //ChineseAnimal
     @Override
     public String gettitleChineseAnimal() {
@@ -200,5 +207,30 @@ public class German implements Language{
     @Override
     public String gettitleSelectanimal() {
         return titleSelectAnimal;
+    }
+
+    @Override
+    public String getplayer1Game() {
+        return player1Game;
+    }
+    @Override
+    public String getplayer2Game() {
+        return player2Game;
+    }
+    @Override
+    public String getstartRaceGame() {
+        return startRaceGame;
+    }
+    @Override
+    public String getcomputerWinsGame() {
+        return computerWinsGame;
+    }
+    @Override
+    public String getplayer1WinsGame() {
+        return player1WinsGame;
+    }
+    @Override
+    public String getplayer2WinsGame() {
+        return player2WinsGame;
     }
 }
