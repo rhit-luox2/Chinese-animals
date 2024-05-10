@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ChineseAnimal extends JFrame{
+public class ChineseAnimal extends JFrame {
 
     static JFrame frame;
     Language myLanguage;
@@ -77,7 +77,7 @@ public class ChineseAnimal extends JFrame{
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(description);
-        
+
         String readAboutZodiacstext = myLanguage.getreadABoutZodiacs();
         JButton learnMoreButton = createButton(readAboutZodiacstext, redColor,
                 new ActionListener() {
@@ -115,7 +115,11 @@ public class ChineseAnimal extends JFrame{
                 });
         panel.add(gameButton);
 
-        frame.add(panel);
+        JScrollPane scrollPane = new JScrollPane(panel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        frame.add(scrollPane);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }

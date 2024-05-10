@@ -5,10 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+<<<<<<< HEAD
 // Main Writers: Xiaoxi
 // Editor: Liz Purintun
 
 
+=======
+>>>>>>> 4a1941a80bb4f1b9ddc400739ec3f0a4c6dc2bc4
 public class WheelManager extends JFrame {
 
     private JTextField enterYear;
@@ -18,8 +21,13 @@ public class WheelManager extends JFrame {
     protected Wheel wheel;
     private JFrame wheelFrame;
     private Timer timer;
+<<<<<<< HEAD
     private static Language myLanguage;
     //private SpinningWheelPanel wheelPanel;
+=======
+    Language myLanguage;
+    // private SpinningWheelPanel wheelPanel;
+>>>>>>> 4a1941a80bb4f1b9ddc400739ec3f0a4c6dc2bc4
 
     public WheelManager(Language myLanguage) {
         WheelManager.myLanguage = myLanguage;
@@ -82,7 +90,6 @@ public class WheelManager extends JFrame {
 
     }
 
-
     private class ZodiacActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -98,10 +105,9 @@ public class WheelManager extends JFrame {
                         JOptionPane.showMessageDialog(wheelFrame, resulttext + zodiac + "!");
                         navigateToZodiacPage(zodiac.toLowerCase());
                         timer.stop();
-                        }
-                    
+                    }
+
                 });
-                
 
                 timer.start();
 
@@ -116,7 +122,7 @@ public class WheelManager extends JFrame {
     }
 
     protected static String getZodiacFromAngle(double finalAngle, Language myLanguage) {
-        int zodiacIndex = (int) Math.round((Math.toDegrees(finalAngle) - 30)  / 30) % 12;
+        int zodiacIndex = (int) Math.round((Math.toDegrees(finalAngle) - 30) / 30) % 12;
         String[] zodiacs = myLanguage.getanimalListWheelManager();
         return zodiacs[zodiacIndex];
     }
@@ -136,7 +142,7 @@ public class WheelManager extends JFrame {
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(this, "Zodiac class not found: " + ex.getMessage(),
                     "Class Not Found", JOptionPane.ERROR_MESSAGE);
-                    System.out.println(ex);
+            System.out.println(ex);
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -157,11 +163,14 @@ public class WheelManager extends JFrame {
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
+<<<<<<< HEAD
                 new WheelManager(myLanguage);
+=======
+                new WheelManager(null);
+>>>>>>> 4a1941a80bb4f1b9ddc400739ec3f0a4c6dc2bc4
             }
         });
     }
