@@ -81,8 +81,8 @@ public abstract class AnimalMain {
         topPanel.setLayout(new BorderLayout());
         topPanel.setBackground(new Color(233, 197, 105));
 
-        // String goBacktext = myLanguage.getgoBack();
-        JButton goBackButton = createStyledButton("hello", backgroundColor, hoverColor, borderColor);
+        String goBacktext = myLanguage.getgoBack();
+        JButton goBackButton = createStyledButton(goBacktext, backgroundColor, hoverColor, borderColor);
 
         goBackButton.addActionListener(new ActionListener() {
             @Override

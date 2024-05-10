@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 public class SelectAnimal extends JFrame {
 
     static JFrame frame;
-    Language myLanguage;
+    static Language myLanguage;
 
     public SelectAnimal(Language myLanguage) {
-        this.myLanguage = myLanguage;
+        SelectAnimal.myLanguage = myLanguage;
     
         JFrame frame = new JFrame("Select Animal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,7 +32,7 @@ public class SelectAnimal extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         panel.setBackground(new Color(233, 197, 105));
 
-        String[] animals = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse",
+        String[] animals = {"Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse",
                 "Snake", "Goat", "Monkey", "Rooster", "Dog", "Pig" };
         for (String animalName : animals) {
             JButton animalButton = createAnimalButton(animalName);
@@ -57,12 +57,38 @@ public class SelectAnimal extends JFrame {
         animalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Class.forName("main." + animalName).getDeclaredConstructor().newInstance();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    
+                if(animalName == "Rat"){
+                    new Rat(myLanguage);
+                }else if(animalName == "Ox"){
+                    new Ox(myLanguage);
+                }else if(animalName == "Tiger"){
+                    new Tiger(myLanguage);
+                }else if(animalName == "Rabbit"){
+                    new Rabbit(myLanguage);
+                }else if(animalName == "Dragon"){
+                    new Dragon(myLanguage);
+                }else if(animalName == "Horse"){
+                    new Horse(myLanguage);
+                }else if(animalName == "Snake"){
+                    new Snake(myLanguage);
+                }else if(animalName == "Goat"){
+                    new Goat(myLanguage);
+                }else if(animalName == "Monkey"){
+                    new Monkey(myLanguage);
+                }else if(animalName ==  "Rooster"){
+                    new Rooster(myLanguage);
+                }else if(animalName == "Dog"){
+                    new Dog(myLanguage);
+                }else{
+                    new Pig(myLanguage);
                 }
+                frame.dispose();
+                // try {
+                //     Class.forName("main." + animalName).getDeclaredConstructor().newInstance();
+                // } catch (Exception ex) {
+                //     ex.printStackTrace();
+                    
+                // }
                 
             }
         });

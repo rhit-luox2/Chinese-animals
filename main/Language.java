@@ -1,5 +1,7 @@
 package main;
 
+import java.lang.reflect.Array;
+
 public interface Language {
 
     public String gettitleChineseAnimal();
@@ -10,4 +12,6 @@ public interface Language {
     public String getfindYourZodiac();
     public String gettoGoToGame();
     public String getgoBack();
+
+    public String[] getdogInfo();
 }
