@@ -108,7 +108,7 @@ public class ChineseAnimal extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Game button clicked");
-                        Game Game = new Game();
+                        Game Game = new Game(myLanguage);
                         Game.main(null);
                         frame.dispose();
                     }
