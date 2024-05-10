@@ -75,27 +75,21 @@ public abstract class AnimalMain {
 
     public void addDownloadButton(JPanel topPanel) {
         JButton downloadButton = createStyledButton("Download Page", backgroundColor, hoverColor, borderColor);
-
         downloadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StringBuilder pageContent = new StringBuilder();
-
-                for (Component component : panel.getComponents()) {
-                    if (component instanceof JTextArea) {
-                        pageContent.append(((JTextArea) component).getText()).append(System.lineSeparator())
-                                .append(System.lineSeparator());
-                    }
-                }
-
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("Save Page as Text");
-                int userSelection = fileChooser.showSaveDialog(null);
+                int userSelection = fileChooser.showSaveDialog(frame);
 
                 if (userSelection == JFileChooser.APPROVE_OPTION) {
                     File fileToSave = fileChooser.getSelectedFile();
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToSave))) {
-                        writer.write(pageContent.toString());
+                        for (Component component : panel.getComponents()) {
+                            if (component instanceof JTextArea) {
+                                writer.write(((JTextArea) component).getText() + System.lineSeparator());
+                            }
+                        }
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(null, "Error saving file: " + ex.getMessage(), "Error",
                                 JOptionPane.ERROR_MESSAGE);
@@ -103,23 +97,24 @@ public abstract class AnimalMain {
                 }
             }
         });
+        topPanel.add(downloadButton, BorderLayout.EAST);
     }
 
     public void create(JFrame frame, JPanel panel, Language myLanguage) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 900);
 
-        Color backgroundColor = new Color(255, 206, 0); // golden yellow
-        Color hoverColor = new Color(204, 164, 0); // darker gold
-        Color borderColor = new Color(0, 0, 0); // Black border
+        backgroundColor = new Color(255, 206, 0); // golden yellow
+        hoverColor = new Color(204, 164, 0); // darker gold
+        borderColor = new Color(0, 0, 0); // Black border
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
         topPanel.setBackground(new Color(233, 197, 105));
+        topPanel.setPreferredSize(new Dimension(frame.getWidth(), 40));
 
         String goBacktext = myLanguage.getgoBack();
         JButton goBackButton = createStyledButton(goBacktext, backgroundColor, hoverColor, borderColor);
-
         goBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -128,13 +123,16 @@ public abstract class AnimalMain {
             }
         });
 
-        topPanel.add(goBackButton, BorderLayout.WEST); // left
+        topPanel.add(goBackButton, BorderLayout.WEST);
+
         addDownloadButton(topPanel);
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.setBackground(new Color(233, 197, 105));
         panel.add(Box.createVerticalStrut(20));
+
+        topPanel.add(Box.createHorizontalStrut(20), BorderLayout.CENTER); // Add strut for spacing
 
         frame.add(topPanel, BorderLayout.NORTH);
 
@@ -145,7 +143,6 @@ public abstract class AnimalMain {
         frame.add(scrollPane);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
 
     public void description(JFrame frame, JPanel panel) {
@@ -286,7 +283,8 @@ public abstract class AnimalMain {
         return button;
     }
 
-    public void addScrollBar() {
+    public Language getLanguage() {
+        return this.myLanguage;
 
     }
 
