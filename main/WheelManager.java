@@ -4,11 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+
 
 public class WheelManager extends JFrame {
 
@@ -17,21 +13,25 @@ public class WheelManager extends JFrame {
     private static final Color backgroundColor = new Color(233, 197, 105);
     private static final Color redColor = new Color(227, 33, 25);
     protected Wheel wheel;
+    private JFrame wheelFrame;
+    private Timer timer;
     //private SpinningWheelPanel wheelPanel;
 
     public WheelManager() {
         // Window setup
-        setTitle("Find Your Zodiac!");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 900);
-        setLocationRelativeTo(null);
+        wheelFrame = new JFrame();
+        wheelFrame.setTitle("Find Your Zodiac!");
+        wheelFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        wheelFrame.setSize(600, 900);
+        wheelFrame.setLocationRelativeTo(null);
+        wheelFrame.setVisible(true);
 
         // Main panel setup
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         mainPanel.setBackground(backgroundColor);
-        getContentPane().add(mainPanel);
+        wheelFrame.add(mainPanel);
 
         // Setting Title.
         JLabel title = new JLabel("Find Your Zodiac!");
@@ -69,7 +69,7 @@ public class WheelManager extends JFrame {
         arrowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(arrowLabel);
 
-        Wheel wheel = new Wheel();
+        wheel = new Wheel();
         mainPanel.add(wheel.wheelPanel);
 
     }
@@ -81,20 +81,31 @@ public class WheelManager extends JFrame {
             try {
                 int year = Integer.parseInt(enterYear.getText().trim());
                 double finalAngle = wheel.calculateFinalAngle(year);
-                wheel.spinWheel();
-                String zodiac = getZodiacFromAngle(finalAngle);
-                JOptionPane.showMessageDialog(WheelManager.this, "Your Chinese zoidac is " + zodiac + "!");
-                navigateToZodiacPage(zodiac.toLowerCase());
+                wheel.spinWheel(year);
+                timer = new Timer(6700, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String zodiac = getZodiacFromAngle(finalAngle);
+                        JOptionPane.showMessageDialog(wheelFrame, "Your Chinese zoidac is " + zodiac + "!");
+                        navigateToZodiacPage(zodiac.toLowerCase());
+                        timer.stop();
+                        }
+                    
+                });
+                
+
+                timer.start();
 
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(WheelManager.this, "Invalid input. Please enter a valid year.", "Error",
+                JOptionPane.showMessageDialog(wheelFrame, "Invalid input. Please enter a valid year.", "Error",
                         JOptionPane.ERROR_MESSAGE);
+                System.out.println(ex);
             }
         }
     }
 
     protected String getZodiacFromAngle(double finalAngle) {
-        int zodiacIndex = (int) Math.round((360 - finalAngle) / 30) % 12;
+        int zodiacIndex = (int) Math.round((Math.toDegrees(finalAngle) - 30)  / 30) % 12;
         String[] zodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster",
                 "Dog", "Pig" };
         return zodiacs[zodiacIndex];
@@ -115,7 +126,11 @@ public class WheelManager extends JFrame {
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(this, "Zodiac class not found: " + ex.getMessage(),
                     "Class Not Found", JOptionPane.ERROR_MESSAGE);
+                    System.out.println(ex);
+
         } catch (Exception ex) {
+            System.out.println(ex);
+
         }
     }
 

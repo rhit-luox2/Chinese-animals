@@ -13,46 +13,43 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 
 
 public class Wheel{
 
-    private int year;
     private Timer spinTimer;
-    private final double angleIncrement = 0.3;
+    private final double angleIncrement = 5;
+    private double startAngle = 15;
     private double currentAngle = 0;
     private double finalAngle;
     protected SpinningWheelPanel wheelPanel;
 
-
-
     public Wheel(){
        
-        SpinningWheelPanel wheelPanel = new SpinningWheelPanel(null);
 
          // Load wheel image and set up the spinning wheel panel
         try {
             BufferedImage wheelImage = ImageIO.read(new File("picture/main1.png"));
             wheelPanel = new SpinningWheelPanel(wheelImage);
         } catch (IOException ex) {
-            //JOptionPane.showMessageDialog(this, "Failed to load wheel image.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(wheelPanel, "Failed to load wheel image.", "Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
 
     }
 
-    void spinWheel() {
+    void spinWheel(int year) {
 
-        spinTimer = new Timer(10, new ActionListener() {
-
+        finalAngle = calculateFinalAngle(year);
+        System.out.println("final angle: " + finalAngle);
+        spinTimer = new Timer((int)Math.round(5000 / (Math.toDegrees(finalAngle) +720) * 5), new ActionListener() {
         
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (currentAngle < finalAngle) {
+            if (currentAngle < Math.toDegrees(finalAngle) + 720) {
                 currentAngle += angleIncrement;
-                if (currentAngle > finalAngle) {
-                    currentAngle = finalAngle;
+                if (currentAngle > Math.toDegrees(finalAngle) + 720) {
+                    currentAngle = Math.toDegrees(finalAngle);
                         spinTimer.stop();
                         }
                 wheelPanel.setAngle(currentAngle);
@@ -67,7 +64,7 @@ public class Wheel{
         if (yearDifference < 0) {
             yearDifference += 12;
         }
-        return (360.0 - ((yearDifference) * 30.0)) % 360;
+        return Math.toRadians((((yearDifference) * 30.0 + startAngle)) % 360);
     }
 
     private class SpinningWheelPanel extends JPanel {
@@ -78,6 +75,8 @@ public class Wheel{
             this.wheelImage = wheelImage;
             setPreferredSize(new Dimension(wheelImage.getWidth(), wheelImage.getHeight()));
             setBackground(Color.BLACK);
+            
+        
         }
 
         public void setAngle(double angle) {
