@@ -289,7 +289,6 @@ public abstract class AnimalMain {
     }
 
     public void finalizeFrame() {
-        addScrollBar();
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
