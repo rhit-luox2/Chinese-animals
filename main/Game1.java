@@ -14,11 +14,11 @@ import java.util.HashMap;
 
 
 
-public class Game{
+public class Game1{
 
-    private JFrame gameFrame;
+    private JFrame Game1Frame;
     protected JPanel trackPanel;
-    private JPanel gamePanel;
+    private JPanel Game1Panel;
     private JLabel bgLabel;
     private JLabel player1Label, player2Label;
     private String player1, player2;
@@ -27,7 +27,7 @@ public class Game{
     private ImageIcon player1Icon, player2Icon;
     private int scorePlayer1 = 0, scorePlayer2 = 0;
 
-    private boolean gameStarted = false;
+    private boolean Game1Started = false;
     private final int winScore = 40;
 
     private Timer timer = new Timer(2000, null);
@@ -38,43 +38,45 @@ public class Game{
 
     Language myLanguage;
 
-    public Game(Language myLanguage){
+    public Game1(Language myLanguage){
         this.myLanguage = myLanguage;
+        System.out.println("Start of Game1");
+        System.out.println(myLanguage);
     }
 
     public static void main(Language myLanguage) {
-        SwingUtilities.invokeLater(new Game(myLanguage)::launchGame);
+        SwingUtilities.invokeLater(new Game1(myLanguage)::launchGame1);
     }
 
-    private void launchGame() {
-        gameFrame = new JFrame("Zodiac Race Game");
-        gameFrame.setSize(700, 900);
-        gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameFrame.setLocationRelativeTo(null);
-        JPanel gamePanel = setupGamePanel();
-        gameFrame.add(gamePanel);
-        gameFrame.setVisible(true);
+    private void launchGame1() {
+        Game1Frame = new JFrame("Zodiac Race Game");
+        Game1Frame.setSize(700, 900);
+        Game1Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Game1Frame.setLocationRelativeTo(null);
+        JPanel Game1Panel = setupGame1Panel();
+        Game1Frame.add(Game1Panel);
+        Game1Frame.setVisible(true);
         selectZodiacForPlayers();
     }
 
-    private JPanel setupGamePanel() {
-        gamePanel = new JPanel(new BorderLayout());
-        gamePanel.setBackground(new Color(233, 197, 105));
+    private JPanel setupGame1Panel() {
+        Game1Panel = new JPanel(new BorderLayout());
+        Game1Panel.setBackground(new Color(233, 197, 105));
         trackPanel = new JPanel(null);
         trackPanel.setPreferredSize(new Dimension(700, 800));
         ImageIcon icon = new ImageIcon("picture/squaredDog.jpg");
         bgLabel = new JLabel();
         bgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(700, 800, Image.SCALE_SMOOTH)));
         bgLabel.setBounds(0, 0, 700, 800);
-        gamePanel.add(bgLabel);
+        Game1Panel.add(bgLabel);
 
-        gamePanel.add(trackPanel, BorderLayout.CENTER);
+        Game1Panel.add(trackPanel, BorderLayout.CENTER);
 
         JPanel infoPanel = new JPanel(new GridLayout(1, 3));
-        String player1Gametext = myLanguage.getplayer1Game();
-        String player2Gametext = myLanguage.getplayer2Game();
-        player1Label = new JLabel(player1Gametext, JLabel.CENTER);
-        player2Label = new JLabel(player2Gametext, JLabel.CENTER);
+        String player1Game1text = myLanguage.getplayer1Game();
+        String player2Game1text = myLanguage.getplayer2Game();
+        player1Label = new JLabel(player1Game1text, JLabel.CENTER);
+        player2Label = new JLabel(player2Game1text, JLabel.CENTER);
         styleLabel(player1Label);
         styleLabel(player2Label);
         infoPanel.add(player1Label);
@@ -82,12 +84,12 @@ public class Game{
         String startRacetext = myLanguage.getstartRaceGame();
         startButton = new JButton(startRacetext);
         styleButton(startButton, new Color(233, 197, 105));
-        startButton.addActionListener(e -> startGame());
+        startButton.addActionListener(e -> startGame1());
         infoPanel.add(startButton);
         infoPanel.add(player2Label);
-        gamePanel.add(infoPanel, BorderLayout.SOUTH);
+        Game1Panel.add(infoPanel, BorderLayout.SOUTH);
 
-        return gamePanel;
+        return Game1Panel;
     }
     // Liz Purintun 
     private void selectZodiacForPlayers() {
@@ -106,10 +108,10 @@ public class Game{
         player1 = (String)(player1Pair.values().toArray()[0]);
         player2 = (String)(player2Pair.values().toArray()[0]);
 
-        String player1Gametext = myLanguage.getplayer1Game();
-        String player2Gametext = myLanguage.getplayer2Game();
-        players.add(new Player(player1Gametext, scorePlayer1, 0, player1Label));
-        players.add(new Player(player2Gametext, scorePlayer2, 0, player2Label));
+        String player1Game1text = myLanguage.getplayer1Game();
+        String player2Game1text = myLanguage.getplayer2Game();
+        players.add(new Player(player1Game1text, scorePlayer1, 0, player1Label));
+        players.add(new Player(player2Game1text, scorePlayer2, 0, player2Label));
 
         animals.remove(player1);
         
@@ -134,10 +136,10 @@ public class Game{
     // Liz & Xiaoxi
     private HashMap<ImageIcon, String> selectZodiac(String title, ArrayList<String> animals) {
 
-        JDialog dialog = new JDialog(gameFrame, title, true);
+        JDialog dialog = new JDialog(Game1Frame, title, true);
         dialog.setLayout(new GridLayout(0, 3));
         dialog.setSize(600, 600);
-        dialog.setLocationRelativeTo(gameFrame);
+        dialog.setLocationRelativeTo(Game1Frame);
         ImageIcon[] icons = new ImageIcon[animals.size()];
         AtomicReference<ImageIcon> selectedIcon = new AtomicReference<>();
         AtomicReference<String> selectedName = new AtomicReference<>();
@@ -159,28 +161,28 @@ public class Game{
         return myMap;
     }
 
-    private void startGame() {
+    private void startGame1() {
         scorePlayer1 = 0;
         scorePlayer2 = 0;
         timer.start();
         
         setupTrack();
-        gameStarted = true;
+        Game1Started = true;
         setupKeyListener();
     }
 
     private void setupKeyListener() {
-        String player1Gametext = myLanguage.getplayer1Game();
-        String player2Gametext = myLanguage.getplayer2Game();
-        gameFrame.addKeyListener(new KeyAdapter() {
+        String player1Game1text = myLanguage.getplayer1Game();
+        String player2Game1text = myLanguage.getplayer2Game();
+        Game1Frame.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
-                if (!gameStarted)
+                if (!Game1Started)
                     return;
                 if (e.getKeyChar() == '1') {
                     scorePlayer1++;
                     moveIcon(player1Label, scorePlayer1);
                     for (Player myPlayer : players){
-                        if (myPlayer.getName() == player1Gametext){
+                        if (myPlayer.getName() == player1Game1text){
                             myPlayer.setScore(myPlayer.getScore() + 1);
                             break;
                         }
@@ -189,7 +191,7 @@ public class Game{
                     scorePlayer2++;
                     moveIcon(player2Label, scorePlayer2);
                     for (Player myPlayer : players){
-                        if (myPlayer.getName() == player2Gametext){
+                        if (myPlayer.getName() == player2Game1text){
                             myPlayer.setScore(myPlayer.getScore() + 1);
                             break;
                         }
@@ -198,8 +200,8 @@ public class Game{
                 checkForWinner();
             }
         });
-        gameFrame.setFocusable(true);
-        gameFrame.requestFocusInWindow();
+        Game1Frame.setFocusable(true);
+        Game1Frame.requestFocusInWindow();
         startButton.setEnabled(false);
 
         counter = 0;
@@ -259,7 +261,7 @@ public class Game{
         //     System.out.println("it made it ");
         //     timer.stop();
         //     oneSecTimer.stop();
-        //     endGame();
+        //     endGame1();
 
         // }
         for (Player myPlayer : players) {
@@ -267,13 +269,13 @@ public class Game{
                 System.out.println("it made it:");
                 timer.stop();
                 oneSecTimer.stop();
-                endGame();
+                endGame1();
             }
         }
     }
 
-    private void endGame() {
-        gameStarted = false;
+    private void endGame1() {
+        Game1Started = false;
         
         String computerWinstext = myLanguage.getcomputerWinsGame();
         String player1Winstext = myLanguage.getplayer1WinsGame();
@@ -308,11 +310,11 @@ public class Game{
         Image imagebeers = beersIcon.getImage();
         Image resizedImage = imagebeers.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
-        JOptionPane.showMessageDialog(gameFrame, winnerOutput, winnerText, JOptionPane.PLAIN_MESSAGE,resizedIcon);
-        resetGame();
+        JOptionPane.showMessageDialog(Game1Frame, winnerOutput, winnerText, JOptionPane.PLAIN_MESSAGE,resizedIcon);
+        resetGame1();
     }
 
-    private void resetGame() {
+    private void resetGame1() {
         // player1Label.setLocation(20, trackPanel.getHeight() - 50);
         // player2Label.setLocation(75, trackPanel.getHeight() - 50);
         int xpos = 20;
@@ -326,7 +328,7 @@ public class Game{
             
         }
         startButton.setEnabled(true);
-        gameFrame.removeKeyListener(gameFrame.getKeyListeners()[0]);
+        Game1Frame.removeKeyListener(Game1Frame.getKeyListeners()[0]);
     }//
 
     private void styleLabel(JLabel label) {
