@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class English implements Language{
+
+    boolean isEnglish = true;
     String titleChineseAnimal = "12 Chinese Zodiacs";
     String disclaimerChineseAnimal = "Disclaimer: Goat and Sheep are interchangeable in Chinese astrology";
     String descriptionChineseAnimal = "The Lunar New Year has been celebrated for almost 3,500 years starting in the Shang Dynasty. "
@@ -224,5 +226,9 @@ public class English implements Language{
     @Override
     public ArrayList<String> getanimalListGame() {
         return animalListGame;
+    }
+    @Override
+    public boolean getisEnglish(){
+        return isEnglish;
     }
 }

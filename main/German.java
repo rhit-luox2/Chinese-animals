@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 public class German implements Language{
 
+    boolean isEnglish = false;
     String titleChineseAnimal = "12 chinesische Tierkreiszeichen";
     String disclaimerChineseAnimal = "Haftungsausschluss: Ziege und Schaf sind in der chinesischen Astrologie austauschbar";
     String descriptionChineseAnimal = "Das Mondneujahr wird seit der Shang-Dynastie seit fast 3.500 Jahren gefeiert. Die Feierlichkeiten beginnen mit dem zweiten Neumond nach der Wintersonnenwende. Das neue Mondjahr steht in engem Zusammenhang mit den chinesischen Tierkreisen und jedes neue Jahr symbolisiert den Übergang von einem Tier zum nächsten." + 
@@ -252,5 +253,9 @@ public class German implements Language{
     @Override
     public ArrayList<String> getanimalListGame() {
         return animalListGame;
+    }
+    @Override
+    public boolean getisEnglish(){
+        return isEnglish;
     }
 }

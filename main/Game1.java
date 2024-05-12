@@ -37,6 +37,8 @@ public class Game1{
     private Timer oneSecTimer;
     private int counter;
 
+    private int index;
+
     private ArrayList<Player> players;
 
     Language myLanguage;
@@ -136,15 +138,31 @@ public class Game1{
             int speed = 2 + (int)Math.round(Math.random() * 3);
             // I choose 2 as a minimul to reach the score in the time limit of 20 seconds
             // and then at a maximum of 5 to reach score within 8 seconds. 
-            ImageIcon icon = new ImageIcon("picture/" + animals.get(i) + ".PNG");
-            JLabel otherLabel = new JLabel();
-            otherLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-            Player player = new Player(animals.get(i), 0, speed, otherLabel);
-            players.add(player);
-            // if(){
-                
-            // }
-            i++;
+            
+
+            // For German to work
+            if (!myLanguage.getisEnglish()){
+                HashMap<String, String> combinedAnimals = myLanguage.getCombinedAnimals();
+                for (String germanName : combinedAnimals.keySet()){
+                    System.out.println("germanName: " + germanName);
+                    if (animals.get(i).equals(germanName)){
+                        ImageIcon icon = new ImageIcon("picture/" + combinedAnimals.get(germanName) + ".PNG");
+                        System.out.println(combinedAnimals.get(germanName));
+                        JLabel otherLabel = new JLabel();
+                        otherLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+                        Player player = new Player(animals.get(i), 0, speed, otherLabel);
+                        players.add(player);
+                    }
+                    
+                }
+            } else {
+                ImageIcon icon = new ImageIcon("picture/" + animals.get(i) + ".PNG");
+                JLabel otherLabel = new JLabel();
+                otherLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+                Player player = new Player(animals.get(i), 0, speed, otherLabel);
+                players.add(player);
+            }
+    
         }
       
         
@@ -161,8 +179,23 @@ public class Game1{
         AtomicReference<ImageIcon> selectedIcon = new AtomicReference<>();
         AtomicReference<String> selectedName = new AtomicReference<>();
         for (int i = 0; i < animals.size(); i++) {
-            ImageIcon icon = new ImageIcon("picture/" + animals.get(i) + ".PNG");
-            icons[i] = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+            
+            if (!myLanguage.getisEnglish()){
+                HashMap<String, String> combinedAnimals = myLanguage.getCombinedAnimals();
+                for (String germanName : combinedAnimals.keySet()){
+                    System.out.println("germanName: " + germanName);
+                    if (animals.get(i).equals(germanName)){
+                        ImageIcon icon = new ImageIcon("picture/" + combinedAnimals.get(germanName) + ".PNG");
+                        icons[i] = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+                        System.out.println(combinedAnimals.get(germanName));
+                        
+                    }
+                    
+                }
+            } else {
+                ImageIcon icon = new ImageIcon("picture/" + animals.get(i) + ".PNG");
+                icons[i] = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+            }
             final int index = i;
             JButton button = new JButton(icons[i]);
             button.addActionListener(e -> {
@@ -171,6 +204,7 @@ public class Game1{
                 dialog.dispose();
             });
             dialog.add(button);
+
         }
         dialog.setVisible(true);
         HashMap<ImageIcon,String> myMap = new HashMap<>();

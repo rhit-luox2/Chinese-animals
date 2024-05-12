@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 public interface Language {
 
+    public boolean getisEnglish();
+   
     //ChineseAnimal
     public String gettitleChineseAnimal();
     public String getdisclaimerChineseAnimal();
@@ -53,11 +55,23 @@ public interface Language {
     public String getplayer1ChooseGame();
     public String getplayer2ChooseGame();
     public ArrayList<String> getanimalListGame();
-
     
-    HashMap<ArrayList<String>, ArrayList<String>> hello = new HashMap<ArrayList<String>, ArrayList<String>>();
-    ArrayList<String> englishAnimals = new ArrayList<>(Arrays.asList("Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"));
-    ArrayList<String> germanAnimals = new ArrayList<>(Arrays.asList("Ratte", "Ochse", "Tiger", "Kaninchen", "Drache", "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"));
-    hello.put(englishAnimals, germanAnimals);
+
+    public default  HashMap<String, String> getCombinedAnimals() {
+        HashMap<String, String> combinedAnimals = new HashMap<String, String>();
+        ArrayList<String> englishAnimals = new ArrayList<>(Arrays.asList("Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"));
+        ArrayList<String> germanAnimals = new ArrayList<>(Arrays.asList("Ratte", "Ochse", "Tiger", "Kaninchen", "Drache", "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"));
+
+        for (int i = 0; i < 12; i++){
+            combinedAnimals.put(germanAnimals.get(i), englishAnimals.get(i));
+        }
+        return combinedAnimals;
+    }
 
 }
+
+
+
+
+
+
