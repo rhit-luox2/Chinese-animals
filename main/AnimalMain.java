@@ -299,10 +299,6 @@ public abstract class AnimalMain {
         return button;
     }
 
-    public Language getLanguage() {
-        return this.myLanguage;
-
-    }
 
     public void finalizeFrame() {
         frame.add(panel);
