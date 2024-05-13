@@ -8,7 +8,6 @@ public class Player {
     private int score;
     private int speed;
     private JLabel label;
-    private ImageIcon image;
 
     public Player(String name, int score, int speed, JLabel label) {
         this.name = name;
