@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 // Main Writers: Xiaoxi
 // Editor: Liz Purintun
@@ -116,19 +118,15 @@ public class WheelManager extends JFrame {
 
     private void navigateToZodiacPage(String zodiac) {
         try {
-            // Construct the full class name and attempt to load the class
-            String className = "main." + capitalize(zodiac);
+            // Translate display name to class name
+            String className = "main." + capitalize(classNameMap.get(zodiac));
             Class<?> clazz = Class.forName(className);
-
-            // Get info array for the zodiac
             String[] infoArray = getInfoArrayForZodiac(zodiac, myLanguage);
 
             // Instantiate the class assuming it has a constructor that takes Language and
             // String[]
             JFrame page = (JFrame) clazz.getConstructor(Language.class, String[].class).newInstance(myLanguage,
                     infoArray);
-
-            // Display the new page and dispose of the current window
             page.setVisible(true);
             this.dispose();
         } catch (ClassNotFoundException ex) {
@@ -138,6 +136,24 @@ public class WheelManager extends JFrame {
         } catch (Exception ex) {
             System.out.println(ex);
         }
+    }
+
+    private static final Map<String, String> classNameMap;
+
+    static {
+        classNameMap = new HashMap<>();
+        classNameMap.put("Ratte", "Rat");
+        classNameMap.put("Ochse", "Ox");
+        classNameMap.put("Tiger", "Tiger");
+        classNameMap.put("Kaninchen", "Rabbit");
+        classNameMap.put("Drache", "Dragon");
+        classNameMap.put("Schlange", "Snake");
+        classNameMap.put("Pferd", "Horse");
+        classNameMap.put("Ziege", "Goat");
+        classNameMap.put("Affe", "Monkey");
+        classNameMap.put("Hahn", "Rooster");
+        classNameMap.put("Hund", "Dog");
+        classNameMap.put("Schwein", "Pig");
     }
 
     private String[] getInfoArrayForZodiac(String zodiac, Language myLanguage) {
