@@ -1,15 +1,12 @@
-//Kaila James
 package main;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Constructor;
 
 // Main Writers: Xiaoxi
 // Editor: Liz Purintun
-// Seperated the classes
 public class WheelManager extends JFrame {
 
     private JTextField enterYear;
@@ -20,7 +17,7 @@ public class WheelManager extends JFrame {
     private JFrame wheelFrame;
     private Timer timer;
     private static Language myLanguage;
-    //private SpinningWheelPanel wheelPanel;
+    // private SpinningWheelPanel wheelPanel;
 
     public WheelManager(Language myLanguage) {
         WheelManager.myLanguage = myLanguage;
@@ -123,9 +120,9 @@ public class WheelManager extends JFrame {
     private void navigateToZodiacPage(String zodiac) {
         try {
             // Construct the full class name and attempt to load the class
-            String className = "main." + capitalize(zodiac);
+            String className = "main." + capitalize(zodiac) + ".java";
             Class<?> clazz = Class.forName(className);
-        
+
             // Instantiate the class assuming it is a JFrame
             JFrame page = (JFrame) clazz.newInstance();
 
@@ -137,9 +134,7 @@ public class WheelManager extends JFrame {
                     "Class Not Found", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
 
-        } catch (InstantiationException | IllegalAccessException ex) {
-            JOptionPane.showMessageDialog(this, "Error instantiating class: " + ex.getMessage(),
-                "Instantiation Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
             System.out.println(ex);
 
         }

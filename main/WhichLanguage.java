@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 public class WhichLanguage {
 
     public static void main(String[] args) {
-            SwingUtilities.invokeLater(() -> createAndShowGUI());
-        }
+        SwingUtilities.invokeLater(() -> createAndShowGUI());
+    }
 
     private static void createAndShowGUI() {
         // Initialize Main Page
@@ -29,12 +29,13 @@ public class WhichLanguage {
 
         Color redColor = new Color(227, 33, 25);
 
-        JLabel chooseLanguage = new JLabel("Hello! Welcome to our app. Please select a language you would like to continue with: ");
+        JLabel chooseLanguage = new JLabel(
+                "Hello! Welcome to our app. Please select a language you would like to continue with: ");
         chooseLanguage.setFont(new Font("Serif", Font.BOLD, 25));
         chooseLanguage.setForeground(redColor);
         chooseLanguage.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(chooseLanguage);
-        
+
         JButton english = createButton("Click here to continue with English", redColor,
                 new ActionListener() {
                     @Override
@@ -62,15 +63,15 @@ public class WhichLanguage {
 
         frame.add(panel);
         frame.setVisible(true);
-            }
-
-        private static JButton createButton(String text, Color textColor, ActionListener listener) {
-            JButton button = new JButton(text);
-            button.setFont(new Font("Arial", Font.BOLD, 14));
-            button.setForeground(textColor);
-            button.setAlignmentX(Component.CENTER_ALIGNMENT);
-            button.addActionListener(listener);
-            return button;
-        }
-
     }
+
+    private static JButton createButton(String text, Color textColor, ActionListener listener) {
+        JButton button = new JButton(text);
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setForeground(textColor);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.addActionListener(listener);
+        return button;
+    }
+
+}
