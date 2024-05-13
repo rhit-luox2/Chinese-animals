@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -118,8 +119,21 @@ public class WheelManager extends JFrame {
 
     private void navigateToZodiacPage(String zodiac) {
         try {
+            String className = "main.";
+            ArrayList<String> animals = myLanguage.getanimalListGame();
+            HashMap<String, String> combinedAnimals = myLanguage.getCombinedAnimals();
+            System.out.println("zodiac: " + zodiac);
+            System.out.println("combgetZ: " + combinedAnimals.get(capitalize(zodiac)));
+            if (!myLanguage.getisEnglish()){
+                zodiac = combinedAnimals.get(capitalize(zodiac));
+                className += zodiac;
+            } else {
             // Translate display name to class name
-            String className = "main." + capitalize(classNameMap.get(zodiac));
+            zodiac = capitalize(zodiac);
+            className += zodiac;
+            }
+
+            System.out.println("className: " + className);
             Class<?> clazz = Class.forName(className);
             String[] infoArray = getInfoArrayForZodiac(zodiac, myLanguage);
 
@@ -138,49 +152,49 @@ public class WheelManager extends JFrame {
         }
     }
 
-    private static final Map<String, String> classNameMap;
+    // private static final Map<String, String> classNameMap;
 
-    static {
-        classNameMap = new HashMap<>();
-        classNameMap.put("Ratte", "Rat");
-        classNameMap.put("Ochse", "Ox");
-        classNameMap.put("Tiger", "Tiger");
-        classNameMap.put("Kaninchen", "Rabbit");
-        classNameMap.put("Drache", "Dragon");
-        classNameMap.put("Schlange", "Snake");
-        classNameMap.put("Pferd", "Horse");
-        classNameMap.put("Ziege", "Goat");
-        classNameMap.put("Affe", "Monkey");
-        classNameMap.put("Hahn", "Rooster");
-        classNameMap.put("Hund", "Dog");
-        classNameMap.put("Schwein", "Pig");
-    }
+    // static {
+    //     classNameMap = new HashMap<>();
+    //     classNameMap.put("Ratte", "Rat");
+    //     classNameMap.put("Ochse", "Ox");
+    //     classNameMap.put("Tiger", "Tiger");
+    //     classNameMap.put("Kaninchen", "Rabbit");
+    //     classNameMap.put("Drache", "Dragon");
+    //     classNameMap.put("Schlange", "Snake");
+    //     classNameMap.put("Pferd", "Horse");
+    //     classNameMap.put("Ziege", "Goat");
+    //     classNameMap.put("Affe", "Monkey");
+    //     classNameMap.put("Hahn", "Rooster");
+    //     classNameMap.put("Hund", "Dog");
+    //     classNameMap.put("Schwein", "Pig");
+    // }
 
     private String[] getInfoArrayForZodiac(String zodiac, Language myLanguage) {
         switch (zodiac) {
-            case "rat":
+            case "Rat":
                 return myLanguage.getratInfo();
-            case "ox":
+            case "Ox":
                 return myLanguage.getoxInfo();
-            case "tiger":
+            case "Tiger":
                 return myLanguage.gettigerInfo();
-            case "rabbit":
+            case "Rabbit":
                 return myLanguage.getrabbitInfo();
-            case "dragon":
+            case "Dragon":
                 return myLanguage.getdragonInfo();
-            case "horse":
+            case "Horse":
                 return myLanguage.gethorseInfo();
-            case "snake":
+            case "Snake":
                 return myLanguage.getsnakeInfo();
-            case "goat":
+            case "Goat":
                 return myLanguage.getgoatInfo();
-            case "monkey":
+            case "Monkey":
                 return myLanguage.getmonkeyInfo();
-            case "rooster":
+            case "Rooster":
                 return myLanguage.getroosterInfo();
-            case "dog":
+            case "Dog":
                 return myLanguage.getdogInfo();
-            case "pig":
+            case "Pig":
                 return myLanguage.getpigInfo();
             default:
                 return new String[0];

@@ -380,7 +380,7 @@ public class Game1{
         }
         startButton.setEnabled(true);
         Game1Frame.removeKeyListener(Game1Frame.getKeyListeners()[0]);
-    }//
+    }
 
     private void styleLabel(JLabel label) {
         label.setFont(new Font("Arial", Font.BOLD, 18));
