@@ -77,7 +77,6 @@ public class WheelManager extends JFrame {
 
         wheel = new Wheel();
         mainPanel.add(wheel.wheelPanel);
-
     }
 
     private class ZodiacActionListener implements ActionListener {
@@ -96,7 +95,6 @@ public class WheelManager extends JFrame {
                         navigateToZodiacPage(zodiac.toLowerCase());
                         timer.stop();
                     }
-
                 });
 
                 timer.start();
@@ -104,8 +102,7 @@ public class WheelManager extends JFrame {
             } catch (NumberFormatException ex) {
                 String invalidtext = myLanguage.getinvalidWheelManager();
                 String errortext = myLanguage.geterrorWheelManager();
-                JOptionPane.showMessageDialog(wheelFrame, invalidtext, errortext,
-                        JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(wheelFrame, invalidtext, errortext, JOptionPane.ERROR_MESSAGE);
                 System.out.println(ex);
             }
         }
@@ -120,23 +117,57 @@ public class WheelManager extends JFrame {
     private void navigateToZodiacPage(String zodiac) {
         try {
             // Construct the full class name and attempt to load the class
-            String className = "main." + capitalize(zodiac) + ".java";
+            String className = "main." + capitalize(zodiac);
             Class<?> clazz = Class.forName(className);
 
-            // Instantiate the class assuming it is a JFrame
-            JFrame page = (JFrame) clazz.newInstance();
+            // Get info array for the zodiac
+            String[] infoArray = getInfoArrayForZodiac(zodiac, myLanguage);
+
+            // Instantiate the class assuming it has a constructor that takes Language and
+            // String[]
+            JFrame page = (JFrame) clazz.getConstructor(Language.class, String[].class).newInstance(myLanguage,
+                    infoArray);
 
             // Display the new page and dispose of the current window
             page.setVisible(true);
             this.dispose();
         } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, "Zodiac class not found: " + ex.getMessage(),
-                    "Class Not Found", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Zodiac class not found: " + ex.getMessage(), "Class Not Found",
+                    JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
-
         } catch (Exception ex) {
             System.out.println(ex);
+        }
+    }
 
+    private String[] getInfoArrayForZodiac(String zodiac, Language myLanguage) {
+        switch (zodiac) {
+            case "rat":
+                return myLanguage.getratInfo();
+            case "ox":
+                return myLanguage.getoxInfo();
+            case "tiger":
+                return myLanguage.gettigerInfo();
+            case "rabbit":
+                return myLanguage.getrabbitInfo();
+            case "dragon":
+                return myLanguage.getdragonInfo();
+            case "horse":
+                return myLanguage.gethorseInfo();
+            case "snake":
+                return myLanguage.getsnakeInfo();
+            case "goat":
+                return myLanguage.getgoatInfo();
+            case "monkey":
+                return myLanguage.getmonkeyInfo();
+            case "rooster":
+                return myLanguage.getroosterInfo();
+            case "dog":
+                return myLanguage.getdogInfo();
+            case "pig":
+                return myLanguage.getpigInfo();
+            default:
+                return new String[0];
         }
     }
 
