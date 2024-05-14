@@ -8,10 +8,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.jar.JarEntry;
 import java.util.HashMap;
 
 // Main Writers: Xiaoxi and Liz 
@@ -38,8 +36,6 @@ public class Game1{
     private Timer timer = new Timer(2000, null);
     private Timer oneSecTimer;
     private int counter;
-
-    private int index;
 
     private ArrayList<Player> players;
 

@@ -3,8 +3,6 @@ package main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-// import java.util.HashMap;
-// import java.util.Map;
 
 public class German implements Language {
 
@@ -185,12 +183,10 @@ public class German implements Language {
     public String gettitleChineseAnimal() {
         return titleChineseAnimal;
     }
-
     @Override
     public String getdisclaimerChineseAnimal() {
         return disclaimerChineseAnimal;
     }
-
     @Override
     public String getdescriptionChineseAnimal() {
         return descriptionChineseAnimal;
@@ -201,17 +197,14 @@ public class German implements Language {
     public String getreadABoutZodiacs() {
         return readAboutZodiacs;
     }
-
     @Override
     public String getfindYourZodiac() {
         return findYourZodiac;
     }
-
     @Override
     public String gettoGoToGame() {
         return toGoToGame;
     }
-
     @Override
     public String getgoBack() {
         return goBack;
@@ -222,153 +215,128 @@ public class German implements Language {
     public String[] getdogInfo() {
         return dogInfo;
     }
-
     @Override
     public String[] getdragonInfo() {
         return dragonInfo;
     }
-
     @Override
     public String[] getgoatInfo() {
         return goatInfo;
     }
-
     @Override
     public String[] gethorseInfo() {
         return horseInfo;
     }
-
     @Override
     public String[] getmonkeyInfo() {
         return monkeyInfo;
     }
-
     @Override
     public String[] getoxInfo() {
         return oxInfo;
     }
-
     @Override
     public String[] getpigInfo() {
         return pigInfo;
     }
-
     @Override
     public String[] getrabbitInfo() {
         return rabbitInfo;
     }
-
     @Override
     public String[] getratInfo() {
         return ratInfo;
     }
-
     @Override
     public String[] getroosterInfo() {
         return roosterInfo;
     }
-
     @Override
     public String[] getsnakeInfo() {
         return snakeInfo;
     }
-
     @Override
     public String[] gettigerInfo() {
         return tigerInfo;
     }
 
+    // Wheel manager
     @Override
     public String getenterYearWheelManager() {
         return enterYearWheelManager;
     }
-
     @Override
     public String getzodiacButtonWheelManager() {
         return zodiacButtonWheelManager;
     }
-
     @Override
     public String getresultWheelManager() {
         return resultWheelManager;
     }
-
     @Override
     public String[] getanimalListWheelManager() {
         return animalListWheelManager;
     }
-
     @Override
     public String getinvalidWheelManager() {
         return invalidWheelManager;
     }
-
     @Override
     public String geterrorWheelManager() {
         return errorWheelManager;
     }
 
+    // Select animal
     @Override
     public String gettitleSelectanimal() {
         return titleSelectAnimal;
     }
 
+    // Game1
     @Override
     public String getplayer1Game() {
         return player1Game;
     }
-
     @Override
     public String getplayer2Game() {
         return player2Game;
     }
-
     @Override
     public String getstartRaceGame() {
         return startRaceGame;
     }
-
     @Override
     public String getcomputerWinsGame() {
         return computerWinsGame;
     }
-
     @Override
     public String getplayer1WinsGame() {
         return player1WinsGame;
     }
-
     @Override
     public String getplayer2WinsGame() {
         return player2WinsGame;
     }
-
     @Override
     public String getplayer1ChooseGame() {
         return player1ChooseGame;
     }
-
     @Override
     public String getplayer2ChooseGame() {
         return player2ChooseGame;
     }
-
     @Override
     public ArrayList<String> getanimalListGame() {
         return animalListGame;
     }
-
     @Override
     public String getinstructionsGame() {
         return instructionsGame;
     }
-
     @Override
     public String getinstructionsTitleGame() {
         return instructionsTitleGame;
     }
-
-
     @Override
     public boolean getisEnglish() {
         return isEnglish;

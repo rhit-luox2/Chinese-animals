@@ -187,12 +187,14 @@ public class English implements Language{
     public String geterrorWheelManager() {
         return errorWheelManager;
     }
-   
+
+    // Select animal
     @Override
     public String gettitleSelectanimal() {
         return titleSelectAnimal;
     }
 
+    // Game1
     @Override
     public String getplayer1Game() {
         return player1Game;

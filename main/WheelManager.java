@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-// Main Writers: Xiaoxi
+// Main Writers: Xiaoxi Luo
 // Editor: Liz Purintun
+// Translation: Kaila James
 public class WheelManager extends JFrame {
 
     private JTextField enterYear;
@@ -20,7 +21,6 @@ public class WheelManager extends JFrame {
     private JFrame wheelFrame;
     private Timer timer;
     private static Language myLanguage;
-    // private SpinningWheelPanel wheelPanel;
 
     public WheelManager(Language myLanguage) {
         WheelManager.myLanguage = myLanguage;
@@ -151,24 +151,6 @@ public class WheelManager extends JFrame {
             System.out.println(ex);
         }
     }
-
-    // private static final Map<String, String> classNameMap;
-
-    // static {
-    //     classNameMap = new HashMap<>();
-    //     classNameMap.put("Ratte", "Rat");
-    //     classNameMap.put("Ochse", "Ox");
-    //     classNameMap.put("Tiger", "Tiger");
-    //     classNameMap.put("Kaninchen", "Rabbit");
-    //     classNameMap.put("Drache", "Dragon");
-    //     classNameMap.put("Schlange", "Snake");
-    //     classNameMap.put("Pferd", "Horse");
-    //     classNameMap.put("Ziege", "Goat");
-    //     classNameMap.put("Affe", "Monkey");
-    //     classNameMap.put("Hahn", "Rooster");
-    //     classNameMap.put("Hund", "Dog");
-    //     classNameMap.put("Schwein", "Pig");
-    // }
 
     private String[] getInfoArrayForZodiac(String zodiac, Language myLanguage) {
         switch (zodiac) {

@@ -45,7 +45,7 @@ public interface Language {
     //SelectAnimal
     public String gettitleSelectanimal();
 
-    //Game
+    //Game1
     public String getplayer1Game();
     public String getplayer2Game();
     public String getstartRaceGame();

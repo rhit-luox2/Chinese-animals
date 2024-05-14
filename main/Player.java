@@ -1,3 +1,4 @@
+// Liz Purintin
 package main;
 
 import javax.swing.*;
@@ -47,10 +48,4 @@ public class Player {
     public void setLabel(JLabel newLabel){
         this.label = newLabel;
     }
-
-
-    
-
-
-    
 }
