@@ -11,7 +11,6 @@ public class ChineseAnimal extends JFrame {
 
     private static JFrame frame;
     private Language myLanguage;
-    private GermanFlag flag;
 
     public static void main(Language myLanguage) {
         new ChineseAnimal(myLanguage);
@@ -26,10 +25,6 @@ public class ChineseAnimal extends JFrame {
         JFrame frame = new JFrame(hello);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 1000);
-
-        // Add Flag Panel
-        // flag = new GermanFlag(600);
-        // frame.add(flag);
 
         // Layout and Creating Borders
         JPanel panel = new JPanel();

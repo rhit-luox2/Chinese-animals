@@ -165,27 +165,6 @@ public class German implements Language {
     String invalidWheelManager = "Ungültige Eingabe. Bitte ein gültiges Jahr eingeben.";
     String errorWheelManager = "Fehler";
 
-    // private static final Map<String, String> classNameMap = new HashMap<>();
-
-    // static {
-    // classNameMap.put("Ratte", "Rat");
-    // classNameMap.put("Ochse", "Ox");
-    // classNameMap.put("Tiger", "Tiger");
-    // classNameMap.put("Kaninchen", "Rabbit");
-    // classNameMap.put("Drache", "Dragon");
-    // classNameMap.put("Schlange", "Snake");
-    // classNameMap.put("Pferd", "Horse");
-    // classNameMap.put("Ziege", "Goat");
-    // classNameMap.put("Affe", "Monkey");
-    // classNameMap.put("Hahn", "Rooster");
-    // classNameMap.put("Hund", "Dog");
-    // classNameMap.put("Schwein", "Pig");
-    // }
-
-    // public interface Language {
-    // Map<String, String> getClassNamesMap();
-    // }
-
     String titleSelectAnimal = "Bitte wählen Sie ein Tier aus, über das Sie mehr wissen möchten";
 
     String player1Game = "Spieler 1";
@@ -198,6 +177,8 @@ public class German implements Language {
     String player2ChooseGame = "Spieler 2, bitte wähle deinen Sternzeichen";
     ArrayList<String> animalListGame = new ArrayList<>(Arrays.asList("Ratte", "Ochse", "Tiger", "Kaninchen", "Drache",
             "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"));
+    String instructionsGame = "Da die chinesischen Tierkreiszeichen auf Grundlage der Großen Rasse ausgewählt wurden, laden wir Sie ein, dieses Rennspiel zu spielen. Dies ist ein Spiel für zwei Spieler. \n1. Wählen Sie das Tier aus, mit dem Sie Rennen fahren möchten \n2. Wenn Sie Spieler eins sind, drücken Sie die Taste „1“, um vorwärts zu gehen \n3. Wenn Sie Spieler zwei sind, drücken Sie die „0“-Taste, um vorwärts zu gehen \n4. Der erste Spieler, der die Ziellinie erreicht, gewinnt das Spiel";
+    String instructionsTitleGame = "Anweisungen";
 
     // ChineseAnimal
     @Override
@@ -376,6 +357,17 @@ public class German implements Language {
     public ArrayList<String> getanimalListGame() {
         return animalListGame;
     }
+
+    @Override
+    public String getinstructionsGame() {
+        return instructionsGame;
+    }
+
+    @Override
+    public String getinstructionsTitleGame() {
+        return instructionsTitleGame;
+    }
+
 
     @Override
     public boolean getisEnglish() {

@@ -55,6 +55,8 @@ public interface Language {
     public String getplayer1ChooseGame();
     public String getplayer2ChooseGame();
     public ArrayList<String> getanimalListGame();
+    public String getinstructionsGame();
+    public String getinstructionsTitleGame();
     
 
     public default  HashMap<String, String> getCombinedAnimals() {

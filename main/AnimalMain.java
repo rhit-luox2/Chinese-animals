@@ -1,5 +1,5 @@
 //Kaila James
-//Liz Purintun 
+//Liz Purintun
 package main;
 
 import javax.swing.*;

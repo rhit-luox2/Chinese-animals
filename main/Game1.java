@@ -1,4 +1,4 @@
-//Kaila James added lists
+//Kaila James added lists and instructions for the game
 package main;
 
 import javax.swing.*;
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.jar.JarEntry;
 import java.util.HashMap;
 
 // Main Writers: Xiaoxi and Liz 
@@ -26,6 +27,7 @@ public class Game1{
     private JLabel player1Label, player2Label;
     private String player1, player2;
 
+    private JButton instructions;
     private JButton startButton;
     private ImageIcon player1Icon, player2Icon;
     private int scorePlayer1 = 0, scorePlayer2 = 0;
@@ -45,8 +47,6 @@ public class Game1{
 
     public Game1(Language myLanguage){
         this.myLanguage = myLanguage;
-        System.out.println("Start of Game1");
-        System.out.println(myLanguage);
     }
 
     public static void main(Language myLanguage) {
@@ -86,6 +86,14 @@ public class Game1{
         styleLabel(player2Label);
         infoPanel.add(player1Label);
 
+        String instructionsTitleText = myLanguage.getinstructionsTitleGame();
+        instructions = new JButton(instructionsTitleText);
+        styleButton(instructions, new Color(233, 197, 105));
+        instructions.addActionListener(e -> displayInstructions(instructionsTitleText));
+        infoPanel.add(instructions);
+
+
+
         String startRacetext = myLanguage.getstartRaceGame();
         startButton = new JButton(startRacetext);
         styleButton(startButton, new Color(233, 197, 105));
@@ -96,14 +104,16 @@ public class Game1{
 
         return Game1Panel;
     }
+    
+    private void displayInstructions(String instructionsTitleText) {
+        String instructionsText = myLanguage.getinstructionsGame();
+        JOptionPane.showMessageDialog(Game1Frame, instructionsText, instructionsTitleText, JOptionPane.PLAIN_MESSAGE);
+    }
+    
     // Liz Purintun 
     private void selectZodiacForPlayers() {
-        
         ArrayList<String> animals = myLanguage.getanimalListGame();
-        // ArrayList<String> animals = new ArrayList<String>(Arrays.asList( "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Horse", "Snake", "Goat", "Monkey", "Rooster",
-        //         "Dog", "Pig" ));
-        
-
+    
         players = new ArrayList<Player>();
 
         String player1ChooseGametext = myLanguage.getplayer1ChooseGame();
@@ -129,7 +139,6 @@ public class Game1{
             animals.remove(0);
         }
 
-        // myAnimals = new HashMap<>();
 
     
         // This has both the German and English names
@@ -290,10 +299,6 @@ public class Game1{
     }
 
     private void setupTrack() {
-        // player1Label.setBounds(20, trackPanel.getHeight() - 50, 50, 50);
-        // player2Label.setBounds(75, trackPanel.getHeight() - 50, 50, 50);
-        // trackPanel.add(player1Label);
-        // trackPanel.add(player2Label);
         int xpos = 20;
         for (Player myPlayer : players){
             JLabel labelToAdd = myPlayer.getLabel();
@@ -308,13 +313,6 @@ public class Game1{
     }
 
     private void checkForWinner() {
-        // if (scorePlayer1 >= winScore || scorePlayer2 >= winScore) {
-        //     System.out.println("it made it ");
-        //     timer.stop();
-        //     oneSecTimer.stop();
-        //     endGame1();
-
-        // }
         for (Player myPlayer : players) {
             if (myPlayer.getScore() >= winScore){
                 System.out.println("it made it:");
@@ -366,8 +364,6 @@ public class Game1{
     }
 
     private void resetGame1() {
-        // player1Label.setLocation(20, trackPanel.getHeight() - 50);
-        // player2Label.setLocation(75, trackPanel.getHeight() - 50);
         int xpos = 20;
         for (Player myPlayer : players){
             myPlayer.setScore(0);

@@ -76,6 +76,8 @@ public class English implements Language{
     String player2ChooseGame = "Player 2, please choose your zodiac";
      ArrayList<String> animalListGame = new ArrayList<>(Arrays.asList("Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster",
      "Dog", "Pig" ));
+    String instructionsGame = "Since the Chinese zodiac animals were chosen based on the Great Race, we invite you to play this racing game. This is a two player game. \n1. Select the animal that you would like to race with \n2. If you are player one, press on the ‘1’ button to move forward \n3. If you are player two, pres on the ‘0’ button to move forward \n4. The first player to the finish line wins the game";
+    String instructionsTitleGame = "Instructions";
 
     //ChineseAnimal
     @Override
@@ -226,6 +228,14 @@ public class English implements Language{
     @Override
     public ArrayList<String> getanimalListGame() {
         return animalListGame;
+    }
+    @Override
+    public String getinstructionsGame() {
+        return instructionsGame;
+    }
+    @Override
+    public String getinstructionsTitleGame() {
+        return instructionsTitleGame;
     }
     @Override
     public boolean getisEnglish(){
