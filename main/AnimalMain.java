@@ -76,7 +76,8 @@ public abstract class AnimalMain {
     }
 
     public void addDownloadButton(JPanel topPanel) {
-        JButton downloadButton = createStyledButton("Download Page", backgroundColor, hoverColor, borderColor);
+        String downloadText = myLanguage.getdownloadPage();
+        JButton downloadButton = createStyledButton(downloadText, backgroundColor, hoverColor, borderColor);
         downloadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -33,6 +33,7 @@ public interface Language {
     public String[] getroosterInfo();
     public String[] getsnakeInfo();
     public String[] gettigerInfo();
+    public String getdownloadPage();
 
     //Wheel Manager text
     public String getenterYearWheelManager();

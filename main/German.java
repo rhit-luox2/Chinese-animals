@@ -154,8 +154,9 @@ public class German implements Language {
             "Ihre Kompatibilität mit den anderen Tieren:",
             "Tiger und Hund: Ihr seid beide charmant, sanft und freundlich. Sie beide respektieren die Meinungen anderer und haben keine Angst davor, einen Schritt zurückzutreten. Tiger sind sehr kontaktfreudig und kommunikationsstark, was bei Hunden, die gutherzig und rücksichtsvoll sind, gut funktioniert. \nTiger und Schwein: Sie sind beide sehr ermutigend und äußerst loyal und hingebungsvoll. Auch wenn Sie vielleicht unterschiedlich sind, bewundern Sie beide die Qualitäten Ihres Partners. \nTiger & Pferd: Ihr seid beide aufgeschlossen, kommunikationsstark und ausgelassen. Tiger sind rücksichtsvoll und charmant, und Pferde gleichen das gut aus, weil sie tugendhaft und freundlich sind.",
             "Berühmte Persönlichkeiten dieses Sternzeichens: Rainer Maria Rilke, Marilyn Monroe, Leonardo DiCaprio, Tom Cruise, Steven Irwin, Königin Elizabeth II., Robert Pattinson und Usain Bolt." };
-
-    String enterYearWheelManager = "Geben Sie Ihr Geburtsjahr ein:";
+    String downloadPage = "Download-Seite";
+    
+            String enterYearWheelManager = "Geben Sie Ihr Geburtsjahr ein:";
     String zodiacButtonWheelManager = "Holen Sie sich Zodiac";
     String resultWheelManager = "Dein Sternzeichen ist der ";
     String[] animalListWheelManager = { "Ratte", "Ochse", "Tiger", "Kaninchen", "Drache", "Schlange", "Pferd", "Ziege",
@@ -258,6 +259,9 @@ public class German implements Language {
     @Override
     public String[] gettigerInfo() {
         return tigerInfo;
+    }
+    public String getdownloadPage(){
+        return downloadPage;
     }
 
     // Wheel manager
