@@ -176,7 +176,7 @@ public class German implements Language {
     String player2ChooseGame = "Spieler 2, bitte wähle deinen Sternzeichen";
     ArrayList<String> animalListGame = new ArrayList<>(Arrays.asList("Ratte", "Ochse", "Tiger", "Kaninchen", "Drache",
             "Schlange", "Pferd", "Ziege", "Affe", "Hahn", "Hund", "Schwein"));
-    String instructionsGame = "Da die chinesischen Tierkreiszeichen auf Grundlage der Großen Rasse ausgewählt wurden, laden wir Sie ein, dieses Rennspiel zu spielen. Dies ist ein Spiel für zwei Spieler. \n1. Wählen Sie das Tier aus, mit dem Sie Rennen fahren möchten \n2. Wenn Sie Spieler eins sind, drücken Sie die Taste „1“, um vorwärts zu gehen \n3. Wenn Sie Spieler zwei sind, drücken Sie die „0“-Taste, um vorwärts zu gehen \n4. Der erste Spieler, der die Ziellinie erreicht, gewinnt das Spiel";
+    String instructionsGame = "Da die chinesischen Tierkreiszeichen auf Grundlage der Großen Rennen ausgewählt wurden, laden wir Sie ein, dieses Rennspiel zu spielen. Dies ist ein Spiel für zwei Spieler. \n1. Wählen Sie das Tier aus, mit dem Sie Rennen fahren möchten \n2. Wenn Sie Spieler eins sind, drücken Sie die Taste „1“, um vorwärts zu gehen \n3. Wenn Sie Spieler zwei sind, drücken Sie die „0“-Taste, um vorwärts zu gehen \n4. Der erste Spieler, der die Ziellinie erreicht, gewinnt das Spiel";
     String instructionsTitleGame = "Anweisungen";
 
     // ChineseAnimal
