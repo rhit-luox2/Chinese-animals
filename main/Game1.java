@@ -59,7 +59,7 @@ public class Game1{
         Game1Frame.setVisible(true);
         selectZodiacForPlayers();
     }
-
+// 
     private JPanel setupGame1Panel() {
         Game1Panel = new JPanel(new BorderLayout());
         Game1Panel.setBackground(new Color(233, 197, 105));
