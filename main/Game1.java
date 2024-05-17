@@ -65,7 +65,7 @@ public class Game1{
         Game1Panel.setBackground(new Color(233, 197, 105));
         trackPanel = new JPanel(null);
         trackPanel.setPreferredSize(new Dimension(700, 800));
-        ImageIcon icon = new ImageIcon("picture/squaredDog.jpg");
+        ImageIcon icon = new ImageIcon("picture/GameBackground.png");
         bgLabel = new JLabel();
         bgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(700, 800, Image.SCALE_SMOOTH)));
         bgLabel.setBounds(0, 0, 700, 800);
